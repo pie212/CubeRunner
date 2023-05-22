@@ -47,6 +47,7 @@ public class PLayerMovement : MonoBehaviour
             
             
         }
+        
         if (gravity == 1){
             rb.AddForce(-2*Physics.gravity, ForceMode.Acceleration);
         }
@@ -56,6 +57,20 @@ public class PLayerMovement : MonoBehaviour
         
         }
     }
-}
+    void jumpReturn(){
+        Debug.Log("Booga?");
+        rb.AddForce(0,-1300*Time.deltaTime,0,ForceMode.VelocityChange);
+    }
+    void Update(){
+        if (Input.GetKeyDown(KeyCode.Space)){
+            Debug.Log("HITHIT");
+            rb.AddForce(0,1500*Time.deltaTime,0, ForceMode.VelocityChange);
+            Invoke("jumpReturn", 0.2f);
 
+        }
+        
+
+
+    }
+}
 
