@@ -10,6 +10,7 @@ public class PLayerMovement : MonoBehaviour
     public GameManager Gamemanager;
     public Vector3 retainedSpeed;
     public float gravity = 0f;
+    private bool jump = true;
 
     //float PauseCalled = 0;
     
@@ -60,17 +61,32 @@ public class PLayerMovement : MonoBehaviour
     void jumpReturn(){
         Debug.Log("Booga?");
         rb.AddForce(0,-1300*Time.deltaTime,0,ForceMode.VelocityChange);
+        
     }
     void Update(){
-        if (Input.GetKeyDown(KeyCode.Space)){
-            Debug.Log("HITHIT");
-            rb.AddForce(0,1500*Time.deltaTime,0, ForceMode.VelocityChange);
-            Invoke("jumpReturn", 0.2f);
+        if (jump == true)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                jump = false;
+                Debug.Log(jump);
+                rb.AddForce(0,1500*Time.deltaTime,0, ForceMode.VelocityChange);
+                rb.AddTorque(20,0,0);
+                Invoke("jumpReturn", 0.2f);
 
+            }
         }
         
 
 
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            jump = true;
+            Debug.Log(jump);
+        }
     }
 }
 
