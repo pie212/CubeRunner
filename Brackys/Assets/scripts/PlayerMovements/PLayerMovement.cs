@@ -60,7 +60,7 @@ public class PLayerMovement : MonoBehaviour
     }
     void jumpReturn(){
         Debug.Log("Booga?");
-        rb.AddForce(0,-1300*Time.deltaTime,0,ForceMode.VelocityChange);
+        rb.AddForce(0,-2500*Time.deltaTime,0,ForceMode.VelocityChange);
         
     }
     void Update(){
