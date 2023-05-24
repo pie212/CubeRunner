@@ -4,13 +4,13 @@ using UnityEngine;
 public class PLayerMovement : MonoBehaviour
 {
     public Rigidbody rb;
-    public float forwardForce = 2000f;
-    public float sidewaysForce = 500f;
-    bool Pause = false;
-    public GameManager Gamemanager;
-    public Vector3 retainedSpeed;
-    public float gravity = 0f;
-    private bool jump = true;
+    public float forwardForce = 2000f; // force to set forward
+    public float sidewaysForce = 500f;  // force added when clicking a or d
+    bool Pause = false;         // pause menu
+    public GameManager Gamemanager; // Gamemanger
+    public Vector3 retainedSpeed; // variable to maintain speed after pause
+    public float gravity = 0f;      // gravity operater 0 = gravity is normal, 1 is that gravity is reversed, changed in Gravityrestore.cs and Gravityreverse.cs
+    private bool jump = true;  
 
     //float PauseCalled = 0;
     
@@ -18,13 +18,13 @@ public class PLayerMovement : MonoBehaviour
     void Start()
     {
         //rb.useGravity = false; Could be for a reverse?? might have to put in anoterh script 
-     
+        rb.velocity = new Vector3(0,0,0);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        Debug.Log(rb.velocity);
 
         //rb.AddForce(-2*Physics.gravity, ForceMode.Acceleration);  Reverses grabity by adding upward force
         rb.AddForce(0,0,forwardForce * Time.deltaTime);
@@ -50,7 +50,7 @@ public class PLayerMovement : MonoBehaviour
         }
         
         if (gravity == 1){
-            rb.AddForce(-2*Physics.gravity, ForceMode.Acceleration);
+            rb.AddForce(-1*Physics.gravity);
         }
         if (rb.position.y < -5)
         {
@@ -58,35 +58,61 @@ public class PLayerMovement : MonoBehaviour
         
         }
     }
-    void jumpReturn(){
-        Debug.Log("Booga?");
-        rb.AddForce(0,-2500*Time.deltaTime,0,ForceMode.VelocityChange);
+    //void jumpReturn(){
+        //Debug.Log("Booga?");
+        //rb.AddForce(0,-2500*Time.deltaTime,0,ForceMode.VelocityChange);
         
-    }
-    void Update(){
+    //}
+    void Update()
+    {
         if (jump == true)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 jump = false;
                 Debug.Log(jump);
-                rb.AddForce(0,1500*Time.deltaTime,0, ForceMode.VelocityChange);
+                if (gravity == 0){
+                    rb.AddForce(0,2000*Time.deltaTime,0, ForceMode.VelocityChange);
+                }
+                if (gravity == 1){
+                    rb.AddForce(0,-2000*Time.deltaTime,0, ForceMode.VelocityChange);
+                }
                 rb.AddTorque(20,0,0);
-                Invoke("jumpReturn", 0.2f);
+                //Invoke("jumpReturn", 0.2f);
 
+                if (rb.velocity.y < 0 && gravity == 0); // need to fix all of this please kill me
+                {
+                    rb.AddForce(0,-5500*Time.deltaTime,0);
+                }
+                if (rb.velocity.y < 0 && gravity == 1);
+                {
+                    rb.AddForce(0,500*Time.deltaTime,0);
+                }
             }
         }
+    }
         
 
 
-    }
+    
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground" )
         {
             jump = true;
             Debug.Log(jump);
         }
+       
+
+    }
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ground" )
+        {
+            jump = false;
+            Debug.Log(jump);
+        }
+       
+
     }
 }
-
