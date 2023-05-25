@@ -11,7 +11,7 @@ public class PLayerMovement : MonoBehaviour
     public Vector3 retainedSpeed; // variable to maintain speed after pause
     public float gravity = 0f;      // gravity operater 0 = gravity is normal, 1 is that gravity is reversed, changed in Gravityrestore.cs and Gravityreverse.cs
     private bool jump = true;  
-
+    public Animator animation;
     //float PauseCalled = 0;
     
     // Start is called before the first frame update
@@ -69,6 +69,7 @@ public class PLayerMovement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                animation.SetBool("JumpRot", true);
                 jump = false;
                 Debug.Log(jump);
                 if (gravity == 0){
@@ -83,10 +84,12 @@ public class PLayerMovement : MonoBehaviour
                 if (rb.velocity.y < 0 && gravity == 0); // need to fix all of this please kill me
                 {
                     rb.AddForce(0,-5500*Time.deltaTime,0);
+                    
                 }
                 if (rb.velocity.y < 0 && gravity == 1);
                 {
                     rb.AddForce(0,500*Time.deltaTime,0);
+                    
                 }
             }
         }
@@ -101,6 +104,7 @@ public class PLayerMovement : MonoBehaviour
         {
             jump = true;
             Debug.Log(jump);
+            animation.SetBool("JumpRot", false);
         }
        
 
