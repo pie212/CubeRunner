@@ -12,6 +12,8 @@ public class PLayerMovement : MonoBehaviour
     public float gravity = 0f;      // gravity operater 0 = gravity is normal, 1 is that gravity is reversed, changed in Gravityrestore.cs and Gravityreverse.cs
     private bool jump = true;  
     public Animator animation;
+    private Vector3 jumpStartPos;
+    private Vector3 jumpHeightPos;
     //float PauseCalled = 0;
     
     // Start is called before the first frame update
@@ -69,6 +71,12 @@ public class PLayerMovement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                jumpStartPos = transform.position;
+                Debug.Log("::::::::");
+                Debug.Log(jumpStartPos);
+                Debug.Log(jumpStartPos.y + 2);
+                Debug.Log(transform.position.y);
+                Debug.Log("::::::::");
                 Debug.Log(gravity);
                 animation.SetBool("JumpRot", true);
                 jump = false;
@@ -82,17 +90,21 @@ public class PLayerMovement : MonoBehaviour
                 rb.AddTorque(20,0,0);
                 //Invoke("jumpReturn", 0.2f);
 
-                if (rb.velocity.y < 0 && gravity == 0) // need to fix all of this please kill me
-                {
-                    rb.AddForce(0,-300*Time.deltaTime,-15, ForceMode.VelocityChange);
-                    Debug.Log("jumpedDown");
+                //if (rb.velocity.y < 0 && gravity == 0) // need to fix all of this please kill me
+                //{
+                //    rb.AddForce(0,-300*Time.deltaTime,-15, ForceMode.VelocityChange);
+                //    Debug.Log("jumpedDown");
                     
-                }
-                if (rb.velocity.y < 0 && gravity == 1)
-                {
-                    rb.AddForce(0,300*Time.deltaTime,0, ForceMode.VelocityChange);
-                    Debug.Log("UhOh");
+                //}
+                //if (rb.velocity.y < 0 && gravity == 1)
+                //{
+                //    rb.AddForce(0,300*Time.deltaTime,0, ForceMode.VelocityChange);
+                //    Debug.Log("UhOh");
                     
+                //}
+               
+                if (transform.position.y > jumpStartPos.y + 2){
+                    Debug.Log("IT WORKS!!");
                 }
             }
         }
