@@ -24,7 +24,7 @@ public class PLayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(rb.velocity);
+        //Debug.Log(rb.velocity);
 
         //rb.AddForce(-2*Physics.gravity, ForceMode.Acceleration);  Reverses grabity by adding upward force
         rb.AddForce(0,0,forwardForce * Time.deltaTime);
@@ -52,7 +52,7 @@ public class PLayerMovement : MonoBehaviour
         if (gravity == 1){
             rb.AddForce(-1*Physics.gravity);
         }
-        if (rb.position.y < -5)
+        if (rb.position.y < -3)
         {
             FindObjectOfType<GameManager>().EndGame();
         
@@ -69,26 +69,29 @@ public class PLayerMovement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                Debug.Log(gravity);
                 animation.SetBool("JumpRot", true);
                 jump = false;
                 Debug.Log(jump);
                 if (gravity == 0){
-                    rb.AddForce(0,2000*Time.deltaTime,0, ForceMode.VelocityChange);
+                    rb.AddForce(0,1000*Time.deltaTime,0, ForceMode.VelocityChange);
                 }
                 if (gravity == 1){
-                    rb.AddForce(0,-2000*Time.deltaTime,0, ForceMode.VelocityChange);
+                    rb.AddForce(0,-1000*Time.deltaTime,0, ForceMode.VelocityChange);
                 }
                 rb.AddTorque(20,0,0);
                 //Invoke("jumpReturn", 0.2f);
 
-                if (rb.velocity.y < 0 && gravity == 0); // need to fix all of this please kill me
+                if (rb.velocity.y < 0 && gravity == 0) // need to fix all of this please kill me
                 {
-                    rb.AddForce(0,-5500*Time.deltaTime,0);
+                    rb.AddForce(0,-300*Time.deltaTime,-15, ForceMode.VelocityChange);
+                    Debug.Log("jumpedDown");
                     
                 }
-                if (rb.velocity.y < 0 && gravity == 1);
+                if (rb.velocity.y < 0 && gravity == 1)
                 {
-                    rb.AddForce(0,500*Time.deltaTime,0);
+                    rb.AddForce(0,300*Time.deltaTime,0, ForceMode.VelocityChange);
+                    Debug.Log("UhOh");
                     
                 }
             }
