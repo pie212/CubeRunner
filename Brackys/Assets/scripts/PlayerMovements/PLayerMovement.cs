@@ -15,6 +15,7 @@ public class PLayerMovement : MonoBehaviour
     private Vector3 jumpStartPos;
     private Vector3 jumpHeightPos;
     private bool JumpyYesOrNo = false;      // bool created to allow the jump checking stuff to happen yk the one that checks the player position differential from the hight position after jumping
+
     //float PauseCalled = 0;
     
     // Start is called before the first frame update
@@ -75,14 +76,13 @@ public class PLayerMovement : MonoBehaviour
             {
                 JumpyYesOrNo = true;
                 jumpStartPos = transform.position;
-                animation.SetBool("JumpRot", true);
                 jump = false;
                 Debug.Log(jump);
                 if (gravity == 0){
-                    rb.AddForce(0,1000*Time.deltaTime,0, ForceMode.VelocityChange);
+                    rb.AddForce(0,1200*Time.deltaTime,0, ForceMode.VelocityChange);
                 }
                 if (gravity == 1){
-                    rb.AddForce(0,-1000*Time.deltaTime,0, ForceMode.VelocityChange);
+                    rb.AddForce(0,-1200*Time.deltaTime,0, ForceMode.VelocityChange);
                 }
                 
                 //Invoke("jumpReturn", 0.2f);
@@ -109,7 +109,7 @@ public class PLayerMovement : MonoBehaviour
         }
          if (JumpyYesOrNo == true)
             {
-                if (transform.position.y >= jumpStartPos.y + 3)
+                if (transform.position.y >= jumpStartPos.y + 2)
                 {
                     retainedSpeed = rb.velocity;
                     if (gravity == 0)
@@ -135,7 +135,6 @@ public class PLayerMovement : MonoBehaviour
         {
             jump = true;
             Debug.Log(jump);
-            animation.SetBool("JumpRot", false);
         }
        
 
