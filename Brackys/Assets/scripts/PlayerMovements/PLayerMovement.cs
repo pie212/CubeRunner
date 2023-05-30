@@ -75,12 +75,6 @@ public class PLayerMovement : MonoBehaviour
             {
                 JumpyYesOrNo = true;
                 jumpStartPos = transform.position;
-                Debug.Log("::::::::");
-                Debug.Log(jumpStartPos);
-                Debug.Log(jumpStartPos.y + 2);
-                Debug.Log(transform.position.y);
-                Debug.Log("::::::::");
-                Debug.Log(gravity);
                 animation.SetBool("JumpRot", true);
                 jump = false;
                 Debug.Log(jump);
