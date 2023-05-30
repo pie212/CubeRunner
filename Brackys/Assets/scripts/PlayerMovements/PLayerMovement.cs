@@ -90,7 +90,7 @@ public class PLayerMovement : MonoBehaviour
                 if (gravity == 1){
                     rb.AddForce(0,-1000*Time.deltaTime,0, ForceMode.VelocityChange);
                 }
-                rb.AddTorque(20,0,0);
+                
                 //Invoke("jumpReturn", 0.2f);
 
                 //if (rb.velocity.y < 0 && gravity == 0) // need to fix all of this please kill me
@@ -115,12 +115,18 @@ public class PLayerMovement : MonoBehaviour
         }
          if (JumpyYesOrNo == true)
             {
-                Debug.Log("WE MADE IT THIS FAR");
-                if (transform.position.y >= jumpStartPos.y + 2)
+                if (transform.position.y >= jumpStartPos.y + 3)
                 {
-                    Debug.Log("IT WORKS!!");
                     retainedSpeed = rb.velocity;
+                    if (gravity == 0)
+                    {
                     rb.velocity = new Vector3(retainedSpeed.x,-1000*Time.deltaTime,retainedSpeed.z);
+                    }   
+                    if (gravity == 1)
+                    {
+                    rb.velocity = new Vector3(retainedSpeed.x,1000*Time.deltaTime,retainedSpeed.z);
+                    }
+                    
                     JumpyYesOrNo = false;
                 }
             }
