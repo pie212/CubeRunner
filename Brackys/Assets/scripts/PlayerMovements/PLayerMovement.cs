@@ -14,6 +14,7 @@ public class PLayerMovement : MonoBehaviour
     public Animator animation;
     private Vector3 jumpStartPos;
     private Vector3 jumpHeightPos;
+    private bool JumpyYesOrNo = false;      // bool created to allow the jump checking stuff to happen yk the one that checks the player position differential from the hight position after jumping
     //float PauseCalled = 0;
     
     // Start is called before the first frame update
@@ -26,6 +27,7 @@ public class PLayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
         //Debug.Log(rb.velocity);
 
         //rb.AddForce(-2*Physics.gravity, ForceMode.Acceleration);  Reverses grabity by adding upward force
@@ -71,6 +73,7 @@ public class PLayerMovement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                JumpyYesOrNo = true;
                 jumpStartPos = transform.position;
                 Debug.Log("::::::::");
                 Debug.Log(jumpStartPos);
@@ -103,12 +106,25 @@ public class PLayerMovement : MonoBehaviour
                     
                 //}
                
-                if (transform.position.y > jumpStartPos.y + 2){
+                //if (transform.position.y > jumpStartPos.y + 2){
+                    //Debug.Log("IT WORKS!!");
+                //}
+            }
+           
+            
+        }
+         if (JumpyYesOrNo == true)
+            {
+                Debug.Log("WE MADE IT THIS FAR");
+                if (transform.position.y >= jumpStartPos.y + 2)
+                {
                     Debug.Log("IT WORKS!!");
+                    retainedSpeed = rb.velocity;
+                    rb.velocity = new Vector3(retainedSpeed.x,-1000*Time.deltaTime,retainedSpeed.z);
+                    JumpyYesOrNo = false;
                 }
             }
-        }
-    }
+    }    
         
 
 
