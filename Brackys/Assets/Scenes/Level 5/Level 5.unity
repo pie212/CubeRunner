@@ -711,6 +711,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameEnd
       objectReference: {fileID: 0}
+    - target: {fileID: 7598426360178000323, guid: ba3a51f17f1c80d4d9956eb6f1a88846, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7598426360178000328, guid: ba3a51f17f1c80d4d9956eb6f1a88846, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1308,6 +1312,8 @@ MonoBehaviour:
   Gamemanager: {fileID: 1640760902}
   retainedSpeed: {x: 0, y: 0, z: 0}
   gravity: 0
+  animation: {fileID: 0}
+  constantVelocity: {x: 0, y: 0, z: 30}
 --- !u!64 &1249828567
 MeshCollider:
   m_ObjectHideFlags: 0
