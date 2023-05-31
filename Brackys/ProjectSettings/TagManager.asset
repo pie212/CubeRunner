@@ -8,6 +8,7 @@ TagManager:
   - Reverse
   - Jumper
   - Ground
+  - PowerUp
   layers:
   - Default
   - TransparentFX

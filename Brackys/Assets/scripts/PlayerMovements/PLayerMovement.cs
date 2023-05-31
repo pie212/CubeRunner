@@ -45,7 +45,6 @@ public class PLayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            Debug.Log("ESC pressed");
             retainedSpeed = rb.velocity;
             Pause = !Pause;
             rb.constraints = RigidbodyConstraints.FreezeAll;
@@ -77,8 +76,7 @@ public class PLayerMovement : MonoBehaviour
             {
                 JumpyYesOrNo = true;
                 jumpStartPos = transform.position;
-                jump = false;
-                Debug.Log(jump);
+                //jump = false;         IF IT DOESNT WORK ITS VIKTOR'S FAULT!!!!
                 if (gravity == 0){
                     rb.AddForce(0,1200*Time.deltaTime,0, ForceMode.VelocityChange);
                 }
