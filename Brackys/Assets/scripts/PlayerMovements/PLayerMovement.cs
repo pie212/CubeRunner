@@ -79,10 +79,12 @@ public class PLayerMovement : MonoBehaviour
                 //jump = false;         IF IT DOESNT WORK ITS VIKTOR'S FAULT!!!!
                 if (gravity == 0){
                     rb.AddForce(0,1200*Time.deltaTime,0, ForceMode.VelocityChange);
+                    
                 }
                 if (gravity == 1){
                     rb.AddForce(0,-1200*Time.deltaTime,0, ForceMode.VelocityChange);
                 }
+                
                 
                 //Invoke("jumpReturn", 0.2f);
 

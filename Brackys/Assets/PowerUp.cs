@@ -8,9 +8,10 @@ public class PowerUp : MonoBehaviour
     private Vector3 pos;
     //private Quaternion rot;
     public Vector3 offsetPos;
-    //public Quaternion offsetRot;
+    //public Quaternion offsetRot = Quaternion.Euler(0,0,0);
     public Vector3 rotateAmount = new Vector3(50,0,0);
     private int PowerUpChoose;
+    public int MoneyAmount = 1;
 
     
     // Start is called before the first frame update
@@ -28,7 +29,7 @@ public class PowerUp : MonoBehaviour
         // makes stuff go spin and up
 
         transform.position = pos + offsetPos;
-        //transform.rotation = rot * offsetRot;  
+        //transform.rotation = rot * offsetRot; //offsetRot;  // (0,0,0) * (0,45,0)     Vector3(2.2,5) + Vector(5,5,2) = Vector(7.7,7)
         transform.Rotate(rotateAmount * Time.deltaTime);
     }
 
@@ -39,9 +40,12 @@ public class PowerUp : MonoBehaviour
         {
             PowerUpChoose = Random.Range(1, 5);
             Debug.Log(PowerUpChoose);
-            if (PowerUpChoose == 2.0)
+            if (PowerUpChoose == 4)
             {
                 Debug.Log("INVINCIBLE!!");
+                Debug.Log(FindObjectOfType<GameManager>().MoneyButNotStatic);
+                FindObjectOfType<GameManager>().MoneyButNotStatic += MoneyAmount;
+                FindObjectOfType<GameManager>().MoneyUpdated();
             } 
 
             Debug.Log("LEVEL UP!!");

@@ -14,7 +14,12 @@ public class GameManager : MonoBehaviour
     public GameObject pauseLevelUI;
     public static float level = 0;
     public SuperHard SuperHard;
-    
+    public static int money = 0;
+    public int MoneyButNotStatic;
+
+    void Start(){
+        MoneyButNotStatic = money;
+    }
     
     public void PauseGame(){
         pauseLevelUI.SetActive(true);
@@ -32,6 +37,12 @@ public class GameManager : MonoBehaviour
 
     }
     
+    
+    public void MoneyUpdated(){
+        money = MoneyButNotStatic;
+
+
+    }
     
     
     public void EndGame()
