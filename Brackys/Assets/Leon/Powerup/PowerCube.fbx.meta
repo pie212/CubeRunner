@@ -1,9 +1,24 @@
 fileFormatVersion: 2
-guid: ff508e5fddc238841813120f50e3f885
+guid: 4c8f4461fc0be5a40acc3bddebe0547a
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: cyaaaaaaaaaaaaan
+    second: {fileID: 2800000, guid: 628bde965324c7041acdeeafef135ad9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: siiiiiiiiiiiilveeeeeeeeeeeeeeer
+    second: {fileID: 2800000, guid: c8ae30956c0b46d46ba46691daf34f06, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: speeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeed
+    second: {fileID: 2800000, guid: badab988d1689744792331f37fa15ec6, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

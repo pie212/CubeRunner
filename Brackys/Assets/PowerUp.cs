@@ -10,6 +10,7 @@ public class PowerUp : MonoBehaviour
     public Vector3 offsetPos;
     //public Quaternion offsetRot;
     public Vector3 rotateAmount = new Vector3(50,0,0);
+    private int PowerUpChoose;
 
     
     // Start is called before the first frame update
@@ -36,7 +37,14 @@ public class PowerUp : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("LEVLE UP!!");
+            PowerUpChoose = Random.Range(1, 5);
+            Debug.Log(PowerUpChoose);
+            if (PowerUpChoose == 2.0)
+            {
+                Debug.Log("INVINCIBLE!!");
+            } 
+
+            Debug.Log("LEVEL UP!!");
             Mesh.enabled = false;
         }
     }
