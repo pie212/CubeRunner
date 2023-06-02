@@ -9,7 +9,7 @@ public class Obstacle : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Player" ){
-            transform.position = new Vector3(transform.x,5,transform.z);
+            transform.position = new Vector3(transform.position.x,transform.position.y + 3,transform.position.z);
         }
 }
 }
