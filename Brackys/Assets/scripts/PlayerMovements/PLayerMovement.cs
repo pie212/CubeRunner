@@ -16,6 +16,7 @@ public class PLayerMovement : MonoBehaviour
     private Vector3 jumpHeightPos;
     private bool JumpyYesOrNo = false;      // bool created to allow the jump checking stuff to happen yk the one that checks the player position differential from the hight position after jumping
     public Vector3 constantVelocity = new Vector3(0,0,30);
+    public Collider KaboomRadius;
 
     //float PauseCalled = 0;
     
@@ -24,6 +25,7 @@ public class PLayerMovement : MonoBehaviour
     {
         //rb.useGravity = false; Could be for a reverse?? might have to put in anoterh script 
         rb.velocity = new Vector3(0,0,0);
+        KaboomRadius.enabled = false;   
         
     }
 
@@ -70,6 +72,12 @@ public class PLayerMovement : MonoBehaviour
     //}
     void Update()
     {
+        if (Input.GetKey("q")){
+            KaboomRadius.enabled = true;
+            //KaboomRadius.enabled = false;   
+
+
+        }
         if (jump == true)
         {
             if (Input.GetKeyDown(KeyCode.Space))
