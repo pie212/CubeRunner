@@ -10,6 +10,7 @@ public class Jump : MonoBehaviour
     void OnTriggerEnter(){
         Debug.Log("Jump script works");
         movement.rb.AddForce(0,UpwardForce*Time.deltaTime,0, ForceMode.VelocityChange);
+      
 
 
 

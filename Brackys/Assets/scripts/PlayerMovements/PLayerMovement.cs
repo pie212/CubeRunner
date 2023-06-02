@@ -70,11 +70,13 @@ public class PLayerMovement : MonoBehaviour
         //rb.AddForce(0,-2500*Time.deltaTime,0,ForceMode.VelocityChange);
         
     //}
+    
     void Update()
     {
         if (Input.GetKey("q")){
             KaboomRadius.enabled = true;
-            //KaboomRadius.enabled = false;   
+            Invoke("KaboomNoMore", 0.3F);
+            
 
 
         }
@@ -156,6 +158,11 @@ public class PLayerMovement : MonoBehaviour
             Debug.Log(jump);
         }
        
+
+    }
+    // POWER UP BOOLS BECAUSE IM DUMB
+    void KaboomNoMore(){
+        KaboomRadius.enabled = false;
 
     }
 }
