@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public Rigidbody rb;
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider collision)
     {
@@ -13,7 +12,7 @@ public class Obstacle : MonoBehaviour
         {
             //rb.AddForce(100,0,0);
             //transform.position = new Vector3(transform.position.x,transform.position.y + 3,transform.position.z);
-            //GetComponent<Rigidbody>().AddForce(0, 3000 * Time.deltaTime,0, ForceMode.VelocityChange);
+            GetComponent<Rigidbody>().AddForce(0, 3000 * Time.deltaTime,0, ForceMode.VelocityChange);
            
         }
 

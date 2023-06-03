@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+
+
 using UnityEngine;
 
 public class PowerUp : MonoBehaviour
@@ -38,15 +38,23 @@ public class PowerUp : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            PowerUpChoose = Random.Range(1, 5);
+            PowerUpChoose = Random.Range(1,3); //Random.Range(1, 2);
             Debug.Log(PowerUpChoose);
-            if (PowerUpChoose == 4)
+            if (PowerUpChoose == 3)
             {
                 Debug.Log("INVINCIBLE!!");
                 Debug.Log(FindObjectOfType<GameManager>().MoneyButNotStatic);
                 FindObjectOfType<GameManager>().MoneyButNotStatic += MoneyAmount;
                 FindObjectOfType<GameManager>().MoneyUpdated();
             } 
+            if (PowerUpChoose == 1){
+                Debug.Log("kaboom rico!");
+                FindObjectOfType<GameManager>().PowerUpType = 1;
+            }
+            if (PowerUpChoose == 2){
+                Debug.Log("ANOTHER LIFE FOR YOU!");
+                FindObjectOfType<GameManager>().PowerUpType = 2;
+            }
 
             Debug.Log("LEVEL UP!!");
             Mesh.enabled = false;

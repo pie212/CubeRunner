@@ -9,8 +9,15 @@ public class PlayerCollision : MonoBehaviour
     {
         
         if (collisionInfo.collider.tag == "Obstacle"){
+            if (FindObjectOfType<GameManager>().PowerUpType != 2)
+            {
             movement.enabled = false;
             FindObjectOfType<GameManager>().EndGame();
+            }
+            if (FindObjectOfType<GameManager>().PowerUpType == 2){
+                FindObjectOfType<GameManager>().PowerReset();
+            }
+
         }
         //if (collisionInfo.collider.tag == "Jumper"){
           //  Debug.Log("EEEEHT");

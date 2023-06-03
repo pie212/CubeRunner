@@ -1,4 +1,5 @@
 
+using System.Security.Cryptography;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     public SuperHard SuperHard;
     public static int money = 0;
     public int MoneyButNotStatic;
+    public int PowerUpType = 0;
 
     void Start(){
         MoneyButNotStatic = money;
@@ -54,6 +56,11 @@ public class GameManager : MonoBehaviour
             Invoke("Restart", restartDelay);
         }
 
+    }
+    public void PowerReset()
+    {
+        PowerUpType = 0;
+        
     }
 
         

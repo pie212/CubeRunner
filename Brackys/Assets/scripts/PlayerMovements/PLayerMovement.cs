@@ -1,5 +1,9 @@
 
+using System.Security.Cryptography;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+
 
 public class PLayerMovement : MonoBehaviour
 {
@@ -17,7 +21,7 @@ public class PLayerMovement : MonoBehaviour
     private bool JumpyYesOrNo = false;      // bool created to allow the jump checking stuff to happen yk the one that checks the player position differential from the hight position after jumping
     public Vector3 constantVelocity = new Vector3(0,0,30);
     public Collider KaboomRadius;
-
+    private bool Jumping = false;
     //float PauseCalled = 0;
     
     // Start is called before the first frame update
@@ -61,29 +65,15 @@ public class PLayerMovement : MonoBehaviour
         }
         if (rb.position.y < -3)
         {
-            FindObjectOfType<GameManager>().EndGame();
+            //FindObjectOfType<GameManager>().EndGame();
+            Gamemanager.EndGame();
         
-        }
-    }
-    //void jumpReturn(){
-        //Debug.Log("Booga?");
-        //rb.AddForce(0,-2500*Time.deltaTime,0,ForceMode.VelocityChange);
-        
-    //}
-    
-    void Update()
-    {
-        if (Input.GetKey("q")){
-            KaboomRadius.enabled = true;
-            Invoke("KaboomNoMore", 0.3F);
-            
-
-
         }
         if (jump == true)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Jumping == true)
             {
+                Jumping = false;
                 JumpyYesOrNo = true;
                 jumpStartPos = transform.position;
                 //jump = false;         IF IT DOESNT WORK ITS VIKTOR'S FAULT!!!!
@@ -135,6 +125,30 @@ public class PLayerMovement : MonoBehaviour
                     JumpyYesOrNo = false;
                 }
             }
+            if (Gamemanager.PowerUpType == 0){
+                Invoke("ResetPowerUp", 0.1F);
+            }
+    }
+    //void jumpReturn(){
+        //Debug.Log("Booga?");
+        //rb.AddForce(0,-2500*Time.deltaTime,0,ForceMode.VelocityChange);
+        
+    //}
+    
+    void Update()
+    {
+        if (Input.GetKeyDown("q")){
+            if (Gamemanager.PowerUpType == 1)
+            {
+            KaboomRadius.enabled = true;
+            Gamemanager.PowerReset();
+            
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Space)){
+            Jumping = true;
+        }
+        
     }    
         
 
@@ -161,8 +175,8 @@ public class PLayerMovement : MonoBehaviour
 
     }
     // POWER UP BOOLS BECAUSE IM DUMB
-    void KaboomNoMore(){
+    public void ResetPowerUp()
+    {
         KaboomRadius.enabled = false;
-
     }
 }
