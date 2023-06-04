@@ -57,11 +57,7 @@ public class GameManager : MonoBehaviour
         }
 
     }
-    public void PowerReset()
-    {
-        PowerUpType = 0;
-        
-    }
+    
 
         
     void Restart(){

@@ -11,7 +11,7 @@ public class PowerUp : MonoBehaviour
     //public Quaternion offsetRot = Quaternion.Euler(0,0,0);
     public Vector3 rotateAmount = new Vector3(50,0,0);
     private int PowerUpChoose;
-    public int MoneyAmount = 1;
+    
 
     
     // Start is called before the first frame update
@@ -40,20 +40,21 @@ public class PowerUp : MonoBehaviour
         {
             PowerUpChoose = Random.Range(1,3); //Random.Range(1, 2);
             Debug.Log(PowerUpChoose);
-            if (PowerUpChoose == 3)
-            {
-                Debug.Log("INVINCIBLE!!");
-                Debug.Log(FindObjectOfType<GameManager>().MoneyButNotStatic);
-                FindObjectOfType<GameManager>().MoneyButNotStatic += MoneyAmount;
-                FindObjectOfType<GameManager>().MoneyUpdated();
-            } 
-            if (PowerUpChoose == 1){
+             
+            if (PowerUpChoose == 1){           // explosion boom
                 Debug.Log("kaboom rico!");
                 FindObjectOfType<GameManager>().PowerUpType = 1;
             }
-            if (PowerUpChoose == 2){
+            if (PowerUpChoose == 2){      // Extra lifey
                 Debug.Log("ANOTHER LIFE FOR YOU!");
                 FindObjectOfType<GameManager>().PowerUpType = 2;
+            }
+            if (PowerUpChoose == 3)
+            {
+                Debug.Log("Some money!!");
+                FindObjectOfType<GameManager>().PowerUpType = 3;
+                Debug.Log(FindObjectOfType<GameManager>().MoneyButNotStatic);
+                
             }
 
             Debug.Log("LEVEL UP!!");
