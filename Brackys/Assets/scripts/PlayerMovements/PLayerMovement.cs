@@ -145,7 +145,7 @@ public class PLayerMovement : MonoBehaviour
             Gamemanager.PowerUpType = 0;
             
             }
-            if (Gamemanager.PowerUpType == 2)
+            if (Gamemanager.PowerUpType == 3)
             {
             Gamemanager.MoneyButNotStatic += MoneyAmount;
             Gamemanager.MoneyUpdated();

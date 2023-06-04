@@ -6,7 +6,7 @@ public class followPlayer : MonoBehaviour
   public Transform player;
   public Vector3 offset;
   public Vector3 offsetUPsideown;
-  public PLayerMovement movement;
+  //public PLayerMovement movement;
     // Update is called once per frame
   void Update()
     {

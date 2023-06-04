@@ -38,7 +38,7 @@ public class PowerUp : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            PowerUpChoose = Random.Range(1,3); //Random.Range(1, 2);
+            PowerUpChoose = Random.Range(1,4); //Random.Range(1, 2);
             Debug.Log(PowerUpChoose);
              
             if (PowerUpChoose == 1){           // explosion boom
