@@ -22,6 +22,7 @@ public class PLayerMovement : MonoBehaviour
     public Vector3 constantVelocity = new Vector3(0,0,30);
     public Collider KaboomRadius;
     private bool Jumping = false;
+    public int MoneyAmount = 1;
     //float PauseCalled = 0;
     
     // Start is called before the first frame update
@@ -141,9 +142,16 @@ public class PLayerMovement : MonoBehaviour
             if (Gamemanager.PowerUpType == 1)
             {
             KaboomRadius.enabled = true;
-            Gamemanager.PowerReset();
+            Gamemanager.PowerUpType = 0;
             
             }
+            if (Gamemanager.PowerUpType == 2)
+            {
+            Gamemanager.MoneyButNotStatic += MoneyAmount;
+            Gamemanager.MoneyUpdated();
+            Gamemanager.PowerUpType = 0;
+            }
+            
         }
         if (Input.GetKeyDown(KeyCode.Space)){
             Jumping = true;

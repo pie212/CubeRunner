@@ -15,7 +15,7 @@ public class PlayerCollision : MonoBehaviour
             FindObjectOfType<GameManager>().EndGame();
             }
             if (FindObjectOfType<GameManager>().PowerUpType == 2){
-                FindObjectOfType<GameManager>().PowerReset();
+                FindObjectOfType<GameManager>().PowerUpType = 0;
             }
 
         }
