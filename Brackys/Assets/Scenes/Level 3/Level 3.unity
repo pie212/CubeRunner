@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.16862746, g: 0.1764706, b: 0.18823531, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.1
+  m_FogDensity: 0.02
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
@@ -1829,7 +1829,6 @@ MonoBehaviour:
   player: {fileID: 1392185164}
   offset: {x: 0, y: 1, z: -5}
   offsetUPsideown: {x: 0, y: 0, z: 0}
-  movement: {fileID: 1788529378}
 --- !u!1 &972308878
 GameObject:
   m_ObjectHideFlags: 0
@@ -3552,6 +3551,8 @@ MonoBehaviour:
   completeLevelUI: {fileID: 1441536686}
   pauseLevelUI: {fileID: 1947227414}
   SuperHard: {fileID: 0}
+  MoneyButNotStatic: 0
+  PowerUpType: 0
 --- !u!4 &1640760903
 Transform:
   m_ObjectHideFlags: 0
