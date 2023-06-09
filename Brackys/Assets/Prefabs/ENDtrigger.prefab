@@ -110,5 +110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fafb7a9029f50f24397c13fead69be5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 0}
+  movement: {fileID: 542412896416300752, guid: b98869c1c94c12c4b8d0e4dd39f1e3a0, type: 3}
   GameManager: {fileID: 0}

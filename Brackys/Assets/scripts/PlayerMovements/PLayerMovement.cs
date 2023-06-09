@@ -113,14 +113,16 @@ public class PLayerMovement : MonoBehaviour
             {
                 if (transform.position.y >= jumpStartPos.y + 2)
                 {
-                    retainedSpeed = rb.velocity;
+                    //retainedSpeed = rb.velocity;
                     if (gravity == 0)
                     {
-                    rb.velocity = new Vector3(retainedSpeed.x,-1000*Time.deltaTime,retainedSpeed.z);
+                    //rb.velocity = new Vector3(retainedSpeed.x,-1000*Time.deltaTime,retainedSpeed.z);
+                    rb.AddForce(0,-1500*Time.deltaTime,0, ForceMode.VelocityChange);
                     }   
                     if (gravity == 1)
                     {
-                    rb.velocity = new Vector3(retainedSpeed.x,1000*Time.deltaTime,retainedSpeed.z);
+                    //rb.velocity = new Vector3(retainedSpeed.x,1000*Time.deltaTime,retainedSpeed.z);
+                    rb.AddForce(0,1500*Time.deltaTime,0, ForceMode.VelocityChange);
                     }
                     
                     JumpyYesOrNo = false;

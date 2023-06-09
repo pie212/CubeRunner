@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public GameObject completeLevelUI;
     public GameObject pauseLevelUI;
     public static float level = 0;
-    public SuperHard SuperHard;
+    private SuperHard SuperHard;
     public static int money = 0;
     public int MoneyButNotStatic;
     public int PowerUpType = 0;
