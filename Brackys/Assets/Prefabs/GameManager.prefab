@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restartDelay: 2
-  completeLevelUI: {fileID: 7598426360178000323, guid: ba3a51f17f1c80d4d9956eb6f1a88846, type: 3}
-  pauseLevelUI: {fileID: 2725507881758549044, guid: 87c49e5400533494093908157c3671d2, type: 3}
+  completeLevelUI: {fileID: 0}
+  pauseLevelUI: {fileID: 0}
   MoneyButNotStatic: 0
   PowerUpType: 0

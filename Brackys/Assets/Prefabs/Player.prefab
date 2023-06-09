@@ -56,7 +56,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 296152717120082552, guid: b5c1d42948e856544931c1665efb5155, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 296152717120082552, guid: b5c1d42948e856544931c1665efb5155, type: 3}
       propertyPath: Gamemanager
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 296152717120082552, guid: b5c1d42948e856544931c1665efb5155, type: 3}
+      propertyPath: KaboomRadius
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []

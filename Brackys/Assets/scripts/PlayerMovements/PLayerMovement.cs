@@ -28,6 +28,7 @@ public class PLayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         //rb.useGravity = false; Could be for a reverse?? might have to put in anoterh script 
         rb.velocity = new Vector3(0,0,0);
         KaboomRadius.enabled = false;   
@@ -53,6 +54,7 @@ public class PLayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             retainedSpeed = rb.velocity;
+            Debug.Log(retainedSpeed);
             Pause = !Pause;
             rb.constraints = RigidbodyConstraints.FreezeAll;
             Debug.Log(retainedSpeed);

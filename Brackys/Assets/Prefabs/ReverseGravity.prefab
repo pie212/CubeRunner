@@ -111,4 +111,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 542412896416300752, guid: b98869c1c94c12c4b8d0e4dd39f1e3a0, type: 3}
-  animation: {fileID: 259850830420944449, guid: b98869c1c94c12c4b8d0e4dd39f1e3a0, type: 3}
+  animation: {fileID: 6964299325615807012, guid: bab3156ccca778b42acff049198dd123, type: 3}
