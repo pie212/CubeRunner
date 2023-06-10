@@ -7,6 +7,7 @@ public class GravityRestore : MonoBehaviour
     // Start is called before the first frame update
     public PLayerMovement movement;
     public Animator animation;
+
     void OnTriggerEnter(Collider other){
         if (other.tag == "Player")
         {

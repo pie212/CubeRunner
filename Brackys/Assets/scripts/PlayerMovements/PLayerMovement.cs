@@ -7,10 +7,12 @@ using UnityEngine;
 
 public class PLayerMovement : MonoBehaviour
 {
+    [HideInInspector]
     public Rigidbody rb;
     public float forwardForce = 2000f; // force to set forward
     public float sidewaysForce = 500f;  // force added when clicking a or d
     bool Pause = false;         // pause menu
+    [HideInInspector]
     public GameManager Gamemanager; // Gamemanger
     public Vector3 retainedSpeed; // variable to maintain speed after pause
     public float gravity = 0f;      // gravity operater 0 = gravity is normal, 1 is that gravity is reversed, changed in Gravityrestore.cs and Gravityreverse.cs
@@ -20,6 +22,7 @@ public class PLayerMovement : MonoBehaviour
     private Vector3 jumpHeightPos;
     private bool JumpyYesOrNo = false;      // bool created to allow the jump checking stuff to happen yk the one that checks the player position differential from the hight position after jumping
     public Vector3 constantVelocity = new Vector3(0,0,30);
+    [HideInInspector]
     public Collider KaboomRadius;
     private bool Jumping = false;
     public int MoneyAmount = 1;
@@ -28,7 +31,9 @@ public class PLayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
+        Gamemanager = FindObjectOfType<GameManager>();
+        KaboomRadius = GetComponent<Collider>();
         //rb.useGravity = false; Could be for a reverse?? might have to put in anoterh script 
         rb.velocity = new Vector3(0,0,0);
         KaboomRadius.enabled = false;   

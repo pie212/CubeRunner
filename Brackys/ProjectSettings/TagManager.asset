@@ -9,6 +9,7 @@ TagManager:
   - Jumper
   - Ground
   - PowerUp
+  - SCRIPTINCLUDED
   layers:
   - Default
   - TransparentFX
