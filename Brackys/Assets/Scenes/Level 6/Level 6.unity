@@ -4715,6 +4715,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6964299325615807009, guid: bab3156ccca778b42acff049198dd123, type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6964299325615807011, guid: bab3156ccca778b42acff049198dd123, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -6408,7 +6412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -16584131783133583, guid: b98869c1c94c12c4b8d0e4dd39f1e3a0, type: 3}
       propertyPath: sidewaysForce
-      value: 200
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3544186130183401859, guid: b98869c1c94c12c4b8d0e4dd39f1e3a0, type: 3}
       propertyPath: m_Name
