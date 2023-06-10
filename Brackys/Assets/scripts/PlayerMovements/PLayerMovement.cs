@@ -76,6 +76,7 @@ public class PLayerMovement : MonoBehaviour
             //FindObjectOfType<GameManager>().EndGame();
             Gamemanager.EndGame();
         
+        
         }
         if (jump == true)
         {
