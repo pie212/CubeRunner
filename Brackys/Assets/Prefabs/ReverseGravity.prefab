@@ -110,5 +110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b53f3293bce2f54bb1e53029294222c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 542412896416300752, guid: b98869c1c94c12c4b8d0e4dd39f1e3a0, type: 3}
-  animation: {fileID: 6964299325615807012, guid: bab3156ccca778b42acff049198dd123, type: 3}
+  movement: {fileID: 0}
+  animation: {fileID: 0}
