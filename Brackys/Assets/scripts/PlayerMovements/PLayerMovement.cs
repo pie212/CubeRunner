@@ -148,7 +148,7 @@ public class PLayerMovement : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown("q")){
+        if (Input.GetKeyDown("w")){
             if (Gamemanager.PowerUpType == 1)
             {
             KaboomRadius.enabled = true;
@@ -163,6 +163,7 @@ public class PLayerMovement : MonoBehaviour
             }
             
         }
+         
         if (Input.GetKeyDown(KeyCode.Space)){
             Jumping = true;
         }

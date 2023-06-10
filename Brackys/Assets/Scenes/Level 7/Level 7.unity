@@ -4080,6 +4080,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f44208fbcdf6a745b17fc4be90ad7e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &561837525 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3544186130183401859, guid: b98869c1c94c12c4b8d0e4dd39f1e3a0, type: 3}
+  m_PrefabInstance: {fileID: 2109224704}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &575985228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11504,12 +11509,42 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -16584131783133583, guid: b98869c1c94c12c4b8d0e4dd39f1e3a0, type: 3}
   m_PrefabInstance: {fileID: 2109224704}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 561837525}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7eb510e5c25e0184cae2ac3a9d274b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1526517227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561837525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 2acbbbacdf914374599e59748a208dc6, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1535912039 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1204419285173267146, guid: 6cef6a9f35dbf244881de5645a7e6604, type: 3}
