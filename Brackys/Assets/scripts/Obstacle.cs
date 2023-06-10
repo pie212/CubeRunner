@@ -15,6 +15,9 @@ public class Obstacle : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(0, 3000 * Time.deltaTime,0, ForceMode.VelocityChange);
            
         }
+        if (collision.gameObject.tag == "OBEnableGrav"){
+            GetComponent<Rigidbody>().useGravity = true;
+        }
 
     }
 }
