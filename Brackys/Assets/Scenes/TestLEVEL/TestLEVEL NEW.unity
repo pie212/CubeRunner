@@ -293,6 +293,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2725507881758549044, guid: 87c49e5400533494093908157c3671d2, type: 3}
   m_PrefabInstance: {fileID: 1219321318}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &282078616 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3544186130183401859, guid: b98869c1c94c12c4b8d0e4dd39f1e3a0, type: 3}
+  m_PrefabInstance: {fileID: 1702233929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &300600473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1116,12 +1121,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -16584131783133583, guid: b98869c1c94c12c4b8d0e4dd39f1e3a0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -16584131783133583, guid: b98869c1c94c12c4b8d0e4dd39f1e3a0, type: 3}
       propertyPath: forwardForce
       value: 4000
       objectReference: {fileID: 0}
     - target: {fileID: -16584131783133583, guid: b98869c1c94c12c4b8d0e4dd39f1e3a0, type: 3}
       propertyPath: sidewaysForce
-      value: 100
+      value: 6000
       objectReference: {fileID: 0}
     - target: {fileID: 3544186130183401859, guid: b98869c1c94c12c4b8d0e4dd39f1e3a0, type: 3}
       propertyPath: m_Name
@@ -1397,8 +1406,8 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -16584131783133583, guid: b98869c1c94c12c4b8d0e4dd39f1e3a0, type: 3}
   m_PrefabInstance: {fileID: 1702233929}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_GameObject: {fileID: 282078616}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7eb510e5c25e0184cae2ac3a9d274b28, type: 3}
   m_Name: 
@@ -1408,6 +1417,86 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3544186130183401863, guid: b98869c1c94c12c4b8d0e4dd39f1e3a0, type: 3}
   m_PrefabInstance: {fileID: 1702233929}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2140286551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282078616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 109143edfc1b60d4db0ba028babaabf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  forwardForce: 4000
+  sidewaysForce: 6000
+  Gamemanager: {fileID: 0}
+  retainedSpeed: {x: 0, y: 0, z: 0}
+  gravity: 0
+  animation: {fileID: 0}
+  constantVelocity: {x: 0, y: 0, z: 30}
+  KaboomRadius: {fileID: 0}
+  MoneyAmount: 1
+  playercontrols:
+    m_Name: Playercontrols
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 644986d6-2909-4712-8890-1849e4c7d718
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: playercontrols
+      m_Id: 0bc7d488-ce91-4a29-8e48-9f17e7531d3f
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Playercontrols
+      m_Flags: 4
+    - m_Name: left
+      m_Id: d655d608-bf75-469c-9f82-c21f70e4e1c1
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Playercontrols
+      m_Flags: 8
+    - m_Name: left
+      m_Id: a937e805-232c-43cb-8811-71db117024a2
+      m_Path: <Gamepad>/leftStick/left
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Playercontrols
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 17d48097-4d0f-48e9-8041-97c235f356f8
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Playercontrols
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 2fc62927-cd88-4f91-8896-f7fa8effe868
+      m_Path: <Gamepad>/leftStick/right
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Playercontrols
+      m_Flags: 8
+    m_Flags: 0
+  jumpCON:
+    m_Name: Jump CON
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 9be2aec0-7ebb-4f9f-8bd3-0097698e4248
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!33 &263691473847081822
 MeshFilter:
   m_ObjectHideFlags: 0
