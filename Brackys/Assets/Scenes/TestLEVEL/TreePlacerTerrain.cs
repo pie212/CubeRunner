@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class test0 : MonoBehaviour
+public class TreePlacerTerrain : MonoBehaviour
 {
     private Terrain terrain;
     public GameObject treecollider;
