@@ -1,20 +1,16 @@
 
-
-
-
-
-
-
-
-using System.Threading;
+using System.Security.Cryptography;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 
-public class PLayerMovementNEW : MonoBehaviour
+public class PLayerMovementOLD : MonoBehaviour
 {
     [HideInInspector]
     public Rigidbody rb;
+    public float forwardForce = 2000f; // force to set forward
+    public float sidewaysForce = 500f;  // force added when clicking a or d
     bool Pause = false;         // pause menu
     [HideInInspector]
     public GameManager Gamemanager; // Gamemanger
@@ -30,78 +26,9 @@ public class PLayerMovementNEW : MonoBehaviour
     public Collider KaboomRadius;
     private bool Jumping = false;
     public int MoneyAmount = 1;
-    
-
-
-
-
-    ///INPUTS
-    public InputMaster PlayerControls;
-
-    private InputAction move;
-    private InputAction jumpCON;
-    private InputAction powerup;
-    private InputAction menu;
-    private InputAction pitch;
-    private InputAction yaw;
-    private bool JCON = false;
-    private bool JPOWER = false;
-    private bool JMENU = false;
-    Vector2 sideways = Vector2.zero; 
-    Vector2 TorqueAm = Vector2.zero;
-    Vector2 YawAm = Vector2.zero;
-    public float forwardForce = 2000f; // force to set forward
-    public float sidewaysForce = 12500f;  // force added when clicking a or d
-    public float TorqueAmount = 6000f;
     //float PauseCalled = 0;
     
     // Start is called before the first frame update
-
-    void Awake()
-    {
-        PlayerControls = new InputMaster();
-    }
-
-    private void OnEnable()
-    {
-        move = PlayerControls.Player.Move;
-        move.Enable();
-        jumpCON = PlayerControls.Player.Jump;
-        jumpCON.Enable();
-        jumpCON.performed += Jump;
-        powerup = PlayerControls.Player.PowerUp;
-        powerup.Enable();
-        powerup.performed += PowerUp;
-        menu = PlayerControls.Player.Menu;
-        menu.Enable();
-        menu.performed += Menu;
-        pitch = PlayerControls.Player.PitchAndRoll;
-        pitch.Enable();
-        yaw = PlayerControls.Player.Yaw;
-        yaw.Enable();
-
-    }
-    private void OnDisable()
-    {
-        move.Disable();
-        jumpCON.Disable();
-        powerup.Disable();
-        menu.Disable();
-        pitch.Disable();
-        yaw.Disable();
-    }
-    private void Menu(InputAction.CallbackContext context)
-    {
-        JMENU = true;
-    }
-    private void Jump(InputAction.CallbackContext context)
-    {
-        JCON = true;
-    }
-    private void PowerUp(InputAction.CallbackContext context)
-    {
-        JPOWER = true;
-    }
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -121,20 +48,16 @@ public class PLayerMovementNEW : MonoBehaviour
         //rb.AddForce(-2*Physics.gravity, ForceMode.Acceleration);  Reverses grabity by adding upward force
         rb.AddForce(0,0,forwardForce * Time.deltaTime);
 
-        //Debug.Log(move.ReadValue<Vector2>());   
-        sideways = move.ReadValue<Vector2>();
-        rb.AddForce (sideways.x * sidewaysForce * Time.deltaTime, 0,0);
-        TorqueAm = pitch.ReadValue<Vector2>();
-        YawAm = yaw.ReadValue<Vector2>();
-        Debug.Log(YawAm);
-        rb.AddTorque(TorqueAm.y * TorqueAmount * Time.deltaTime,        1000 * YawAm.x * Time.deltaTime,          TorqueAm.x * -TorqueAmount * Time.deltaTime);
-        
-
-        
-        
-        if (JMENU == true)
+        if (Input.GetKey("d"))
         {
-            JMENU = false;
+            rb.AddForce(sidewaysForce * Time.deltaTime,0,0, ForceMode.VelocityChange);
+        }
+        if (Input.GetKey("a"))
+        {
+            rb.AddForce(-sidewaysForce * Time.deltaTime,0,0,ForceMode.VelocityChange);
+        }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
             retainedSpeed = rb.velocity;
             Debug.Log(retainedSpeed);
             Pause = !Pause;
@@ -146,7 +69,6 @@ public class PLayerMovementNEW : MonoBehaviour
         }
         
         if (gravity == 1){
-            Debug.Log("DA HELL");
             rb.AddForce(-1*Physics.gravity);
         }
         if (rb.position.y < -3)
@@ -217,8 +139,6 @@ public class PLayerMovementNEW : MonoBehaviour
             if (Gamemanager.PowerUpType == 0){
                 Invoke("ResetPowerUp", 0.1F);
             }
-            
-            
     }
     //void jumpReturn(){
         //Debug.Log("Booga?");
@@ -228,9 +148,7 @@ public class PLayerMovementNEW : MonoBehaviour
     
     void Update()
     {
-        if (JPOWER == true)
-        {
-            JPOWER = false;
+        if (Input.GetKeyDown("w")){
             if (Gamemanager.PowerUpType == 1)
             {
             KaboomRadius.enabled = true;
@@ -246,10 +164,8 @@ public class PLayerMovementNEW : MonoBehaviour
             
         }
          
-        if (JCON == true)
-        {
+        if (Input.GetKeyDown(KeyCode.Space)){
             Jumping = true;
-            JCON = false;
         }
         
     }    

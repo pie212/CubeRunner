@@ -161,6 +161,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "188c0db1-a9fb-4b8b-9761-1a62903e17e5",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "PitchAndRoll",
                     "id": "221ceee2-8afa-4ad5-8330-59f8a71e8101",
                     "path": "Dpad",
