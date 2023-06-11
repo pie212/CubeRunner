@@ -16,6 +16,11 @@ public class ContinueLevel : MonoBehaviour
         player.rb.constraints = RigidbodyConstraints.None;
         player.rb.velocity = player.retainedSpeed;
         player.jumpCON.Enable();      //allows input again
+        player.move.Enable();
+        player.powerup.Enable();
+        player.menu.Enable();
+        player.pitch.Enable();
+        player.yaw.Enable();
         
     }
 

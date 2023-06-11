@@ -38,12 +38,12 @@ public class PLayerMovement : MonoBehaviour
     ///INPUTS
     public InputMaster PlayerControls;
 
-    private InputAction move;
+    public InputAction move;
     public InputAction jumpCON;
-    private InputAction powerup;
-    private InputAction menu;
-    private InputAction pitch;
-    private InputAction yaw;
+    public InputAction powerup;
+    public InputAction menu;
+    public InputAction pitch;
+    public InputAction yaw;
     private bool JCON = false;
     private bool JPOWER = false;
     public bool JMENU = false;
@@ -134,7 +134,14 @@ public class PLayerMovement : MonoBehaviour
         
         if (JMENU == true)
         {
+            
             JMENU = false;
+            move.Disable();
+            jumpCON.Disable();
+            powerup.Disable();
+            menu.Disable();
+            pitch.Disable();
+            yaw.Disable();
             jumpCON.Disable(); //menu is open
             Jumping = false;
             retainedSpeed = rb.velocity;
