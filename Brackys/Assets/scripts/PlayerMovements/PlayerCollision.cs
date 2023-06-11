@@ -26,9 +26,7 @@ public class PlayerCollision : MonoBehaviour
 
 
         //}
-        if (collisionInfo.collider.tag == "TREE"){
-            Debug.Log("TREE");
-        }
+        
             
     }
         
