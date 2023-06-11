@@ -28,7 +28,7 @@ public class PLayerMovement : MonoBehaviour
     public Vector3 constantVelocity = new Vector3(0,0,30);
     [HideInInspector]
     public Collider KaboomRadius;
-    private bool Jumping = false;
+    public bool Jumping = false;
     public int MoneyAmount = 1;
     
 
@@ -39,14 +39,14 @@ public class PLayerMovement : MonoBehaviour
     public InputMaster PlayerControls;
 
     private InputAction move;
-    private InputAction jumpCON;
+    public InputAction jumpCON;
     private InputAction powerup;
     private InputAction menu;
     private InputAction pitch;
     private InputAction yaw;
     private bool JCON = false;
     private bool JPOWER = false;
-    private bool JMENU = false;
+    public bool JMENU = false;
     Vector2 sideways = Vector2.zero; 
     Vector2 TorqueAm = Vector2.zero;
     Vector2 YawAm = Vector2.zero;
@@ -135,6 +135,8 @@ public class PLayerMovement : MonoBehaviour
         if (JMENU == true)
         {
             JMENU = false;
+            jumpCON.Disable(); //menu is open
+            Jumping = false;
             retainedSpeed = rb.velocity;
             Debug.Log(retainedSpeed);
             Pause = !Pause;
@@ -158,6 +160,9 @@ public class PLayerMovement : MonoBehaviour
         }
         if (jump == true)
         {
+            if (JMENU == false)
+            {
+                
             if (Jumping == true)
             {
                 Jumping = false;
@@ -191,6 +196,7 @@ public class PLayerMovement : MonoBehaviour
                 //if (transform.position.y > jumpStartPos.y + 2){
                     //Debug.Log("IT WORKS!!");
                 //}
+            }
             }
            
             
