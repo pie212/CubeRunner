@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class ContinueLevel : MonoBehaviour
 {
-    public PLayerMovement player;
-    public GameManager Gamemanager;
+    private PLayerMovement player;
+    private GameManager Gamemanager;
     // Start is called before the first frame update
-    
+    void Start(){
+        player = FindObjectOfType<PLayerMovement>();
+        Gamemanager = FindObjectOfType<GameManager>();
+    }
     public void LevelContinue(){
         
         Gamemanager.pauseLevelUI.SetActive(false);

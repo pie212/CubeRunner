@@ -5,9 +5,11 @@ using UnityEngine;
 public class GravityRestore : MonoBehaviour
 {
     // Start is called before the first frame update
-    public PLayerMovement movement;
+    private PLayerMovement movement;
     public Animator animation;
-
+    void Start(){
+        movement = FindObjectOfType<PLayerMovement>();
+    }
     void OnTriggerEnter(Collider other){
         if (other.tag == "Player")
         {

@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    public PLayerMovement movement;
+    private PLayerMovement movement;
 
+    void Start(){
+            movement = GetComponent<PLayerMovement>();
+        }
     void OnCollisionEnter (Collision collisionInfo) 
     {
+        
         
         if (collisionInfo.collider.tag == "Obstacle"){
             if (FindObjectOfType<GameManager>().PowerUpType != 2)

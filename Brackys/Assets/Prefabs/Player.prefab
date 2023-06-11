@@ -143,7 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87777c30d1cff5949948aa3037c877f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 0}
 --- !u!114 &5999821101489482955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,8 +162,64 @@ MonoBehaviour:
   animation: {fileID: 0}
   constantVelocity: {x: 0, y: 0, z: 30}
   KaboomRadius: {fileID: 0}
+  Jumping: 0
   MoneyAmount: 1
-  forwardForce: 2000
+  move:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 6a046480-753b-4ed3-9c88-bac2ac737ee9
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  jumpCON:
+    m_Name: Jump CON
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 5daf8629-bcf1-4a09-8800-1cbfe7f77809
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  powerup:
+    m_Name: Powerup
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1a6bcaef-72ce-4d25-8ff1-d5cb9e4af8d2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  menu:
+    m_Name: Menu
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 49af4051-3980-4d04-bbec-42850aed5370
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  pitch:
+    m_Name: Pitch
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 69e878c9-86f0-412d-ad8f-00f9712ccca0
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  yaw:
+    m_Name: Yaw
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 33e1e71b-71ae-42c7-9e90-d09d14545eff
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  JMENU: 0
+  forwardForce: 4000
   sidewaysForce: 12500
   TorqueAmount: 6000
 --- !u!114 &3833513064424925440

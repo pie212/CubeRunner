@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class EndTrigger : MonoBehaviour
 {
-    public PLayerMovement movement;
-    public GameManager GameManager;
+    private PLayerMovement movement;
+    private GameManager GameManager;
+    
+    
+    void Start(){
+        movement = FindObjectOfType<PLayerMovement>();
+        GameManager = FindObjectOfType<GameManager>();
+    }
+    
+    
     void OnTriggerEnter(Collider other)   
     {
         if (other.tag == "Player")

@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class GravityReverse : MonoBehaviour
 {
-    public PLayerMovement movement;
+    private PLayerMovement movement;
     public Animator animation;
     // Start is called before the first frame update
     // Start is called before the first frame update
+
+    void Start(){
+        movement = FindObjectOfType<PLayerMovement>();
+    }
     void OnTriggerEnter(Collider other){
         if (other.tag == "Player")
         {
