@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3544186130183401860}
   - component: {fileID: 3544186130183401864}
   - component: {fileID: 3544186130183401866}
+  - component: {fileID: 5999821101489482955}
   - component: {fileID: 3833513064424925440}
   - component: {fileID: -16584131783133583}
   m_Layer: 0
@@ -144,6 +145,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 0}
+--- !u!114 &5999821101489482955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3544186130183401859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 109143edfc1b60d4db0ba028babaabf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  forwardForce: 2000
+  sidewaysForce: 12500
+  Gamemanager: {fileID: 0}
+  retainedSpeed: {x: 0, y: 0, z: 0}
+  gravity: 0
+  animation: {fileID: 0}
+  constantVelocity: {x: 0, y: 0, z: 30}
+  KaboomRadius: {fileID: 0}
+  MoneyAmount: 1
 --- !u!114 &3833513064424925440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +188,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3544186130183401859}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7eb510e5c25e0184cae2ac3a9d274b28, type: 3}
   m_Name: 
