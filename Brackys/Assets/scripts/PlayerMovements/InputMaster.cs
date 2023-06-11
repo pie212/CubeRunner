@@ -304,7 +304,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
+                    ""name"": ""right"",
                     ""id"": ""6e63a0cd-5621-41b5-81b3-a98f7635b983"",
                     ""path"": ""<XInputController>/rightShoulder"",
                     ""interactions"": """",
@@ -315,7 +315,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
+                    ""name"": ""left"",
                     ""id"": ""8f6c6d70-3902-4992-b33c-7ebb95981be4"",
                     ""path"": ""<XInputController>/leftShoulder"",
                     ""interactions"": """",
