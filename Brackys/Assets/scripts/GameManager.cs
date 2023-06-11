@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
-
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
     
@@ -18,9 +18,13 @@ public class GameManager : MonoBehaviour
     public static int money = 0;
     public int MoneyButNotStatic;
     public int PowerUpType = 0;
-
+    public PLayerMovement player;
+    public GameObject itemsButton;         //button for controls 
+    EventSystem m_EventSystem;              // current event system
+ 
     void Start(){
         MoneyButNotStatic = money;
+        m_EventSystem = EventSystem.current;          // sets the EventSystems
     }
     
     public void PauseGame(){
@@ -30,6 +34,13 @@ public class GameManager : MonoBehaviour
     
     public void CompleteLevel ()
     {
+        player.jumpCON.Disable();      //allows input again
+        player.move.Disable();
+        player.powerup.Disable();
+        player.menu.Disable();
+        player.pitch.Disable();
+        player.yaw.Disable();
+    m_EventSystem.SetSelectedGameObject(itemsButton);  // sets the new FirstSelected to the menu
     //Debug.Log(SceneManager.GetActiveScene().buildIndex);
     completeLevelUI.SetActive(true);
     level = SceneManager.GetActiveScene().buildIndex;
