@@ -1993,7 +1993,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7281465414110800639, guid: 5aaf639cbd2b2254c9575ec2f7457d4e, type: 3}
       propertyPath: m_Navigation.m_Mode
-      value: 0
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281465414110800639, guid: 5aaf639cbd2b2254c9575ec2f7457d4e, type: 3}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 571737985}
+    - target: {fileID: 7281465414110800639, guid: 5aaf639cbd2b2254c9575ec2f7457d4e, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0.28235295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281465414110800639, guid: 5aaf639cbd2b2254c9575ec2f7457d4e, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 0.5176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 7281465414110800639, guid: 5aaf639cbd2b2254c9575ec2f7457d4e, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 0.93333334
       objectReference: {fileID: 0}
     - target: {fileID: 7281465414110800639, guid: 5aaf639cbd2b2254c9575ec2f7457d4e, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.b
