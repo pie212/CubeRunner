@@ -140,6 +140,17 @@
                 },
                 {
                     "name": "",
+                    "id": "9887e4d2-0a48-4f81-8272-51da069b88c8",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "5693f2cb-06e8-4aad-8f96-468c5ac8ce5f",
                     "path": "<XInputController>/buttonWest",
                     "interactions": "",
