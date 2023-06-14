@@ -6416,6 +6416,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsButton: {fileID: 6649280418781087165}
+--- !u!23 &542412897094412509 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3544186130183401861, guid: b98869c1c94c12c4b8d0e4dd39f1e3a0, type: 3}
+  m_PrefabInstance: {fileID: 3938524481711348043}
+  m_PrefabAsset: {fileID: 0}
 --- !u!223 &552739390320625208
 Canvas:
   m_ObjectHideFlags: 0
@@ -7293,6 +7298,10 @@ PrefabInstance:
       propertyPath: Skin2
       value: 
       objectReference: {fileID: 2100000, guid: 7120490f4185e324cb1106cf3e3bb384, type: 2}
+    - target: {fileID: 3833513064424925440, guid: b98869c1c94c12c4b8d0e4dd39f1e3a0, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 542412897094412509}
     - target: {fileID: 3833513064424925466, guid: b98869c1c94c12c4b8d0e4dd39f1e3a0, type: 3}
       propertyPath: m_Size.x
       value: 0.2
