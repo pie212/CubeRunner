@@ -116,6 +116,7 @@ public class PLayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
         //Debug.Log(rb.velocity);
 
         //rb.AddForce(-2*Physics.gravity, ForceMode.Acceleration);  Reverses grabity by adding upward force
@@ -241,6 +242,7 @@ public class PLayerMovement : MonoBehaviour
     
     void Update()
     {
+        Debug.Log(move.ReadValue<Vector2>());    
         if (JPOWER == true)
         {
             JPOWER = false;

@@ -1,4 +1,4 @@
-Library: C:\Users\onewa\Documents\GitHub\CubeRunner\Brackys\Temp\StagingArea\tempburstlibs\armeabi-v7a\lib_burst_generated
+Library: C:\Users\MoerkerkeThomas\Documents\GitHub\CubeRunner\Brackys\Temp\StagingArea\tempburstlibs\armeabi-v7a\lib_burst_generated
 --platform=Android
 --backend=burst-llvm-14
 --target=ARMV7A_NEON32
@@ -101,7 +101,6 @@ Library: C:\Users\onewa\Documents\GitHub\CubeRunner\Brackys\Temp\StagingArea\tem
 --compilation-defines=NET_STANDARD_2_1
 --compilation-defines=NETSTANDARD
 --compilation-defines=NETSTANDARD2_1
---compilation-defines=UNITY_PRO_LICENSE
 --compilation-defines=ENABLE_CUSTOM_RENDER_TEXTURE
 --compilation-defines=ENABLE_DIRECTOR
 --compilation-defines=ENABLE_LOCALIZATION
@@ -139,8 +138,8 @@ Library: C:\Users\onewa\Documents\GitHub\CubeRunner\Brackys\Temp\StagingArea\tem
 --compilation-defines=MODULE_PARTICLE_SYSTEM_EXISTS
 --compilation-defines=TIMELINE_FRAMEACCURATE
 --generate-link-xml=Temp\burst.link.xml
---temp-folder=C:\Users\onewa\Documents\GitHub\CubeRunner\Brackys\Temp\Burst
---output=C:\Users\onewa\Documents\GitHub\CubeRunner\Brackys\Temp\StagingArea\tempburstlibs\armeabi-v7a\lib_burst_generated
+--temp-folder=C:\Users\MoerkerkeThomas\Documents\GitHub\CubeRunner\Brackys\Temp\Burst
+--output=C:\Users\MoerkerkeThomas\Documents\GitHub\CubeRunner\Brackys\Temp\StagingArea\tempburstlibs\armeabi-v7a\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 --pdb-search-paths=Temp/ManagedSymbols/
 

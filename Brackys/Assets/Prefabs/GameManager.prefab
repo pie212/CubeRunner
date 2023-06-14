@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7957998846925756302}
   - component: {fileID: 7957998846925756303}
+  - component: {fileID: 1133729379480486407}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -49,3 +50,19 @@ MonoBehaviour:
   pauseLevelUI: {fileID: 0}
   MoneyButNotStatic: 0
   PowerUpType: 0
+  player: {fileID: 0}
+  itemsButton: {fileID: 0}
+--- !u!114 &1133729379480486407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7957998846925756300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 685e72adb9bc1d946b3ef8a04752e470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkinButton: 0
+  Cost: 0
