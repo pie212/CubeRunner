@@ -1985,9 +1985,13 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -1844
       objectReference: {fileID: 0}
+    - target: {fileID: 454799595135438951, guid: d00d57f24af30394eb2ce29ec9d7ea02, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3858999484164402130, guid: d00d57f24af30394eb2ce29ec9d7ea02, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5067381429750734835, guid: d00d57f24af30394eb2ce29ec9d7ea02, type: 3}
       propertyPath: m_Pivot.x
@@ -2079,7 +2083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5067381429750734847, guid: d00d57f24af30394eb2ce29ec9d7ea02, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d00d57f24af30394eb2ce29ec9d7ea02, type: 3}

@@ -184,6 +184,17 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""51c4dca2-2b10-4c87-b10a-fa9321f3b295"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PowerUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""4c878379-a89a-4dc9-a44e-ca360f2db25d"",
                     ""path"": ""<XInputController>/start"",
                     ""interactions"": """",
