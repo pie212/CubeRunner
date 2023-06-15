@@ -100,7 +100,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.02, z: 10}
+  m_Size: {x: 0.2, y: 0.02, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &3544186130183401860
 BoxCollider:
@@ -234,5 +234,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb3682c99014dbb4eb9c6a5f898627f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshrend: {fileID: 3544186130183401861}
-  mat: {fileID: 2100000, guid: 34ebc8fdfcafece45ab32eb89056aab7, type: 2}
+  player: {fileID: 0}
+  gameManager: {fileID: 0}
+  Skin1: {fileID: 2100000, guid: 6d23df015ea7df94e891701712adca5b, type: 2}
+  Skin2: {fileID: 2100000, guid: 7120490f4185e324cb1106cf3e3bb384, type: 2}
+  Skin3: {fileID: 2100000, guid: 96be298466c2e6348ade1e6a0fee8a3e, type: 2}
+  Skin4: {fileID: 2100000, guid: d64be69456163ee49a93f2113c8ab6b1, type: 2}
+  Skin5: {fileID: 2100000, guid: a05c3d6392efb2d408d628aecb2f46d0, type: 2}

@@ -5,36 +5,77 @@ using UnityEngine.UI;
 
 public class Skins : MonoBehaviour
 {
-    public static int Skin = 0;
+    
     public int SKIN;
-    public int SkinButton;
+    //public int SkinButton;
     public int Cost;
     private static bool Bought = false;
     private Text costtext;
     private string fulltext;
-    // Start is called before the first frame update
-    public void skinChange(){
-        if (Bought == false)
+
+
+
+    void Update(){
+        if (FindObjectOfType<GameManager>().PLskin == SKIN){
+             costtext.text = "Equipped";
+        }
+        else if (FindObjectOfType<SkinList>().SkinsListPUB.Contains(SKIN))
         {
-        Skin = SkinButton;
-        FindObjectOfType<GameManager>().MoneyButNotStatic -= Cost;
-        FindObjectOfType<GameManager>().MoneyUpdated();
-        Bought = true;
-        costtext.text = "bought";
-        
+            costtext.text = "Bought";
+            
+        }
+        else
+        {
+            costtext.text = "Cost:" + Cost.ToString();
         }
 
+
     }
+    
+    // Start is called before the first frame update
     void Start(){
-        SKIN = Skin;
         costtext = GetComponentInChildren<Text>();
-        if (Bought == true){
-        costtext.text = "bought";
+        if (FindObjectOfType<GameManager>().PLskin == SKIN){
+             costtext.text = "Equipped";
         }
-        if (Bought == false){
-        costtext.text = "Cost:" + Cost.ToString();
+        else if (FindObjectOfType<SkinList>().SkinsListPUB.Contains(SKIN))
+        {
+            costtext.text = "Bought";
+            
         }
+    
+        //if (Bought == true){
+        //costtext.text = "bought";
+        //}
+        //if (Bought == false){
+        //costtext.text = "Cost:" + Cost.ToString();
+        //}
         
 
     }
+    public void skinChange()
+        {
+        if (FindObjectOfType<SkinList>().SkinsListPUB.Contains(SKIN) == true)
+        {
+            costtext.text = "Equipped";
+            FindObjectOfType<GameManager>().PLskin = SKIN;
+            FindObjectOfType<GameManager>().StartSkin();
+
+        }
+        if (FindObjectOfType<SkinList>().SkinsListPUB.Contains(SKIN) == false)
+        {
+            
+            FindObjectOfType<GameManager>().MoneyButNotStatic -= Cost;
+            FindObjectOfType<GameManager>().MoneyUpdated();
+            costtext.text = "bought";
+            FindObjectOfType<SkinList>().TypeAdd = SKIN;
+            FindObjectOfType<SkinList>().AddToSkin();
+        }
+        
+        
+        
+
+    
+    
 }       
+}

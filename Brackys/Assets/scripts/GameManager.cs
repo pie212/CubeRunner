@@ -21,10 +21,24 @@ public class GameManager : MonoBehaviour
     public PLayerMovement player;
     public GameObject itemsButton;         //button for controls 
     EventSystem m_EventSystem;              // current event system
- 
+    public int PLskin;
+    public static int STATSkin;
+    
+
+    public void StartSkin(){
+        STATSkin = PLskin;
+        
+    }
+    void Awake(){
+        PLskin = STATSkin;
+        Debug.Log(PLskin);
+
+    }
     void Start(){
+
         MoneyButNotStatic = money;
         m_EventSystem = EventSystem.current;          // sets the EventSystems
+        
     }
     
     public void PauseGame(){
