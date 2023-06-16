@@ -2033,13 +2033,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327838369662609702}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60c8b21ebf7c9cb4a92e6f0bbc8ba821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buttonText: {fileID: 1327838369228778102}
-  levelName: Menu
+  levelName: 0
 --- !u!114 &1327838369662609698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2137,8 +2137,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1327838369662609696}
-        m_TargetAssemblyTypeName: LevelSelect, Assembly-CSharp
+      - m_Target: {fileID: 1327838369662609704}
+        m_TargetAssemblyTypeName: Menuscript, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -2163,6 +2163,7 @@ GameObject:
   - component: {fileID: 1327838369662609701}
   - component: {fileID: 1327838369662609700}
   - component: {fileID: 1327838369662609696}
+  - component: {fileID: 1327838369662609704}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -2191,3 +2192,15 @@ RectTransform:
   m_AnchoredPosition: {x: -33.00006, y: -171}
   m_SizeDelta: {x: 100.42, y: 41.2974}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1327838369662609704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327838369662609702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d280af46aec92e4aa65c6e7f8f4cd8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

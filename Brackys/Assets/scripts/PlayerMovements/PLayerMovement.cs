@@ -6,7 +6,8 @@
 
 
 
-using System.Threading;
+
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -279,6 +280,7 @@ public class PLayerMovement : MonoBehaviour
             jump = true;
             Debug.Log(jump);
         }
+        
        
 
     }

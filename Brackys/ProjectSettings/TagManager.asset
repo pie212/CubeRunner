@@ -11,6 +11,7 @@ TagManager:
   - PowerUp
   - SCRIPTINCLUDED
   - OBEnableGrav
+  - Coin
   layers:
   - Default
   - TransparentFX
