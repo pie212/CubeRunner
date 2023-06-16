@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public int MoneyButNotStatic;
     public int PowerUpType = 0;
     public PLayerMovement player;
-    public GameObject itemsButton;         //button for controls 
+    public GameObject itemsButton;         //button for controls       the first one to be selected for the pause ui 
     EventSystem m_EventSystem;              // current event system
     public int PLskin;
     public static int STATSkin;
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     }
     void Start(){
-
+        Debug.Log("ee");
         MoneyButNotStatic = money;
         m_EventSystem = EventSystem.current;          // sets the EventSystems
         

@@ -60,7 +60,7 @@ public class Skins : MonoBehaviour
             costtext.text = "Equipped";
             FindObjectOfType<GameManager>().PLskin = SKIN;
             FindObjectOfType<GameManager>().StartSkin();
-
+    
         }
         if (FindObjectOfType<SkinList>().SkinsListPUB.Contains(SKIN) == false)
         {
