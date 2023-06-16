@@ -64,12 +64,14 @@ public class Skins : MonoBehaviour
         }
         if (FindObjectOfType<SkinList>().SkinsListPUB.Contains(SKIN) == false)
         {
-            
+            if (FindObjectOfType<GameManager>().MoneyButNotStatic >= Cost)
+            {
             FindObjectOfType<GameManager>().MoneyButNotStatic -= Cost;
             FindObjectOfType<GameManager>().MoneyUpdated();
             costtext.text = "bought";
             FindObjectOfType<SkinList>().TypeAdd = SKIN;
             FindObjectOfType<SkinList>().AddToSkin();
+            }
         }
         
         
