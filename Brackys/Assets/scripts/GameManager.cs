@@ -21,17 +21,29 @@ public class GameManager : MonoBehaviour
     public PLayerMovement player;
     public GameObject itemsButton;         //button for controls       the first one to be selected for the pause ui 
     EventSystem m_EventSystem;              // current event system
+
+
+    /// SKINS
     public int PLskin;
     public static int STATSkin;
     
 
+    // PERKS
+    public static int PerkMoney = 1;
+    public int PerkMoneyCarrier;
+    public void perkMoney(){
+        PerkMoney += 1;
+        PerkMoneyCarrier = PerkMoney;
+        Debug.Log(PerkMoney);
+        Debug.Log(PerkMoneyCarrier);
+    }
     public void StartSkin(){
         STATSkin = PLskin;
         
     }
     void Awake(){
-        PLskin = STATSkin;
-        Debug.Log(PLskin);
+        PLskin = STATSkin;             // Sets the  carrier fo the static skin to the static skin which can be carried over into the other variable or script
+        PerkMoneyCarrier = PerkMoney;    // Sets the carrier for the static PerkMoney variabel to the static one so the value of the static one can be carried into another script
 
     }
     void Start(){

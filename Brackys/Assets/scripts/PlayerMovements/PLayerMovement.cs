@@ -93,15 +93,15 @@ public class PLayerMovement : MonoBehaviour
     }
     private void Menu(InputAction.CallbackContext context)
     {
-        JMENU = true;
+        JMENU = true;            //menu
     }
     private void Jump(InputAction.CallbackContext context)
     {
-        JCON = true;
+        JCON = true;           // jumps
     }
     private void PowerUp(InputAction.CallbackContext context)
     {
-        JPOWER = true;
+        JPOWER = true;         //power up
     }
     void Start()
     {
@@ -255,7 +255,7 @@ public class PLayerMovement : MonoBehaviour
             }
             if (Gamemanager.PowerUpType == 3)
             {
-            Gamemanager.MoneyButNotStatic += MoneyAmount;
+            Gamemanager.MoneyButNotStatic += (Random.Range(1,3)*Gamemanager.PerkMoneyCarrier);                // chooses how much money u get when using money pwoer up 
             Gamemanager.MoneyUpdated();
             Gamemanager.PowerUpType = 0;
             }
