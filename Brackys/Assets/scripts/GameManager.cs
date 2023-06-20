@@ -34,9 +34,12 @@ public class GameManager : MonoBehaviour
     public void perkMoney(){
         PerkMoney += 1;
         PerkMoneyCarrier = PerkMoney;
+        FindObjectOfType<PerkText>().PerkMoney();
         Debug.Log(PerkMoney);
         Debug.Log(PerkMoneyCarrier);
     }
+    
+    
     public void StartSkin(){
         STATSkin = PLskin;
         
