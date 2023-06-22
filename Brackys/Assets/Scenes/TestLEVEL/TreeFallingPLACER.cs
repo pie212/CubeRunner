@@ -18,9 +18,9 @@ public class TreeFallingPLACER : MonoBehaviour
         
         
         Destroy(this);
-        for(int i=0; i<100  ; i++)
+        for(int i=0; i<100  ; i++)            //amount i think
         {
-            x =  Random.Range( 100,  297);
+            x =  Random.Range( 100,  297);         
             y = -0.6F;
             z =  Random.Range( 200,  855);
             Instantiate(FallingTree, new Vector3(x,y,z), Quaternion.Euler(0,0,0));

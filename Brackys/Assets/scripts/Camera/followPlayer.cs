@@ -11,7 +11,7 @@ public class followPlayer : MonoBehaviour
   void Update()
     {
     //if (movement.gravity == 1)
-     //{
+     //{ 
        // transform.position = player.position + offsetUPsideown;
       //}
       //if (movement.gravity == 0)
