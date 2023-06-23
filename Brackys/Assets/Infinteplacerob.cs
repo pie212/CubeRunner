@@ -7,6 +7,8 @@ public class Infinteplacerob : MonoBehaviour
     public GameObject ob;
     public GameObject ground;
     public GameObject powerup;
+    public GameObject coin;
+    public float amount;
     private float minx;
     private float maxx;
     private float miny;
@@ -56,6 +58,11 @@ public class Infinteplacerob : MonoBehaviour
                 aX = Random.Range(-11, 11);
                 aZ = Random.Range(minz,maxz + 1);
                 Instantiate(powerup, new Vector3(aX,maxy,aZ), Quaternion.Euler(0,0,0));
+            }
+            for(int b=0; b<5  ; b++){
+                aX = Random.Range(-11, 11);
+                aZ = Random.Range(minz,maxz + 1);
+                Instantiate(coin, new Vector3(aX,maxy,aZ), Quaternion.Euler(0,-90,90));
             }
             
         }

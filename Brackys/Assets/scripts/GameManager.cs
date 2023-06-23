@@ -31,12 +31,22 @@ public class GameManager : MonoBehaviour
     // PERKS
     public static int PerkMoney = 1;
     public int PerkMoneyCarrier;
+
+
+    // Generation for endless levels
+
+    public int Type = 1;
+
     public void perkMoney(){
         PerkMoney += 1;
         PerkMoneyCarrier = PerkMoney;
         FindObjectOfType<PerkText>().PerkMoney();
         Debug.Log(PerkMoney);
         Debug.Log(PerkMoneyCarrier);
+
+
+    
+
     }
     
     
@@ -93,8 +103,9 @@ public class GameManager : MonoBehaviour
         {
             gameHasEnded = true;
             Debug.Log("Game Over!!");
+            //FindObjectOfType<Infinteplacerob>().ResetCord();
             Invoke("Restart", restartDelay);
-            FindObjectOfType<Infinteplacerob>().ResetCord();
+           
         }
 
     }

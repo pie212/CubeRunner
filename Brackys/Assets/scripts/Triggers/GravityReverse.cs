@@ -11,6 +11,7 @@ public class GravityReverse : MonoBehaviour
 
     void Start(){
         movement = FindObjectOfType<PLayerMovement>();
+        animation = Camera.main.GetComponent<Animator>();
     }
     void OnTriggerEnter(Collider other){
         if (other.tag == "Player")
