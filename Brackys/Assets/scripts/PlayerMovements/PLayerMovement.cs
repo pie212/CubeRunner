@@ -21,7 +21,7 @@ public class PLayerMovement : MonoBehaviour
     public GameManager Gamemanager; // Gamemanger
     public Vector3 retainedSpeed; // variable to maintain speed after pause
     public float gravity = 0f;      // gravity operater 0 = gravity is normal, 1 is that gravity is reversed, changed in Gravityrestore.cs and Gravityreverse.cs
-    private bool jump = true;  
+    public bool jump = true;  
     public Animator animation;
     private Vector3 jumpStartPos;
     private Vector3 jumpHeightPos;
@@ -128,7 +128,6 @@ public class PLayerMovement : MonoBehaviour
         rb.AddForce (sideways.x * sidewaysForce * Time.deltaTime, 0,0);
         TorqueAm = pitch.ReadValue<Vector2>();
         YawAm = yaw.ReadValue<Vector2>();
-        Debug.Log(YawAm);
         rb.AddTorque(TorqueAm.y * TorqueAmount * Time.deltaTime,        1000 * YawAm.x * Time.deltaTime,          TorqueAm.x * -TorqueAmount * Time.deltaTime);
         
 
@@ -147,10 +146,8 @@ public class PLayerMovement : MonoBehaviour
             jumpCON.Disable(); //menu is open
             Jumping = false;
             retainedSpeed = rb.velocity;
-            Debug.Log(retainedSpeed);
             Pause = !Pause;
             rb.constraints = RigidbodyConstraints.FreezeAll;
-            Debug.Log(retainedSpeed);
             Gamemanager.PauseGame();
             
             
@@ -243,7 +240,7 @@ public class PLayerMovement : MonoBehaviour
     
     void Update()
     {
-        Debug.Log(move.ReadValue<Vector2>());    
+         
         if (JPOWER == true)
         {
             JPOWER = false;
@@ -278,7 +275,7 @@ public class PLayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Ground" )
         {
             jump = true;
-            Debug.Log(jump);
+            Debug.Log("AbleTO");
         }
         
        
@@ -289,7 +286,7 @@ public class PLayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Ground" )
         {
             jump = false;
-            Debug.Log(jump);
+            Debug.Log("NotAbleTo");
         }
        
 

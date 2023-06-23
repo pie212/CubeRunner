@@ -24,6 +24,7 @@ public class Infinteplacer : MonoBehaviour
         if (other.tag == "Player")
         {
           Instantiate(ground, new Vector3(x,y,z), Quaternion.Euler(0,0,0));
+
         }
 
     }

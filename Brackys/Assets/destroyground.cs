@@ -9,7 +9,18 @@ public class destroyground : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+          FindObjectOfType<PLayerMovement>().jump = true;
           Destroy(ground);
+        
+        } 
+
+    }
+    void OnTriggerExit(Collider other)   
+    {
+        if (other.tag == "Player")
+        {
+          FindObjectOfType<PLayerMovement>().jump = true;
+          
         
         }
 
