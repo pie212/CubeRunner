@@ -7,7 +7,6 @@ public class Infinteplacer : MonoBehaviour
     public GameObject groundUP;
     public GameObject groundUPSIDEDOWN;
     public GameObject groundDown;
-    public int type;
     private float x;
     private float y;
     private float z;
@@ -27,7 +26,7 @@ public class Infinteplacer : MonoBehaviour
     public void placeit()   
     {
             z = ground.transform.position.z + (220 * time);
-            time += 1;  
+             
             
             if (FindObjectOfType<GameManager>().Type == 1){
             chooser = Random.Range(1,3);
@@ -73,7 +72,8 @@ public class Infinteplacer : MonoBehaviour
             FindObjectOfType<GameManager>().Type = 1;
             
             }
-
+            FindObjectOfType<Infinteplacerob>().waiter();
+            
 
 
 

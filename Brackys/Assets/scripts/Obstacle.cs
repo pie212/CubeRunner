@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class Obstacle : MonoBehaviour
@@ -12,7 +11,15 @@ public class Obstacle : MonoBehaviour
         {
             //rb.AddForce(100,0,0);
             //transform.position = new Vector3(transform.position.x,transform.position.y + 3,transform.position.z);
-            GetComponent<Rigidbody>().AddForce(0, 3000 * Time.deltaTime,0, ForceMode.VelocityChange);
+             if (GetComponent<Transform>().position.y < 8){              // random number 8 ig, sends it the other way (for the cubes up on the upside down levels)
+                GetComponent<Rigidbody>().AddForce(0, 3000 * Time.deltaTime,0, ForceMode.VelocityChange);
+            }
+            
+
+            if (GetComponent<Transform>().position.y > 8){              // random number 8 ig, sends it the other way (for the cubes up on the upside down levels)
+                GetComponent<Rigidbody>().useGravity = true;
+                GetComponent<Rigidbody>().AddForce(0, -7000 * Time.deltaTime,0, ForceMode.VelocityChange);
+            }
            
         }
         

@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TestLEVEL/Level 8.unity
     guid: b9c9b49dbc9060a4f8f6c200c357ed36
   - enabled: 1
+    path: Assets/Scenes/Endless test/Level Endless.unity
+    guid: 016476a10e134214d84eceb9268b382a
+  - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 84230425dba1b2745af28cca81fa58f5
   m_configObjects: {}
