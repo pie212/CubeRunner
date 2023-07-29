@@ -27,7 +27,7 @@ public class PLayerMovement : MonoBehaviour
     private Vector3 jumpHeightPos;
     private bool JumpyYesOrNo = false;      // bool created to allow the jump checking stuff to happen yk the one that checks the player position differential from the hight position after jumping
     public Vector3 constantVelocity = new Vector3(0,0,30);
-    [HideInInspector]
+    //[HideInInspector]
     public Collider KaboomRadius;
     public bool Jumping = false;
     public int MoneyAmount = 1;
@@ -107,7 +107,7 @@ public class PLayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         Gamemanager = FindObjectOfType<GameManager>();
-        KaboomRadius = GetComponent<Collider>();
+        //KaboomRadius = GetComponent<Collider>();
         //rb.useGravity = false; Could be for a reverse?? might have to put in anoterh script 
         rb.velocity = new Vector3(0,0,0);
         KaboomRadius.enabled = false;   
@@ -155,7 +155,7 @@ public class PLayerMovement : MonoBehaviour
         
         if (gravity == 1){
             Debug.Log("DA HELL");
-            rb.AddForce(-1*Physics.gravity);
+            rb.AddForce(-2*Physics.gravity);
         }
         if (rb.position.y < -3)
         {
@@ -176,7 +176,7 @@ public class PLayerMovement : MonoBehaviour
                 jumpStartPos = transform.position;
                 //jump = false;         IF IT DOESNT WORK ITS VIKTOR'S FAULT!!!!
                 if (gravity == 0){
-                    rb.AddForce(0,1200*Time.deltaTime,0, ForceMode.VelocityChange);
+                    rb.AddForce(0,800*Time.deltaTime,0, ForceMode.VelocityChange);
                     
                 }
                 if (gravity == 1){
@@ -207,25 +207,7 @@ public class PLayerMovement : MonoBehaviour
            
             
         }
-         if (JumpyYesOrNo == true)
-            {
-                if (transform.position.y >= jumpStartPos.y + 2)
-                {
-                    //retainedSpeed = rb.velocity;
-                    if (gravity == 0)
-                    {
-                    //rb.velocity = new Vector3(retainedSpeed.x,-1000*Time.deltaTime,retainedSpeed.z);
-                    rb.AddForce(0,-1500*Time.deltaTime,0, ForceMode.VelocityChange);
-                    }   
-                    if (gravity == 1)
-                    {
-                    //rb.velocity = new Vector3(retainedSpeed.x,1000*Time.deltaTime,retainedSpeed.z);
-                    rb.AddForce(0,1500*Time.deltaTime,0, ForceMode.VelocityChange);
-                    }
-                    
-                    JumpyYesOrNo = false;
-                }
-            }
+    
             if (Gamemanager.PowerUpType == 0){
                 Invoke("ResetPowerUp", 0.1F);
             }

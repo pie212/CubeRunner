@@ -12,6 +12,7 @@ TagManager:
   - SCRIPTINCLUDED
   - OBEnableGrav
   - Coin
+  - MenuMusic
   layers:
   - Default
   - TransparentFX
