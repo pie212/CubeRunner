@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public float restartDelay = 1f;
     public GameObject completeLevelUI;
     public GameObject pauseLevelUI;
+    public GameObject DeathUI;
     public static float level = 0;
     private SuperHard SuperHard;
     public static int money = 0;
@@ -104,8 +105,8 @@ public class GameManager : MonoBehaviour
             gameHasEnded = true;
             Debug.Log("Game Over!!");
             //FindObjectOfType<Infinteplacerob>().ResetCord();
-            Invoke("Restart", restartDelay);
-           
+            //Invoke("Restart", restartDelay);
+            DeathUI.SetActive(true);
         }
 
     }

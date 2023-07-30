@@ -13,6 +13,7 @@ TagManager:
   - OBEnableGrav
   - Coin
   - MenuMusic
+  - gameMusic
   layers:
   - Default
   - TransparentFX

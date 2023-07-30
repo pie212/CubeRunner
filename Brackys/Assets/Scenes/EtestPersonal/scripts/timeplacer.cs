@@ -9,7 +9,7 @@ public class timeplacer : MonoBehaviour
     public bool RandomEN;             // bool that says if we wanna use random or not
     public float x;                 // position on the x if we dont use the random
     public float y;
-    public float z;
+    public float z = 70F;
     public float Rotx;
     public float Roty;
     public float Rotz;
