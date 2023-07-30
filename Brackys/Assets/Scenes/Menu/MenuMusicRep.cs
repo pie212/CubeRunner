@@ -4,7 +4,7 @@ public class MenuMusicRep : MonoBehaviour
 {
     public GameObject audioManagerPrefab;
 
-    private void Awake()
+    private void Update()
     {
         // Find the AudioManager in the scene.
         AudioSource audioManager = FindObjectOfType<AudioSource>();

@@ -6,7 +6,7 @@ public class destroyground : MonoBehaviour
 {
     public GameObject ground;
     public bool reverse;
-     void OnTriggerEnter(Collider other)   
+    void OnTriggerEnter(Collider other)   
     {
         if (other.tag == "Player")
         {

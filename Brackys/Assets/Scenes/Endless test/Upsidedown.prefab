@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 4735840552355909422}
   - component: {fileID: 4735840552355909409}
   - component: {fileID: 4735840552355909408}
+  - component: {fileID: 1395433854024083246}
   m_Layer: 8
   m_Name: Upsidedown
   m_TagString: Ground
@@ -209,6 +210,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1395433854024083246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4735840552355909411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a014005f738e584b91aab293e790a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetFogColors:
+  - {r: 0.3137255, g: 0.4509804, b: 0.67058825, a: 0}
+  - {r: 0.6509804, g: 0.41568628, b: 0.41568628, a: 0}
+  - {r: 0.16862746, g: 0.6039216, b: 0.21568628, a: 0}
+  fadeDuration: 1.5
+  colorChooser: 2
 --- !u!1 &4735840552475327652
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,3 +339,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ground: {fileID: 4735840552355909411}
+  reverse: 0

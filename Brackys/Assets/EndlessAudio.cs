@@ -7,23 +7,30 @@ public class EndlessAudio : MonoBehaviour
 
     private void Update()
     {
-        Scene currentScene = SceneManager.GetActiveScene();
-        string sceneName = currentScene.name;
+        //Scene currentScene = SceneManager.GetActiveScene();
+        //string sceneName = currentScene.name;
         
 
         
 
-        if (sceneName == "Level Endless")
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
+        //if (sceneName == "Level Endless")
+        //{
+            //DontDestroyOnLoad(gameObject);
+        //}
+        //else
+        //{
             //Debug.Log("What the shit");
-            Destroy(gameObject);
+         //   Destroy(gameObject);
+       // }
+        
+        if (FindObjectOfType<GameManager>().gameHasEnded == true){
+            GetComponent<AudioSource>().Pause();
         }
-        
-        
+        if (FindObjectOfType<GameManager>().gameIsPaused == true){
+            GetComponent<AudioSource>().Pause();
+        }
+       
+      
     }
    
 }

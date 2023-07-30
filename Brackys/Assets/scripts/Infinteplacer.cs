@@ -9,11 +9,20 @@ public class Infinteplacer : MonoBehaviour
     public GameObject groundUPSIDEDOWN;
     public GameObject groundDown;
     public GameObject fog;
-    public GameObject light1;
+    private GameObject Light;
+    public GameObject Blue;
+    public GameObject Red;
+    public GameObject Green;
+    
+    //fog
+    private float minFOG = 0;
+    private float maxFOG = 1;
+    private float t;
     
     private float x;
     private float y;
     private float z;
+    public int colorChooser;
     public int chooser;
     public int time = 1;
     // Start is called before the first frame update
@@ -29,8 +38,41 @@ public class Infinteplacer : MonoBehaviour
 
     public void placeit()   
     {
+         RenderSettings.fogDensity = Mathf.Lerp(minFOG, maxFOG, t);
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
             z = ground.transform.position.z + (220 * time);
-             
+            colorChooser = Random.Range(1,4);
+            Debug.Log(colorChooser);
+            if (colorChooser == 1)
+            {
+                Light = Blue;
+                
+            }
+            if (colorChooser == 2)
+            {
+                Light = Red;
+                
+            }
+            if (colorChooser == 3)
+            {
+                Light = Green;
+                
+            }
+            
             Instantiate(fog, new Vector3(x,y,z), Quaternion.Euler(0,0,0));
             
             
@@ -44,7 +86,7 @@ public class Infinteplacer : MonoBehaviour
                 
             for(int i=0; i<25  ; i++)
             {
-            GameObject newObject = Instantiate(light1, new Vector3(Random.Range(-12,12),Random.Range(5,15),Random.Range(220*time, 220*(time+1))), Quaternion.Euler(Random.Range(0,91),Random.Range(0,91),Random.Range(0,91)));
+            GameObject newObject = Instantiate(Light, new Vector3(Random.Range(-12,12),Random.Range(5,15),Random.Range(220*time, 220*(time+1))), Quaternion.Euler(Random.Range(0,91),Random.Range(0,91),Random.Range(0,91)));
             newObject.transform.localScale = new Vector3(Random.Range(1,3), Random.Range(1,3),Random.Range(1,3));
             }    
                                                                             // default value when starting
@@ -64,7 +106,7 @@ public class Infinteplacer : MonoBehaviour
             {
             for(int i=0; i<25  ; i++)
             {
-            GameObject newObject = Instantiate(light1, new Vector3(Random.Range(-12,12),Random.Range(-10,0),Random.Range(220*time, 220*(time+1))), Quaternion.Euler(Random.Range(0,91),Random.Range(0,91),Random.Range(0,91)));
+            GameObject newObject = Instantiate(Light, new Vector3(Random.Range(-12,12),Random.Range(-10,0),Random.Range(220*time, 220*(time+1))), Quaternion.Euler(Random.Range(0,91),Random.Range(0,91),Random.Range(0,91)));
             newObject.transform.localScale = new Vector3(Random.Range(1,3), Random.Range(1,3),Random.Range(1,3));
             }
 
@@ -80,7 +122,7 @@ public class Infinteplacer : MonoBehaviour
             {
             for(int i=0; i<25  ; i++)
             {
-            GameObject newObject = Instantiate(light1, new Vector3(Random.Range(-12,12),Random.Range(-10,0),Random.Range(220*time, 220*(time+1))), Quaternion.Euler(Random.Range(0,91),Random.Range(0,91),Random.Range(0,91)));
+            GameObject newObject = Instantiate(Light, new Vector3(Random.Range(-12,12),Random.Range(-10,0),Random.Range(220*time, 220*(time+1))), Quaternion.Euler(Random.Range(0,91),Random.Range(0,91),Random.Range(0,91)));
             newObject.transform.localScale = new Vector3(Random.Range(1,3), Random.Range(1,3),Random.Range(1,3));
             }
 
@@ -104,7 +146,7 @@ public class Infinteplacer : MonoBehaviour
             {
             for(int i=0; i<25  ; i++)
             {
-            GameObject newObject = Instantiate(light1, new Vector3(Random.Range(-12,12),Random.Range(5,15),Random.Range(220*time, 220*(time+1))), Quaternion.Euler(Random.Range(0,91),Random.Range(0,91),Random.Range(0,91)));
+            GameObject newObject = Instantiate(Light, new Vector3(Random.Range(-12,12),Random.Range(5,15),Random.Range(220*time, 220*(time+1))), Quaternion.Euler(Random.Range(0,91),Random.Range(0,91),Random.Range(0,91)));
             newObject.transform.localScale = new Vector3(Random.Range(1,3), Random.Range(1,3),Random.Range(1,3));
             }
             Instantiate(ground, new Vector3(x,y,z), Quaternion.Euler(0,0,0));
@@ -119,4 +161,19 @@ public class Infinteplacer : MonoBehaviour
 
             
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }

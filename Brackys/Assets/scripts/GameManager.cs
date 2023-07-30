@@ -9,7 +9,10 @@ using UnityEngine.EventSystems;
 public class GameManager : MonoBehaviour
     
 {
-    bool gameHasEnded = false;
+    [HideInInspector]
+    public bool gameHasEnded = false;
+    [HideInInspector]
+    public bool gameIsPaused = false;
     public float restartDelay = 1f;
     public GameObject completeLevelUI;
     public GameObject pauseLevelUI;
@@ -21,6 +24,7 @@ public class GameManager : MonoBehaviour
     public int PowerUpType = 0;
     public PLayerMovement player;
     public GameObject itemsButton;         //button for controls       the first one to be selected for the pause ui 
+    public GameObject itemsButtonDeath;
     EventSystem m_EventSystem;              // current event system
 
 
@@ -69,6 +73,7 @@ public class GameManager : MonoBehaviour
     
     public void PauseGame(){
         pauseLevelUI.SetActive(true);
+        gameIsPaused = true;
     }
         
     
@@ -80,7 +85,7 @@ public class GameManager : MonoBehaviour
         player.menu.Disable();
         player.pitch.Disable();
         player.yaw.Disable();
-    m_EventSystem.SetSelectedGameObject(itemsButton);  // sets the new FirstSelected to the menu
+        m_EventSystem.SetSelectedGameObject(itemsButton);  // sets the new FirstSelected to the menu
     //Debug.Log(SceneManager.GetActiveScene().buildIndex);
     completeLevelUI.SetActive(true);
     level = SceneManager.GetActiveScene().buildIndex;
@@ -106,6 +111,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Game Over!!");
             //FindObjectOfType<Infinteplacerob>().ResetCord();
             //Invoke("Restart", restartDelay);
+            m_EventSystem.SetSelectedGameObject(itemsButtonDeath);
             DeathUI.SetActive(true);
         }
 

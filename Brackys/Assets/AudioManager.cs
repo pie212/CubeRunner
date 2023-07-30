@@ -7,12 +7,13 @@ public class AudioManager : MonoBehaviour
     public GameObject audio;
     public int numberOfAudioSources;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         numberOfAudioSources = CountAudioSourcesInScene();
         if (numberOfAudioSources == 0){
             Instantiate(audio);
         }
+        FindObjectOfType<AudioSource>().Play();
     
     }
 

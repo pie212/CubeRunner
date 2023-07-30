@@ -15,6 +15,8 @@ public class ContinueLevel : MonoBehaviour
     public void LevelContinue(){
         
         Gamemanager.pauseLevelUI.SetActive(false);
+        Gamemanager.gameIsPaused = false;
+        FindObjectOfType<AudioSource>().Play();
         Debug.Log(player.retainedSpeed);
         player.rb.constraints = RigidbodyConstraints.None;
         player.rb.velocity = player.retainedSpeed;

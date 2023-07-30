@@ -8,6 +8,7 @@ public class LevelSelect : MonoBehaviour
 {
     public Text buttonText;
     public int levelName;
+    public GameObject buy;
     
     // Start is called before the first frame update
     void Start(){
@@ -18,11 +19,12 @@ public class LevelSelect : MonoBehaviour
         Debug.Log("EEE");
         foreach( var x in FindObjectOfType<LevelAllowed>().AllowedLevels) {
         Debug.Log( x.ToString());
-        if (FindObjectOfType<LevelAllowed>().AllowedLevels.Contains(levelName))
-        SceneManager.LoadScene("Level "+ levelName.ToString());      
-            
-           
+        if (FindObjectOfType<LevelAllowed>().AllowedLevels.Contains(levelName)){
+        SceneManager.LoadScene("Level "+ levelName.ToString());                
 
+        }
+        else{
+            buy.SetActive(true);
         }
         
         
@@ -30,4 +32,5 @@ public class LevelSelect : MonoBehaviour
         
     }
     
+}
 }
