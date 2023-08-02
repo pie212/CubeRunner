@@ -15,6 +15,7 @@ public class EndTrigger : MonoBehaviour
         movement = FindObjectOfType<PLayerMovement>();
         GameManager = FindObjectOfType<GameManager>();
         levele = FindObjectOfType<LevelAllowed>();
+
     }
     
     
@@ -23,6 +24,7 @@ public class EndTrigger : MonoBehaviour
         if (other.tag == "Player")
         {
         movement.rb.constraints = RigidbodyConstraints.FreezePosition;
+       
         FindObjectOfType<LevelAllowed>().AddedLevel = NextLevel;
         FindObjectOfType<LevelAllowed>().AddLevel();
         GameManager.CompleteLevel();    

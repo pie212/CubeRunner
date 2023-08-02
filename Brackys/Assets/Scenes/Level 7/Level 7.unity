@@ -15298,6 +15298,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GamePauseNew
       objectReference: {fileID: 0}
+    - target: {fileID: 4946635287747328192, guid: 1bce28460fad5ce4585bac000ca7e5ad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4946635287747328220, guid: 1bce28460fad5ce4585bac000ca7e5ad, type: 3}
       propertyPath: m_Pivot.x
       value: 0

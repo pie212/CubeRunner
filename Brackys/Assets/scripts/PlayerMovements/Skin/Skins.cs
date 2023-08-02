@@ -15,7 +15,7 @@ public class Skins : MonoBehaviour
 
 
 
-    void Update(){
+    void UIupdate(){
         if (FindObjectOfType<GameManager>().PLskin == SKIN){
              costtext.text = "Equipped";
         }
@@ -35,6 +35,7 @@ public class Skins : MonoBehaviour
     // Start is called before the first frame update
     void Start(){
         costtext = GetComponentInChildren<Text>();
+        UIupdate();
         if (FindObjectOfType<GameManager>().PLskin == SKIN){
              costtext.text = "Equipped";
         }
@@ -58,8 +59,11 @@ public class Skins : MonoBehaviour
         if (FindObjectOfType<SkinList>().SkinsListPUB.Contains(SKIN) == true)
         {
             costtext.text = "Equipped";
+            UIupdate();
             FindObjectOfType<GameManager>().PLskin = SKIN;
             FindObjectOfType<GameManager>().StartSkin();
+            
+            EventManager.OnUpdateMoneyUI();
     
         }
         if (FindObjectOfType<SkinList>().SkinsListPUB.Contains(SKIN) == false)
@@ -69,6 +73,8 @@ public class Skins : MonoBehaviour
             FindObjectOfType<GameManager>().MoneyButNotStatic -= Cost;
             FindObjectOfType<GameManager>().MoneyUpdated();
             costtext.text = "bought";
+            UIupdate();
+            EventManager.OnUpdateMoneyUI();
             FindObjectOfType<SkinList>().TypeAdd = SKIN;
             FindObjectOfType<SkinList>().AddToSkin();
             }

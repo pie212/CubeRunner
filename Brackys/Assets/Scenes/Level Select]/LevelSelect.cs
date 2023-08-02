@@ -9,9 +9,19 @@ public class LevelSelect : MonoBehaviour
     public Text buttonText;
     public int levelName;
     public GameObject buy;
+    public int BuyCost;
+    public buylevel buyscript;
+    public GameObject lockscreen;
+
+    // UI UPDATE 
     
     // Start is called before the first frame update
-    void Start(){
+    public void Start(){
+        if (FindObjectOfType<LevelAllowed>().AllowedLevels.Contains(levelName)){ 
+            Debug.Log("huh?");
+        lockscreen.SetActive(false);
+        }
+        
         //buttonText.text = levelName;          I DONT KNOW WHAT THE FUCK I DID, WHY IS THIS HERE. ?
     }
     public void OnClick (){
@@ -25,6 +35,8 @@ public class LevelSelect : MonoBehaviour
         }
         else{
             buy.SetActive(true);
+            buyscript.LevelToBuy = levelName;
+            buyscript.LevelCost  = BuyCost;
         }
         
         
@@ -33,4 +45,15 @@ public class LevelSelect : MonoBehaviour
     }
     
 }
+    private void OnEnable(){
+        EventManager.UpdateUI += EventManagerOnUpdateUI;
+    }
+    private void EventManagerOnUpdateUI(){
+      if (FindObjectOfType<LevelAllowed>().AllowedLevels.Contains(levelName)){ 
+      lockscreen.SetActive(false);
+      }
+    }
+    private void OnDisable(){
+        EventManager.UpdateUI -= EventManagerOnUpdateUI;
+    }
 }

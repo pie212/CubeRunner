@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class LevelAllowed : MonoBehaviour
 {
@@ -28,11 +29,21 @@ public class LevelAllowed : MonoBehaviour
     {
         //if (AllowedLevelsStat.Contains(AddedLevel) == false)
         //{
+        bool containsAllNumbers = Enumerable.Range(1, AddedLevel - 1).All(AllowedLevelsStat.Contains);
+
+        if (containsAllNumbers){
+            Debug.Log("Ighty this works good job");
             AllowedLevelsStat.Add(AddedLevel);
             AllowedLevels = AllowedLevelsStat;
             Debug.Log("cheese");
             foreach( var x in AllowedLevels) {
             Debug.Log( x.ToString());}
+        }
+            
         //}
+    }
+    public void BuyLevel(){
+        AllowedLevelsStat.Add(AddedLevel);
+        AllowedLevels = AllowedLevelsStat;
     }
 }
