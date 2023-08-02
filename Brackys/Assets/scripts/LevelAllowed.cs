@@ -10,6 +10,7 @@ public class LevelAllowed : MonoBehaviour
     public int AddedLevel;
     // Start is called before the first frame update
     void Start(){
+        
         AllowedLevels = AllowedLevelsStat;
         if (AllowedLevelsStat.Contains(1) == false)
         {

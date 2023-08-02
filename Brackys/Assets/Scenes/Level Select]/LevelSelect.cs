@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -17,6 +16,7 @@ public class LevelSelect : MonoBehaviour
     
     // Start is called before the first frame update
     public void Start(){
+        Debug.Log("Responese");
         if (FindObjectOfType<LevelAllowed>().AllowedLevels.Contains(levelName)){ 
             Debug.Log("huh?");
         lockscreen.SetActive(false);
