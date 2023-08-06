@@ -107,6 +107,7 @@ public class GameManager : MonoBehaviour
     {
         if (gameHasEnded == false)
         {
+            Achievementmanager.Deaths +=1;                                               // adds 1 for the achievement manager in deaths
             gameHasEnded = true;
             Debug.Log("Game Over!!");
             //FindObjectOfType<Infinteplacerob>().ResetCord();

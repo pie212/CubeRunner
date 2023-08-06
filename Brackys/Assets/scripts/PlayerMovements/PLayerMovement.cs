@@ -31,6 +31,8 @@ public class PLayerMovement : MonoBehaviour
     public Collider KaboomRadius;
     public bool Jumping = false;
     public int MoneyAmount = 1;
+    public float VoidHeight = -3F;
+    public bool DeathVoid = false;             //so the death function only runs once
     
 
 
@@ -125,7 +127,17 @@ public class PLayerMovement : MonoBehaviour
 
         //Debug.Log(move.ReadValue<Vector2>());   
         sideways = move.ReadValue<Vector2>();
-        rb.AddForce (sideways.x * sidewaysForce * Time.deltaTime, 0,0);
+        if (Application.isMobilePlatform == true){
+            rb.AddForce (sideways.x * sidewaysForce * Time.deltaTime, 0,0);
+        }
+        else{
+            rb.AddForce (sideways.x * 8000F * Time.deltaTime, 0,0);
+        }
+        
+
+
+
+
         TorqueAm = pitch.ReadValue<Vector2>();
         YawAm = yaw.ReadValue<Vector2>();
         rb.AddTorque(TorqueAm.y * TorqueAmount * Time.deltaTime,        1000 * YawAm.x * Time.deltaTime,          TorqueAm.x * -TorqueAmount * Time.deltaTime);
@@ -157,10 +169,15 @@ public class PLayerMovement : MonoBehaviour
             Debug.Log("DA HELL");
             rb.AddForce(-2*Physics.gravity);
         }
-        if (rb.position.y < -3)
+        if (rb.position.y < VoidHeight)
         {
+            if (DeathVoid == false){
+                Achievementmanager.DeathByVoid +=1;         // adds 1 for the achievement manager in deaths by void
+                Gamemanager.EndGame();
+            }
+            DeathVoid = true;                                                
             //FindObjectOfType<GameManager>().EndGame();
-            Gamemanager.EndGame();
+            
         
         
         }
@@ -174,6 +191,7 @@ public class PLayerMovement : MonoBehaviour
                 Jumping = false;
                 JumpyYesOrNo = true;
                 jumpStartPos = transform.position;
+                Achievementmanager.Jumps +=1;                                               // adds 1 for the achievement manager in jump
                 //jump = false;         IF IT DOESNT WORK ITS VIKTOR'S FAULT!!!!
                 if (gravity == 0){
                     rb.AddForce(0,800*Time.deltaTime,0, ForceMode.VelocityChange);

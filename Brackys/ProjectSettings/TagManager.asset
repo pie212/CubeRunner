@@ -14,6 +14,8 @@ TagManager:
   - Coin
   - MenuMusic
   - gameMusic
+  - Spike
+  - CubeOBS
   layers:
   - Default
   - TransparentFX
