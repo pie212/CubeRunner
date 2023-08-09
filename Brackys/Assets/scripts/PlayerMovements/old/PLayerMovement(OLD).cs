@@ -157,8 +157,8 @@ public class PLayerMovementOLD : MonoBehaviour
             }
             if (Gamemanager.PowerUpType == 3)
             {
-            Gamemanager.MoneyButNotStatic += MoneyAmount;
-            Gamemanager.MoneyUpdated();
+            ImportantVariables.Money += MoneyAmount;
+            
             Gamemanager.PowerUpType = 0;
             }
             

@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class LevelSelect : MonoBehaviour
 {
@@ -11,11 +12,14 @@ public class LevelSelect : MonoBehaviour
     public int BuyCost;
     public buylevel buyscript;
     public GameObject lockscreen;
-
+    
+    public GameObject BuyScreen;
+    EventSystem m_EventSystem;
     // UI UPDATE 
     
     // Start is called before the first frame update
     public void Start(){
+        m_EventSystem = EventSystem.current;
         Debug.Log("Responese");
         if (FindObjectOfType<LevelAllowed>().AllowedLevels.Contains(levelName)){ 
             Debug.Log("huh?");
@@ -25,6 +29,7 @@ public class LevelSelect : MonoBehaviour
         //buttonText.text = levelName;          I DONT KNOW WHAT THE FUCK I DID, WHY IS THIS HERE. ?
     }
     public void OnClick (){
+        
         //Debug.Log(levelName);
         Debug.Log("EEE");
         foreach( var x in FindObjectOfType<LevelAllowed>().AllowedLevels) {
@@ -34,7 +39,9 @@ public class LevelSelect : MonoBehaviour
 
         }
         else{
+            
             buy.SetActive(true);
+            m_EventSystem.SetSelectedGameObject(BuyScreen);
             buyscript.LevelToBuy = levelName;
             buyscript.LevelCost  = BuyCost;
         }
@@ -49,7 +56,7 @@ public class LevelSelect : MonoBehaviour
         EventManager.UpdateUI += EventManagerOnUpdateUI;
     }
     private void EventManagerOnUpdateUI(){
-      if (FindObjectOfType<LevelAllowed>().AllowedLevels.Contains(levelName)){ 
+      if (FindObjectOfType<LevelAllowed>().AllowedLevels.Contains(levelName)){            //lock screen is the lock icon
       lockscreen.SetActive(false);
       }
     }

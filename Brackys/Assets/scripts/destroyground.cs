@@ -21,7 +21,7 @@ public class destroyground : MonoBehaviour
         if (other.tag == "Player")
         {
           if (reverse == false){
-            FindObjectOfType<PLayerMovement>().jump = true;
+            FindObjectOfType<PLayerMovement>().jump = false;
             Destroy(ground);
           }
           if (reverse == true){

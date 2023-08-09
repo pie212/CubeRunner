@@ -15,14 +15,14 @@ public class MoneyShowAmountText : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-       Money.text = FindObjectOfType<GameManager>().MoneyButNotStatic.ToString("0"); 
+       Money.text = ImportantVariables.Money.ToString("0"); 
     }
     private void OnEnable(){
         EventManager.UpdateMoneyUI += EventManagerOnUpdateMoneyUI;
         
     }
     private void EventManagerOnUpdateMoneyUI(){
-        Money.text = FindObjectOfType<GameManager>().MoneyButNotStatic.ToString("0");
+        Money.text = ImportantVariables.Money.ToString("0");
       
       
     }

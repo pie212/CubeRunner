@@ -19,8 +19,6 @@ public class GameManager : MonoBehaviour
     public GameObject DeathUI;
     public static float level = 0;
     private SuperHard SuperHard;
-    public static int money = 0;
-    public int MoneyButNotStatic;
     public int PowerUpType = 0;
     public PLayerMovement player;
     public GameObject itemsButton;         //button for controls       the first one to be selected for the pause ui 
@@ -28,45 +26,24 @@ public class GameManager : MonoBehaviour
     EventSystem m_EventSystem;              // current event system
 
 
-    /// SKINS
-    public int PLskin;
-    public static int STATSkin;
+    
     
 
     // PERKS
-    public static int PerkMoney = 1;
-    public int PerkMoneyCarrier;
+    
 
 
     // Generation for endless levels
 
     public int Type = 1;
 
-    public void perkMoney(){
-        PerkMoney += 1;
-        PerkMoneyCarrier = PerkMoney;
-        FindObjectOfType<PerkText>().PerkMoney();
-        Debug.Log(PerkMoney);
-        Debug.Log(PerkMoneyCarrier);
-
-
-    
-
-    }
     
     
-    public void StartSkin(){
-        STATSkin = PLskin;
-        
-    }
-    void Awake(){
-        PLskin = STATSkin;             // Sets the  carrier fo the static skin to the static skin which can be carried over into the other variable or script
-        PerkMoneyCarrier = PerkMoney;    // Sets the carrier for the static PerkMoney variabel to the static one so the value of the static one can be carried into another script
-
-    }
+    
+    
+    
     void Start(){
         Debug.Log("ee");
-        MoneyButNotStatic = money;
         m_EventSystem = EventSystem.current;          // sets the EventSystems
         
     }
@@ -96,11 +73,7 @@ public class GameManager : MonoBehaviour
     }
     
     
-    public void MoneyUpdated(){
-        money = MoneyButNotStatic;
-
-
-    }
+    
     
     
     public void EndGame()

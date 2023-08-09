@@ -8,4 +8,9 @@ public static class EventManager
 
     public static event UnityAction UpdateMoneyUI;
     public static void OnUpdateMoneyUI() => UpdateMoneyUI?.Invoke();
+
+
+
+    public static event UnityAction UpdateShopUI;
+    public static void OnUpdateShopUI() => UpdateShopUI?.Invoke();
 }

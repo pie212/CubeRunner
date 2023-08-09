@@ -53,7 +53,7 @@ public class PowerUp : MonoBehaviour
             {
                 Debug.Log("Some money!!");
                 FindObjectOfType<GameManager>().PowerUpType = 3;
-                Debug.Log(FindObjectOfType<GameManager>().MoneyButNotStatic);
+                
                 
             }
 

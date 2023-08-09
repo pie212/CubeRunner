@@ -15,6 +15,8 @@ using UnityEngine.InputSystem;
 public class PLayerMovement : MonoBehaviour
 {
     [HideInInspector]
+    public bool isjumping = false;
+    [HideInInspector]
     public Rigidbody rb;
     bool Pause = false;         // pause menu
     [HideInInspector]
@@ -30,7 +32,8 @@ public class PLayerMovement : MonoBehaviour
     //[HideInInspector]
     public Collider KaboomRadius;
     public bool Jumping = false;
-    public int MoneyAmount = 1;
+    
+    
     public float VoidHeight = -3F;
     public bool DeathVoid = false;             //so the death function only runs once
     
@@ -183,16 +186,18 @@ public class PLayerMovement : MonoBehaviour
         }
         if (jump == true)
         {
-            if (JMENU == false)
+            if (JMENU == false)          // if pause is not on
             {
                 
-            if (Jumping == true)
+            if (Jumping == true && isjumping == false)        
             {
+                isjumping = true;
                 Jumping = false;
-                JumpyYesOrNo = true;
+                //JumpyYesOrNo = true;
                 jumpStartPos = transform.position;
                 Achievementmanager.Jumps +=1;                                               // adds 1 for the achievement manager in jump
                 //jump = false;         IF IT DOESNT WORK ITS VIKTOR'S FAULT!!!!
+
                 if (gravity == 0){
                     rb.AddForce(0,800*Time.deltaTime,0, ForceMode.VelocityChange);
                     
@@ -252,8 +257,7 @@ public class PLayerMovement : MonoBehaviour
             }
             if (Gamemanager.PowerUpType == 3)
             {
-            Gamemanager.MoneyButNotStatic += (Random.Range(1,3)*Gamemanager.PerkMoneyCarrier);                // chooses how much money u get when using money pwoer up 
-            Gamemanager.MoneyUpdated();
+            ImportantVariables.Money += 1;                // chooses how much money u get when using money pwoer up 
             Gamemanager.PowerUpType = 0;
             }
             
@@ -275,6 +279,7 @@ public class PLayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Ground" )
         {
             jump = true;
+            isjumping = false;
             Debug.Log("AbleTO");
         }
         

@@ -26,19 +26,19 @@ public class SkinsPlayer : MonoBehaviour
    // yourMesh.sharedMesh = Resources.Load<Mesh>("Test");
         
         //meshrend.material = mat;
-        if (gameManager.PLskin == 1){
+        if (ImportantVariables.skin == 1){
             player.material = Skin1;
         }
-        if (gameManager.PLskin == 2){
+        if (ImportantVariables.skin == 2){
             player.material = Skin2;
         }
-        if (gameManager.PLskin == 3){
+        if (ImportantVariables.skin == 3){
             player.material = Skin3;
         }
-        if (gameManager.PLskin == 4){
+        if (ImportantVariables.skin == 4){
             player.material = Skin4;
         }
-        if (gameManager.PLskin == 5){
+        if (ImportantVariables.skin == 5){
             player.material = Skin5;
         }
 

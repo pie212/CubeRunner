@@ -10,17 +10,11 @@ public class SkinList : MonoBehaviour
 
 
     // Update is called once per frame
-    void Start(){
-        SkinsListPUB = SkinsList;
-    }
-    public void AddToSkin(){
+        public void AddToSkin(){
         
-        SkinsList.Add(TypeAdd);
-        SkinsListPUB = SkinsList;
-        foreach( var x in SkinsList) {
-        Debug.Log( x.ToString());
-
-        }
+        ImportantVariables.SkinsList.Add(TypeAdd);
+        
+        
         
     }
 }

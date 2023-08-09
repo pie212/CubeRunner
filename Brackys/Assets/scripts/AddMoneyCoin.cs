@@ -9,10 +9,10 @@ public class AddMoneyCoin : MonoBehaviour
         
         if (other.gameObject.tag == "Player")
         {
-            FindObjectOfType<GameManager>().MoneyButNotStatic += (Random.Range(1,3)*FindObjectOfType<GameManager>().PerkMoneyCarrier);          // chooses amount of moeny based on perk level
-            FindObjectOfType<GameManager>().MoneyUpdated(); 
+            ImportantVariables.Money += (Random.Range(1,3));          // chooses amount of moeny based on perk level
+             
             GetComponent<MeshRenderer>().enabled = false;
-            Debug.Log(FindObjectOfType<GameManager>().MoneyButNotStatic);
+           
         }
     }
 }

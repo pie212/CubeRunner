@@ -16,10 +16,10 @@ public class Skins : MonoBehaviour
 
 
     void UIupdate(){
-        if (FindObjectOfType<GameManager>().PLskin == SKIN){
+        if (ImportantVariables.skin == SKIN){
              costtext.text = "Equipped";
         }
-        else if (FindObjectOfType<SkinList>().SkinsListPUB.Contains(SKIN) == true)
+        else if (ImportantVariables.SkinsList.Contains(SKIN) == true)
         {
             costtext.text = "Bought";
             
@@ -56,23 +56,24 @@ public class Skins : MonoBehaviour
     }
     public void skinChange()
         {
-        if (FindObjectOfType<SkinList>().SkinsListPUB.Contains(SKIN) == true)
+        if (ImportantVariables.SkinsList.Contains(SKIN) == true)
         {
             costtext.text = "Equipped";
-            FindObjectOfType<GameManager>().PLskin = SKIN;
-            FindObjectOfType<GameManager>().StartSkin();
+            ImportantVariables.skin = SKIN;
+            EventManager.OnUpdateShopUI();
             
             EventManager.OnUpdateMoneyUI();
     
         }
-        if (FindObjectOfType<SkinList>().SkinsListPUB.Contains(SKIN) == false)
+        if (ImportantVariables.SkinsList.Contains(SKIN) == false)
         {
-            if (FindObjectOfType<GameManager>().MoneyButNotStatic >= Cost)
+            if (ImportantVariables.Money >= Cost)
             {
-            FindObjectOfType<GameManager>().MoneyButNotStatic -= Cost;
-            FindObjectOfType<GameManager>().MoneyUpdated();
+            ImportantVariables.Money -= Cost;
+            
             costtext.text = "bought";
             EventManager.OnUpdateMoneyUI();
+            //EventManager.OnUpdateShopUI();
             FindObjectOfType<SkinList>().TypeAdd = SKIN;
             FindObjectOfType<SkinList>().AddToSkin();
             }
@@ -83,5 +84,22 @@ public class Skins : MonoBehaviour
 
     
     
-}       
+        }      
+
+    private void OnEnable()
+    {
+        EventManager.UpdateShopUI += EventManagerOnUpdateShopUI;
+        
+    }
+    private void EventManagerOnUpdateShopUI()
+    {
+        UIupdate();
+      
+      
+    }
+    private void OnDisable()
+    {
+        EventManager.UpdateShopUI -= EventManagerOnUpdateShopUI;
+
+    }
 }
