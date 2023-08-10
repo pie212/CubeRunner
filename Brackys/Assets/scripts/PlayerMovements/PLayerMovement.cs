@@ -290,8 +290,10 @@ public class PLayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground" )
         {
+            if (isjumping == true){
             jump = false;
             Debug.Log("NotAbleTo");
+            }
         }
        
 
