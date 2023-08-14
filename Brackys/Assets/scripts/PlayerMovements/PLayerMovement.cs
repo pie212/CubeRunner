@@ -57,7 +57,7 @@ public class PLayerMovement : MonoBehaviour
     Vector2 TorqueAm = Vector2.zero;
     Vector2 YawAm = Vector2.zero;
     public float forwardForce = 2000f; // force to set forward
-    public float sidewaysForce = 12500f;  // force added when clicking a or d
+    public float sidewaysForce = 10000f;  // force added when clicking a or d
     public float TorqueAmount = 6000f;
     //float PauseCalled = 0;
     
@@ -131,10 +131,10 @@ public class PLayerMovement : MonoBehaviour
         //Debug.Log(move.ReadValue<Vector2>());   
         sideways = move.ReadValue<Vector2>();
         if (Application.isMobilePlatform == true){
-            rb.AddForce (sideways.x * sidewaysForce * Time.deltaTime, 0,0);
+            rb.AddForce (sideways.x * (sidewaysForce * ImportantVariables.MobileSensitivity) * Time.deltaTime, 0,0);
         }
         else{
-            rb.AddForce (sideways.x * 8000F * Time.deltaTime, 0,0);
+            rb.AddForce (sideways.x * (sidewaysForce * ImportantVariables.MobileSensitivity) * Time.deltaTime, 0,0);
         }
         
 

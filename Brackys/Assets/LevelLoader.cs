@@ -38,6 +38,13 @@ public class LevelLoader : MonoBehaviour
 
     }
 
+    public void LoadSettings(){
+        //SceneManager.LoadScene("Shop"); 
+        levelload = "Settings";
+        StartAn();
+
+    }
+
     public void StartAn(){
         StartCoroutine(LoadLevel());
     }

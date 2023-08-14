@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Stats/Stats.unity
     guid: d0459940c71198448b8c7ea11c86c471
   - enabled: 1
+    path: Assets/Scenes/settings/Settings.unity
+    guid: 0036ab8ba60bc3243a4613860ffa2200
+  - enabled: 1
     path: Assets/Scenes/Level 1/Level 1.unity
     guid: de543154e3dc0d049aef0d8bd6def557
   - enabled: 1
