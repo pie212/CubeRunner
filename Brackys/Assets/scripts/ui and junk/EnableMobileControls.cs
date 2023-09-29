@@ -11,7 +11,7 @@ public class EnableMobileControls : MonoBehaviour
             gameObject.SetActive(true);
         }
         if (Application.isMobilePlatform == false){
-            //gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
 
     }

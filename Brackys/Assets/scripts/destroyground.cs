@@ -11,6 +11,7 @@ public class destroyground : MonoBehaviour
         if (other.tag == "Player")
         {
           //FindObjectOfType<PLayerMovement>().jump = true;
+          FindObjectOfType<PLayerMovement>().forwardForce += 300;
           
         
         } 
