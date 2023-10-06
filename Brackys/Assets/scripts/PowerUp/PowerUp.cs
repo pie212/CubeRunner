@@ -56,6 +56,8 @@ public class PowerUp : MonoBehaviour
                 
                 
             }
+              
+            
 
             Debug.Log("LEVEL UP!!");
             Mesh.enabled = false;

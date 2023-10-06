@@ -1741,6 +1741,10 @@ PrefabInstance:
       propertyPath: AllowedLevels.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3742563498545587604, guid: 52900f418c4466c44b4aca538ffb80dc, type: 3}
+      propertyPath: AllowedLevels.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7957998846925756300, guid: 52900f418c4466c44b4aca538ffb80dc, type: 3}
       propertyPath: m_Name
       value: GameManager

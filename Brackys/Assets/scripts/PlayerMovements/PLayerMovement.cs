@@ -10,10 +10,12 @@
 
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using System;
+using System.Collections.Generic;
 
 public class PLayerMovement : MonoBehaviour
 {
+    [Header("Vars")]
     [HideInInspector]
     public bool isjumping = false;
     [HideInInspector]
@@ -32,16 +34,17 @@ public class PLayerMovement : MonoBehaviour
     //[HideInInspector]
     public Collider KaboomRadius;
     public bool Jumping = false;
-    
+    public LayerMask raycastLayer;
     
     public float VoidHeight = -3F;
     public bool DeathVoid = false;             //so the death function only runs once
-    
+    public GameObject effect;
 
 
 
 
     ///INPUTS
+    [Header("Inputs")]
     public InputMaster PlayerControls;
 
     public InputAction move;
@@ -50,6 +53,8 @@ public class PLayerMovement : MonoBehaviour
     public InputAction menu;
     public InputAction pitch;
     public InputAction yaw;
+    public InputAction ability;
+    public InputAction mouseclick;
     private bool JCON = false;
     private bool JPOWER = false;
     public bool JMENU = false;
@@ -59,6 +64,19 @@ public class PLayerMovement : MonoBehaviour
     public float forwardForce = 2000f; // force to set forward
     public float sidewaysForce = 10000f;  // force added when clicking a or d
     public float TorqueAmount = 6000f;
+
+
+
+    // ability
+    [Header("Ability")]
+    public int abilityType = 0;
+    public float AbilityTimer = 0.0f;
+    public bool TimeSlowMo = false;
+    private LineRenderer lineRenderer;
+    public List<GameObject> ABLtarglist = new List<GameObject>();
+    public bool slowmo; 
+    public int SlowMoTime;
+    public Material litmat;
     //float PauseCalled = 0;
     
     // Start is called before the first frame update
@@ -85,8 +103,18 @@ public class PLayerMovement : MonoBehaviour
         pitch.Enable();
         yaw = PlayerControls.Player.Yaw;
         yaw.Enable();
+        ability = PlayerControls.Player.Ability;
+        ability.Enable();
+        ability.performed += Ability;
+        ability.canceled += Ability;
+        mouseclick = PlayerControls.Player.MouseClick;
+        mouseclick.performed += mouseClick;
+       
+
+
 
     }
+
     private void OnDisable()
     {
         move.Disable();
@@ -95,7 +123,9 @@ public class PLayerMovement : MonoBehaviour
         menu.Disable();
         pitch.Disable();
         yaw.Disable();
+        mouseclick.Disable();
     }
+    
     private void Menu(InputAction.CallbackContext context)
     {
         JMENU = true;            //menu
@@ -110,18 +140,110 @@ public class PLayerMovement : MonoBehaviour
     }
     void Start()
     {
+        AbilityTimer = 0;
+        Debug.Log(Time.timeScale);
+        Debug.Log(Time.fixedDeltaTime);
         rb = GetComponent<Rigidbody>();
         Gamemanager = FindObjectOfType<GameManager>();
         //KaboomRadius = GetComponent<Collider>();
         //rb.useGravity = false; Could be for a reverse?? might have to put in anoterh script 
         rb.velocity = new Vector3(0,0,0);
         KaboomRadius.enabled = false;   
+        lineRenderer = GetComponent<LineRenderer>();
         
     }
 
+    public void mouseClick(InputAction.CallbackContext context)
+    {
+        
+        if (context.performed)
+        {
+            Vector2 mousePosition = Mouse.current.position.ReadValue();
+            Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+            RaycastHit hit;
+            
+            if (Physics.Raycast(ray, out hit, 100, raycastLayer) )
+            {
+                
+                
+                if (lineRenderer != null){
+                lineRenderer.SetPosition(0, new Vector3(transform.position.x, transform.position.y, transform.position.z + 2)); // Start position
+                lineRenderer.SetPosition(1, hit.point); 
+
+                Debug.Log(hit.transform.name);
+                Debug.Log("hit");
+                Obstacle target = hit.transform.GetComponent<Obstacle>();
+                GameObject target2 = hit.collider.gameObject;
+                if (target != null)
+                {
+                    target2.GetComponent<MeshRenderer>().material = litmat;
+                    ABLtarglist.Add(target2);
+                    
+                }
+                
+            }
+            }
+        }
+    
+    
+    
+                    
+    }
+    void Ability(InputAction.CallbackContext context){
+    
+        if (context.performed){
+            
+        
+            if (ImportantVariables.AbilityNumb == 1){
+            TimeSlowMo = true;
+            Time.timeScale = 0.2F;    
+            }     
+
+            if (ImportantVariables.AbilityNumb == 2){
+            mouseclick.Enable();
+            Time.timeScale = 0.02f;
+            
+            
+            }
+            //rb.constraints = RigidbodyConstraints.FreezeAll;
+
+            // Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+            // if (Physics.Raycast (ray, out hit, 100)) {
+            //     Debug.Log (hit.transform.name);
+            //     Debug.Log ("hit");
+            // }
+            
+        }
+        if (context.canceled){
+            mouseclick.Disable();
+            TimeSlowMo = false;
+            Time.timeScale = 1F;
+            AbilityEnded();
+
+
+
+            
+        }
+        
+        
+    }
+    void AbilityEnded()
+    {
+                    foreach (GameObject item in ABLtarglist)
+                    {
+                        item.GetComponent<Obstacle>().DestroyABL();
+                        Instantiate(effect, item.transform.position, Quaternion.identity);
+                    }
+                    ABLtarglist.Clear();
+                    // rb.velocity = retainedSpeed;     // can't use rb for some fucking reason
+    }
+    
     // Update is called once per frame
     void FixedUpdate()
     {
+        
+        
+
         
         //Debug.Log(rb.velocity);
 
@@ -244,24 +366,58 @@ public class PLayerMovement : MonoBehaviour
     //}
     
     void Update()
-    {
+     {
+        
+        if (TimeSlowMo)
+        {
+            AbilityTimer += Time.deltaTime;
+            float seconds = Convert.ToInt32((AbilityTimer % 60) * 5);
+            Debug.Log("seconds" + seconds.ToString());
+            if (seconds >= 10)
+            {
+                mouseclick.Disable();
+                TimeSlowMo = false;
+                AbilityTimer = 0;
+                seconds = 0;
+                Time.timeScale = 1F;
+                AbilityEnded();
+            }
+        else
+        {
+            Vector2 mousePosition = Mouse.current.position.ReadValue();
+
+        }
+        }
          
         if (JPOWER == true)
         {
+            
             JPOWER = false;
+            //if ((Gamemanager.PowerUpType == 1 ||Gamemanager.PowerUpType == 3 ) && slowmo == true){Time.timeScale = 1; slowmo = false;}
             if (Gamemanager.PowerUpType == 1)
             {
+            
             KaboomRadius.enabled = true;
             Gamemanager.PowerUpType = 0;
-            
+            // 2 is not included since it is a health one and does not need to be pressed
             }
             if (Gamemanager.PowerUpType == 3)
             {
+                
             ImportantVariables.Money += 1;                // chooses how much money u get when using money pwoer up 
             Gamemanager.PowerUpType = 0;
             }
+           
+            // Time.fixedDeltaTime = 0.01F * Time.timeScale;
+                
+                
+            
+        //Time.fixedDeltaTime = 0.01F;
             
         }
+        
+            
+        
          
         if (JCON == true)
         {
@@ -272,7 +428,7 @@ public class PLayerMovement : MonoBehaviour
     }    
         
 
-
+    
     
     void OnCollisionEnter(Collision collision)
     {

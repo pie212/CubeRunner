@@ -22,7 +22,7 @@ public class LevelSelect : MonoBehaviour
         m_EventSystem = EventSystem.current;
         Debug.Log("Responese");
         if (FindObjectOfType<LevelAllowed>().AllowedLevels.Contains(levelName)){ 
-            Debug.Log("huh?");
+            Debug.Log(FindObjectOfType<LevelAllowed>().AllowedLevels);
         lockscreen.SetActive(false);
         }
         

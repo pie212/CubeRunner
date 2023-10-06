@@ -22,5 +22,7 @@ public static class ImportantVariables
    public static bool MotionBlur = true;
    public static bool Bloom = true;
    
-   
+   // abilitys
+   public static int AbilityNumb =2;
+   public static List<int> AbilityList = new List<int>();
 }

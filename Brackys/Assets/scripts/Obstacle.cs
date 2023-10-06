@@ -36,6 +36,9 @@ public class Obstacle : MonoBehaviour
 
     }
     
-
+    public void DestroyABL(){
+        Destroy(gameObject);
+        
     
+}
 }

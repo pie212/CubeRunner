@@ -13,4 +13,10 @@ public static class EventManager
 
     public static event UnityAction UpdateShopUI;
     public static void OnUpdateShopUI() => UpdateShopUI?.Invoke();
+
+
+    public static event UnityAction UpdateABLUI;
+    public static void OnUpdateABLUI() => UpdateABLUI?.Invoke();
+
+    
 }

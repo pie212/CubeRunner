@@ -80,6 +80,24 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ability"",
+                    ""type"": ""Button"",
+                    ""id"": ""1e0a6309-097e-4ad0-9fc3-2492614739fb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MouseClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""bf724534-c525-456c-94f8-24a74f03fc97"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -186,6 +204,17 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""51c4dca2-2b10-4c87-b10a-fa9321f3b295"",
                     ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PowerUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""376de3cd-988b-47af-9aad-7376eef04bed"",
+                    ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -357,6 +386,28 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""action"": ""Yaw"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5f85750b-6c39-487d-b65b-1e22c71730cf"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c34f79f0-b012-4c8f-aa5b-956f13cc5319"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MouseClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -959,6 +1010,8 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_Player_Menu = m_Player.FindAction("Menu", throwIfNotFound: true);
         m_Player_PitchAndRoll = m_Player.FindAction("PitchAndRoll", throwIfNotFound: true);
         m_Player_Yaw = m_Player.FindAction("Yaw", throwIfNotFound: true);
+        m_Player_Ability = m_Player.FindAction("Ability", throwIfNotFound: true);
+        m_Player_MouseClick = m_Player.FindAction("MouseClick", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1038,6 +1091,8 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Menu;
     private readonly InputAction m_Player_PitchAndRoll;
     private readonly InputAction m_Player_Yaw;
+    private readonly InputAction m_Player_Ability;
+    private readonly InputAction m_Player_MouseClick;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -1048,6 +1103,8 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         public InputAction @Menu => m_Wrapper.m_Player_Menu;
         public InputAction @PitchAndRoll => m_Wrapper.m_Player_PitchAndRoll;
         public InputAction @Yaw => m_Wrapper.m_Player_Yaw;
+        public InputAction @Ability => m_Wrapper.m_Player_Ability;
+        public InputAction @MouseClick => m_Wrapper.m_Player_MouseClick;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1075,6 +1132,12 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Yaw.started += instance.OnYaw;
             @Yaw.performed += instance.OnYaw;
             @Yaw.canceled += instance.OnYaw;
+            @Ability.started += instance.OnAbility;
+            @Ability.performed += instance.OnAbility;
+            @Ability.canceled += instance.OnAbility;
+            @MouseClick.started += instance.OnMouseClick;
+            @MouseClick.performed += instance.OnMouseClick;
+            @MouseClick.canceled += instance.OnMouseClick;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1097,6 +1160,12 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @Yaw.started -= instance.OnYaw;
             @Yaw.performed -= instance.OnYaw;
             @Yaw.canceled -= instance.OnYaw;
+            @Ability.started -= instance.OnAbility;
+            @Ability.performed -= instance.OnAbility;
+            @Ability.canceled -= instance.OnAbility;
+            @MouseClick.started -= instance.OnMouseClick;
+            @MouseClick.performed -= instance.OnMouseClick;
+            @MouseClick.canceled -= instance.OnMouseClick;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1294,6 +1363,8 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         void OnMenu(InputAction.CallbackContext context);
         void OnPitchAndRoll(InputAction.CallbackContext context);
         void OnYaw(InputAction.CallbackContext context);
+        void OnAbility(InputAction.CallbackContext context);
+        void OnMouseClick(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
