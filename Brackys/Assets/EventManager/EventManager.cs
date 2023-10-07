@@ -18,5 +18,11 @@ public static class EventManager
     public static event UnityAction UpdateABLUI;
     public static void OnUpdateABLUI() => UpdateABLUI?.Invoke();
 
+    public static event UnityAction EagleEye;
+    public static void OnEagleEye() => EagleEye?.Invoke();
+
+    public static event UnityAction EagleEyeEnd;
+    public static void OnEagleEyeEnd() => EagleEyeEnd?.Invoke();
+
     
 }

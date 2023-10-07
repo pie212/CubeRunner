@@ -19,6 +19,10 @@ public class LevelSelect : MonoBehaviour
     
     // Start is called before the first frame update
     public void Start(){
+        foreach (int item in FindObjectOfType<LevelAllowed>().AllowedLevels)
+        {
+            Debug.Log(item);
+        }
         m_EventSystem = EventSystem.current;
         Debug.Log("Responese");
         if (FindObjectOfType<LevelAllowed>().AllowedLevels.Contains(levelName)){ 

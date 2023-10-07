@@ -16,6 +16,7 @@ using System.Collections.Generic;
 public class PLayerMovement : MonoBehaviour
 {
     [Header("Vars")]
+    public ParticleSystem kaboomeffect;
     [HideInInspector]
     public bool isjumping = false;
     [HideInInspector]
@@ -162,7 +163,7 @@ public class PLayerMovement : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(mousePosition);
             RaycastHit hit;
             
-            if (Physics.Raycast(ray, out hit, 100, raycastLayer) )
+            if (Physics.Raycast(ray, out hit, 1000, raycastLayer, QueryTriggerInteraction.Ignore) )
             {
                 
                 
@@ -176,9 +177,11 @@ public class PLayerMovement : MonoBehaviour
                 GameObject target2 = hit.collider.gameObject;
                 if (target != null)
                 {
+                    if (target2.GetComponent<MeshRenderer>() != null){
                     target2.GetComponent<MeshRenderer>().material = litmat;
-                    ABLtarglist.Add(target2);
                     
+                    }
+                    ABLtarglist.Add(target2);
                 }
                 
             }
@@ -196,7 +199,8 @@ public class PLayerMovement : MonoBehaviour
         
             if (ImportantVariables.AbilityNumb == 1){
             TimeSlowMo = true;
-            Time.timeScale = 0.2F;    
+            Time.timeScale = 0.2F;  
+            EventManager.OnEagleEye();  
             }     
 
             if (ImportantVariables.AbilityNumb == 2){
@@ -215,9 +219,7 @@ public class PLayerMovement : MonoBehaviour
             
         }
         if (context.canceled){
-            mouseclick.Disable();
-            TimeSlowMo = false;
-            Time.timeScale = 1F;
+            
             AbilityEnded();
 
 
@@ -228,11 +230,17 @@ public class PLayerMovement : MonoBehaviour
         
     }
     void AbilityEnded()
-    {
+    {       
+                    mouseclick.Disable();
+                    TimeSlowMo = false;
+                    Time.timeScale = 1F;
+                    EventManager.OnEagleEyeEnd();   
                     foreach (GameObject item in ABLtarglist)
                     {
+                        if (item.GetComponent<Obstacle>() != null){
                         item.GetComponent<Obstacle>().DestroyABL();
                         Instantiate(effect, item.transform.position, Quaternion.identity);
+                        }
                     }
                     ABLtarglist.Clear();
                     // rb.velocity = retainedSpeed;     // can't use rb for some fucking reason
@@ -396,7 +404,7 @@ public class PLayerMovement : MonoBehaviour
             //if ((Gamemanager.PowerUpType == 1 ||Gamemanager.PowerUpType == 3 ) && slowmo == true){Time.timeScale = 1; slowmo = false;}
             if (Gamemanager.PowerUpType == 1)
             {
-            
+            kaboomeffect.Play();
             KaboomRadius.enabled = true;
             Gamemanager.PowerUpType = 0;
             // 2 is not included since it is a health one and does not need to be pressed

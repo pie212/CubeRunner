@@ -1,4 +1,7 @@
 
+
+
+using System.Runtime;
 using UnityEngine;
 
 public class followPlayer : MonoBehaviour
@@ -6,9 +9,10 @@ public class followPlayer : MonoBehaviour
   public Transform player;
   public Vector3 offset;
   public Vector3 offsetUPsideown;
+  public float smoothSpeed;
   //public PLayerMovement movement;
     // Update is called once per frame
-  void Update()
+  void LateUpdate()
     {
     //if (movement.gravity == 1)
      //{ 
@@ -16,7 +20,10 @@ public class followPlayer : MonoBehaviour
       //}
       //if (movement.gravity == 0)
       //{
-      transform.position = player.position + offset;
+        Vector3 desiredPosition = player.position + offset;
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        transform.position = smoothedPosition;
+      //transform.position = player.position + offset;
     }
 
     

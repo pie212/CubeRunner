@@ -95,6 +95,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5889667928941580217}
+  - {fileID: 210099025402633964}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 180, y: 90, z: 0}
@@ -168,7 +169,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6958966628232751183}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: bc191d6bfb4915347bb1a7a12ebe7452, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -187,7 +188,7 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
 --- !u!114 &6958966628232751174
@@ -202,6 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87777c30d1cff5949948aa3037c877f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  has_collided: 0
 --- !u!114 &216146694528742663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,16 +216,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109143edfc1b60d4db0ba028babaabf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kaboomeffect: {fileID: 210099025402633966}
+  isjumping: 0
   rb: {fileID: 0}
   Gamemanager: {fileID: 0}
   retainedSpeed: {x: 0, y: 0, z: 0}
   gravity: 0
-  jump: 1
+  jump: 0
   animation: {fileID: 0}
   constantVelocity: {x: 0, y: 0, z: 30}
   KaboomRadius: {fileID: 5889667928941580218}
   Jumping: 0
-  MoneyAmount: 1
+  raycastLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  VoidHeight: -3
+  DeathVoid: 0
+  effect: {fileID: 0}
   move:
     m_Name: Move
     m_Type: 0
@@ -278,10 +287,35 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  ability:
+    m_Name: Ability
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c60e36d5-cdfd-4e8d-9644-421af85c9aee
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  mouseclick:
+    m_Name: Mouseclick
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: edf6d665-5995-4281-82e8-6143c789e8c4
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   JMENU: 0
   forwardForce: 4000
   sidewaysForce: 12500
   TorqueAmount: 6000
+  abilityType: 0
+  AbilityTimer: 0
+  TimeSlowMo: 0
+  ABLtarglist: []
+  slowmo: 0
+  SlowMoTime: 0
+  litmat: {fileID: 2100000, guid: 40a8aaf380c38374ead76db271459367, type: 2}
 --- !u!114 &7246030206366068940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,3 +335,70 @@ MonoBehaviour:
   Skin3: {fileID: 2100000, guid: 96be298466c2e6348ade1e6a0fee8a3e, type: 2}
   Skin4: {fileID: 2100000, guid: d64be69456163ee49a93f2113c8ab6b1, type: 2}
   Skin5: {fileID: 2100000, guid: a05c3d6392efb2d408d628aecb2f46d0, type: 2}
+--- !u!1001 &509016493330776775
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6958966628232751179}
+    m_Modifications:
+    - target: {fileID: 430665779248913450, guid: ccfe4328315b66e4b89e08d592de4b9c, type: 3}
+      propertyPath: m_Name
+      value: Shockwave
+      objectReference: {fileID: 0}
+    - target: {fileID: 430665779248913451, guid: ccfe4328315b66e4b89e08d592de4b9c, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 430665779248913451, guid: ccfe4328315b66e4b89e08d592de4b9c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430665779248913451, guid: ccfe4328315b66e4b89e08d592de4b9c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430665779248913451, guid: ccfe4328315b66e4b89e08d592de4b9c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430665779248913451, guid: ccfe4328315b66e4b89e08d592de4b9c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 430665779248913451, guid: ccfe4328315b66e4b89e08d592de4b9c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 430665779248913451, guid: ccfe4328315b66e4b89e08d592de4b9c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 430665779248913451, guid: ccfe4328315b66e4b89e08d592de4b9c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 430665779248913451, guid: ccfe4328315b66e4b89e08d592de4b9c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 430665779248913451, guid: ccfe4328315b66e4b89e08d592de4b9c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430665779248913451, guid: ccfe4328315b66e4b89e08d592de4b9c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ccfe4328315b66e4b89e08d592de4b9c, type: 3}
+--- !u!4 &210099025402633964 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 430665779248913451, guid: ccfe4328315b66e4b89e08d592de4b9c, type: 3}
+  m_PrefabInstance: {fileID: 509016493330776775}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &210099025402633966 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 430665779248913449, guid: ccfe4328315b66e4b89e08d592de4b9c, type: 3}
+  m_PrefabInstance: {fileID: 509016493330776775}
+  m_PrefabAsset: {fileID: 0}

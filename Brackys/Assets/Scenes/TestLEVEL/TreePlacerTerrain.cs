@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class TreePlacerTerrain : MonoBehaviour
 {
     private Terrain terrain;
+    public float yoffset = 0f;
     public GameObject treecollider;
 
     // Start is called before the first frame update
@@ -16,7 +18,7 @@ public class TreePlacerTerrain : MonoBehaviour
         {
             Vector3 treeworldPoint = TerrainPointToWorld(tree.position, terrain);
 
-            Instantiate(treecollider, treeworldPoint, Quaternion.identity);
+            Instantiate(treecollider, new Vector3(treeworldPoint.x, treeworldPoint.y - yoffset, treeworldPoint.z), Quaternion.identity);
         }
     }
 

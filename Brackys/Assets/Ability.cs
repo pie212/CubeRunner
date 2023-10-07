@@ -10,11 +10,14 @@ public class Ability : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (bought = true){
-            costtext.text = "ooga";
+        if (numberAblity == ImportantVariables.AbilityNumb){
+            costtext.text = "Equipped";
+        }
+        else if (ImportantVariables.AbilityList.Contains(numberAblity)){
+            costtext.text = "Bought";
         }
         else{
-            costtext.text = "booga";
+            costtext.text = "Buy";
         }
     }
     public void click(){

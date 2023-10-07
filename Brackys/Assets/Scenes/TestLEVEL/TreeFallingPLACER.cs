@@ -5,7 +5,7 @@ using UnityEngine;
 public class TreeFallingPLACER : MonoBehaviour
 {
     public GameObject FallingTree;
-    private int amount;
+    public int amount;
     private int x;
     private float y;
     private int z;
@@ -18,7 +18,7 @@ public class TreeFallingPLACER : MonoBehaviour
         
         
         Destroy(this);
-        for(int i=0; i<100  ; i++)            //amount i think
+        for(int i=0; i<amount  ; i++)            //amount i think
         {
             x =  Random.Range( 100,  297);         
             y = -0.6F;
