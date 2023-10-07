@@ -19,16 +19,17 @@ public class LevelSelect : MonoBehaviour
     
     // Start is called before the first frame update
     public void Start(){
-        foreach (int item in FindObjectOfType<LevelAllowed>().AllowedLevels)
+        foreach (int item in ImportantVariables.LevelAllowed)
         {
             Debug.Log(item);
         }
         m_EventSystem = EventSystem.current;
         Debug.Log("Responese");
-        if (FindObjectOfType<LevelAllowed>().AllowedLevels.Contains(levelName)){ 
-            Debug.Log(FindObjectOfType<LevelAllowed>().AllowedLevels);
+        if (ImportantVariables.LevelAllowed.Contains(levelName)){ 
+            Debug.Log(ImportantVariables.LevelAllowed);
         lockscreen.SetActive(false);
         }
+        EventManagerOnUpdateUI();
         
         //buttonText.text = levelName;          I DONT KNOW WHAT THE FUCK I DID, WHY IS THIS HERE. ?
     }
@@ -36,9 +37,9 @@ public class LevelSelect : MonoBehaviour
         
         //Debug.Log(levelName);
         Debug.Log("EEE");
-        foreach( var x in FindObjectOfType<LevelAllowed>().AllowedLevels) {
+        foreach( var x in ImportantVariables.LevelAllowed) {
         Debug.Log( x.ToString());
-        if (FindObjectOfType<LevelAllowed>().AllowedLevels.Contains(levelName)){
+        if (ImportantVariables.LevelAllowed.Contains(levelName)){
         SceneManager.LoadScene("Level "+ levelName.ToString());                
 
         }
@@ -60,7 +61,7 @@ public class LevelSelect : MonoBehaviour
         EventManager.UpdateUI += EventManagerOnUpdateUI;
     }
     private void EventManagerOnUpdateUI(){
-      if (FindObjectOfType<LevelAllowed>().AllowedLevels.Contains(levelName)){            //lock screen is the lock icon
+      if (ImportantVariables.LevelAllowed.Contains(levelName)){            //lock screen is the lock icon
       lockscreen.SetActive(false);
       }
     }

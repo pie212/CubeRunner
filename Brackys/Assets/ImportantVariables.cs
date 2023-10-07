@@ -7,7 +7,7 @@ public static class ImportantVariables
    public static int Money = 40;
    public static int skin;                 // plskin
    public static List<int> SkinsList = new List<int>();
-   
+   public static List<int> LevelAllowed = new List<int>();
 
 
 

@@ -11,11 +11,11 @@ public class LevelAllowed : MonoBehaviour
     // Start is called before the first frame update
     void Start(){
         
-        AllowedLevels = AllowedLevelsStat;
-        if (AllowedLevelsStat.Contains(1) == false)
+        //AllowedLevels = AllowedLevelsStat;
+        if (ImportantVariables.LevelAllowed.Contains(1) == false)
         {
             
-            AllowedLevelsStat.Add(1);
+            ImportantVariables.LevelAllowed.Add(1);
             foreach( var x in AllowedLevels) {
             Debug.Log( x.ToString());}
         }
@@ -30,21 +30,21 @@ public class LevelAllowed : MonoBehaviour
     {
         //if (AllowedLevelsStat.Contains(AddedLevel) == false)
         //{
-        bool containsAllNumbers = Enumerable.Range(1, AddedLevel - 1).All(AllowedLevelsStat.Contains);
+        bool containsAllNumbers = Enumerable.Range(1, AddedLevel - 1).All(ImportantVariables.LevelAllowed.Contains);
 
         if (containsAllNumbers){
             Debug.Log("Ighty this works good job");
-            AllowedLevelsStat.Add(AddedLevel);
-            AllowedLevels = AllowedLevelsStat;
-            Debug.Log("cheese");
-            foreach( var x in AllowedLevels) {
+            ImportantVariables.LevelAllowed.Add(AddedLevel);
+            //AllowedLevels = AllowedLevelsStat;
+            //Debug.Log("cheese");
+            foreach( var x in ImportantVariables.LevelAllowed) {
             Debug.Log( x.ToString());}
         }
             
         //}
     }
     public void BuyLevel(){
-        AllowedLevelsStat.Add(AddedLevel);
-        AllowedLevels = AllowedLevelsStat;
+        ImportantVariables.LevelAllowed.Add(AddedLevel);
+        //AllowedLevels = AllowedLevelsStat;
     }
 }
