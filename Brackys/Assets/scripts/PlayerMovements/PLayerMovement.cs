@@ -43,7 +43,7 @@ public class PLayerMovement : MonoBehaviour
     public GameObject effect;
 
 
-
+    public bool ExtraGravity;
 
     ///INPUTS
     [Header("Inputs")]
@@ -251,26 +251,28 @@ public class PLayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         
+        if (ExtraGravity == true ){
+        rb.AddForce(0,-1800*Time.deltaTime * rb.mass,0 );       // adds downward force to keep the block near the ground
+        }
         
-
         
         //Debug.Log(rb.velocity);
 
         //rb.AddForce(-2*Physics.gravity, ForceMode.Acceleration);  Reverses grabity by adding upward force
         if (UseRelativeForwardforce == false){
-        rb.AddForce(0,0,forwardForce * Time.deltaTime);
+        rb.AddForce(0,0,forwardForce * Time.deltaTime *rb.mass);
         }
         else{
-        rb.AddRelativeForce(0,0,forwardForce * Time.deltaTime);
+        rb.AddRelativeForce(0,0,forwardForce * Time.deltaTime * rb.mass);
         }
 
         //Debug.Log(move.ReadValue<Vector2>());   
         sideways = move.ReadValue<Vector2>();
         if (Application.isMobilePlatform == true){
-            rb.AddForce (sideways.x * (sidewaysForce * ImportantVariables.MobileSensitivity) * Time.deltaTime, 0,0);
+            rb.AddForce (sideways.x * (sidewaysForce * ImportantVariables.MobileSensitivity * rb.mass) * Time.deltaTime, 0,0);
         }
         else{
-            rb.AddForce (sideways.x * (sidewaysForce * ImportantVariables.MobileSensitivity) * Time.deltaTime, 0,0);
+            rb.AddForce (sideways.x * (sidewaysForce * ImportantVariables.MobileSensitivity * rb.mass) * Time.deltaTime, 0,0);
         }
         
 
@@ -306,7 +308,7 @@ public class PLayerMovement : MonoBehaviour
         
         if (gravity == 1){
             Debug.Log("DA HELL");
-            rb.AddForce(-2*Physics.gravity);
+            rb.AddForce(-2*Physics.gravity );               // upside down
         }
         if (rb.position.y < VoidHeight)
         {
@@ -334,12 +336,15 @@ public class PLayerMovement : MonoBehaviour
                 Achievementmanager.Jumps +=1;                                               // adds 1 for the achievement manager in jump
                 //jump = false;         IF IT DOESNT WORK ITS VIKTOR'S FAULT!!!!
 
-                if (gravity == 0){
-                    rb.AddForce(0,800*Time.deltaTime,0, ForceMode.VelocityChange);
+                if (gravity == 0 && ExtraGravity == false){
+                    rb.AddForce(0,800*Time.deltaTime * rb.mass,0, ForceMode.VelocityChange );
                     
                 }
-                if (gravity == 1){
-                    rb.AddForce(0,-1200*Time.deltaTime,0, ForceMode.VelocityChange);
+                else if(gravity == 0){
+                    rb.AddForce(0,2600*Time.deltaTime * rb.mass,0, ForceMode.VelocityChange );   // adds more force to compensate the extra gravity (800(jumpingforce) + 1800(gravity force))
+                }
+                else if (gravity == 1){
+                    rb.AddForce(0,-1200*Time.deltaTime * rb.mass,0, ForceMode.VelocityChange);
                 }
                 
                 
@@ -366,6 +371,7 @@ public class PLayerMovement : MonoBehaviour
            
             
         }
+        
     
             if (Gamemanager.PowerUpType == 0){
                 Invoke("ResetPowerUp", 0.1F);
@@ -462,6 +468,7 @@ public class PLayerMovement : MonoBehaviour
         {
             if (isjumping == true){
             jump = false;
+            
             Debug.Log("NotAbleTo");
             }
         }
