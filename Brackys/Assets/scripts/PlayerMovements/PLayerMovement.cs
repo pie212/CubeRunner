@@ -16,6 +16,7 @@ using System.Collections.Generic;
 public class PLayerMovement : MonoBehaviour
 {
     [Header("Vars")]
+    public bool UseRelativeForwardforce = false;
     public ParticleSystem kaboomeffect;
     [HideInInspector]
     public bool isjumping = false;
@@ -256,7 +257,12 @@ public class PLayerMovement : MonoBehaviour
         //Debug.Log(rb.velocity);
 
         //rb.AddForce(-2*Physics.gravity, ForceMode.Acceleration);  Reverses grabity by adding upward force
+        if (UseRelativeForwardforce == false){
         rb.AddForce(0,0,forwardForce * Time.deltaTime);
+        }
+        else{
+        rb.AddRelativeForce(0,0,forwardForce * Time.deltaTime);
+        }
 
         //Debug.Log(move.ReadValue<Vector2>());   
         sideways = move.ReadValue<Vector2>();
