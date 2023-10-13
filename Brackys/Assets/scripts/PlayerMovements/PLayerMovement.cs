@@ -42,8 +42,12 @@ public class PLayerMovement : MonoBehaviour
     public bool DeathVoid = false;             //so the death function only runs once
     public GameObject effect;
 
-
+    [Header("Physics")]
     public bool ExtraGravity;
+    public float ExtraGravityAmount = 1800f;
+    public float forwardForce = 2000f; // force to set forward
+    public float sidewaysForce = 10000f;  // force added when clicking a or d
+    public float TorqueAmount = 6000f;
 
     ///INPUTS
     [Header("Inputs")]
@@ -59,13 +63,12 @@ public class PLayerMovement : MonoBehaviour
     public InputAction mouseclick;
     private bool JCON = false;
     private bool JPOWER = false;
+    [HideInInspector]
     public bool JMENU = false;
     Vector2 sideways = Vector2.zero; 
     Vector2 TorqueAm = Vector2.zero;
     Vector2 YawAm = Vector2.zero;
-    public float forwardForce = 2000f; // force to set forward
-    public float sidewaysForce = 10000f;  // force added when clicking a or d
-    public float TorqueAmount = 6000f;
+    
 
 
 
@@ -79,6 +82,7 @@ public class PLayerMovement : MonoBehaviour
     public bool slowmo; 
     public int SlowMoTime;
     public Material litmat;
+    public int force = 1000;
     //float PauseCalled = 0;
     
     // Start is called before the first frame update
@@ -185,7 +189,7 @@ public class PLayerMovement : MonoBehaviour
                     ABLtarglist.Add(target2);
                 }
                 
-            }
+             }
             }
         }
     
@@ -239,7 +243,7 @@ public class PLayerMovement : MonoBehaviour
                     foreach (GameObject item in ABLtarglist)
                     {
                         if (item.GetComponent<Obstacle>() != null){
-                        item.GetComponent<Obstacle>().DestroyABL();
+                        item.GetComponent<Obstacle>().DestroyABL(force);
                         Instantiate(effect, item.transform.position, Quaternion.identity);
                         }
                     }
@@ -250,9 +254,9 @@ public class PLayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        Debug.Log(forwardForce * Time.deltaTime *rb.mass);
         if (ExtraGravity == true ){
-        rb.AddForce(0,-1800*Time.deltaTime * rb.mass,0 );       // adds downward force to keep the block near the ground
+        rb.AddForce(0,ExtraGravityAmount * Time.deltaTime,0 );       // adds downward force to keep the block near the ground
         }
         
         
@@ -261,6 +265,7 @@ public class PLayerMovement : MonoBehaviour
         //rb.AddForce(-2*Physics.gravity, ForceMode.Acceleration);  Reverses grabity by adding upward force
         if (UseRelativeForwardforce == false){
         rb.AddForce(0,0,forwardForce * Time.deltaTime *rb.mass);
+        
         }
         else{
         rb.AddRelativeForce(0,0,forwardForce * Time.deltaTime * rb.mass);

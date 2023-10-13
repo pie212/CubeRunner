@@ -42,11 +42,28 @@ public class Obstacle : MonoBehaviour
 
     }
     
-    public void DestroyABL(){
+    public void DestroyABL(int force){
         if (gameObject != null)
         {
-        Destroy(gameObject);
-        }
+            Vector3 explosionPos = transform.position;
+            Collider[] colliders = Physics.OverlapSphere(explosionPos, 50.0f);
+            foreach (Collider hit in colliders)
+            {
+                
+               
+
+                if (hit.GetComponent<Rigidbody>() != null)
+                {
+                    
+                    Rigidbody rb = hit.GetComponent<Rigidbody>();
+                    rb.isKinematic = false;
+                    rb.AddExplosionForce(force, explosionPos, 5.0F, 3.0F);
+                
+                    }
+            }
+        //Destroy(gameObject);
+        
     
-}
+        }
+    }
 }

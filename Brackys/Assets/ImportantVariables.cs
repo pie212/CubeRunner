@@ -23,6 +23,10 @@ public static class ImportantVariables
    public static bool Bloom = true;
    
    // abilitys
-   public static int AbilityNumb =2;
+   public static int AbilityNumb =0;
    public static List<int> AbilityList = new List<int>();
+
+   public static bool Explosive = false;           // the version where there are forces interacting with the explosions, the explosion force
+   public static float Explosionforce = 500f;
+   public static float Explosionrange = 1.0f;
 }

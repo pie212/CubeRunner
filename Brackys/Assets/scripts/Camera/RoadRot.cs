@@ -8,15 +8,15 @@ public class RoadRot : MonoBehaviour{
 public GameObject cube;
 public GameObject road;
 public float  speed = 10f;
-void Update() {
+void FixedUpdate    () {
     // Calculate the rotation to align the cube with the road
     Quaternion roadRotation = CalculateRoadRotation(cube.transform.position);
 
     // Apply the roadRotation to the cube
     
-    //cube.transform.rotation = Quaternion.Lerp(cube.transform.rotation,roadRotation,0.1f);         FOR full rotation
+    cube.transform.rotation = Quaternion.Lerp(cube.transform.rotation,roadRotation,0.1f);        // FOR full rotation
     //cube.transform.rotation.y = Mathf.Lerp(cube.transform.rotation.y, roadRotation.y, 0.1f);      Doesnt work bruh
-
+    //cube.transform.rotation = Quaternion.Lerp(cube.transform.rotation,Quaternion.Euler(cube.transform.rotation.x, roadRotation.y,cube.transform.rotation.z),0.1f);
 
     // Add relative force to move the cube forward
     Rigidbody cubeRigidbody = cube.GetComponent<Rigidbody>();
