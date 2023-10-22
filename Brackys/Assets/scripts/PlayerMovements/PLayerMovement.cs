@@ -8,6 +8,7 @@
 
 
 
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
@@ -66,7 +67,7 @@ public class PLayerMovement : MonoBehaviour
     [HideInInspector]
     public bool JMENU = false;
     Vector2 sideways = Vector2.zero; 
-    Vector2 TorqueAm = Vector2.zero;
+    Vector3 TorqueAm = Vector3.zero;
     Vector2 YawAm = Vector2.zero;
     
 
@@ -264,8 +265,8 @@ public class PLayerMovement : MonoBehaviour
 
         //rb.AddForce(-2*Physics.gravity, ForceMode.Acceleration);  Reverses grabity by adding upward force
         if (UseRelativeForwardforce == false){
-        rb.AddForce(0,0,forwardForce * Time.deltaTime *rb.mass);
-        
+        //rb.AddForce(0,0,forwardForce * Time.deltaTime *rb.mass);
+        rb.AddForce(FindObjectOfType<Camera>().transform.forward * forwardForce * Time.deltaTime *rb.mass);
         }
         else{
         rb.AddRelativeForce(0,0,forwardForce * Time.deltaTime * rb.mass);
@@ -279,14 +280,16 @@ public class PLayerMovement : MonoBehaviour
         else{
             rb.AddForce (sideways.x * (sidewaysForce * ImportantVariables.MobileSensitivity * rb.mass) * Time.deltaTime, 0,0);
         }
-        
+         
 
 
 
 
-        TorqueAm = pitch.ReadValue<Vector2>();
-        YawAm = yaw.ReadValue<Vector2>();
-        rb.AddTorque(TorqueAm.y * TorqueAmount * Time.deltaTime,        1000 * YawAm.x * Time.deltaTime,          TorqueAm.x * -TorqueAmount * Time.deltaTime);
+        TorqueAm = pitch.ReadValue<Vector3>();
+        YawAm = yaw.ReadValue<Vector3>();
+        Debug.Log(TorqueAm);
+        Debug.Log(YawAm);
+        rb.AddTorque(TorqueAm.y * TorqueAmount * Time.deltaTime,        50 * -TorqueAm.z * Time.deltaTime,          TorqueAm.x * -TorqueAmount * Time.deltaTime);
         
 
         

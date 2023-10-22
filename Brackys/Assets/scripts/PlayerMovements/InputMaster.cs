@@ -65,21 +65,21 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""PitchAndRoll"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""a29a04f5-1aba-44b6-b6f8-a360accd3c7f"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector3"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Yaw"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""26dad17e-cfce-4930-ba07-5ffefd4c2240"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Integer"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Ability"",
@@ -247,7 +247,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""PitchAndRoll"",
                     ""id"": ""221ceee2-8afa-4ad5-8330-59f8a71e8101"",
-                    ""path"": ""Dpad"",
+                    ""path"": ""3DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -256,7 +256,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
+                    ""name"": ""Up"",
                     ""id"": ""a1bbeaa1-dcd4-4ce0-a896-bf98f1e34336"",
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
@@ -267,7 +267,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""down"",
+                    ""name"": ""Down"",
                     ""id"": ""ac712951-2cc3-46c2-b78c-3a6aae867c1e"",
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
@@ -278,7 +278,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
+                    ""name"": ""Left"",
                     ""id"": ""e8e332b2-efa1-47a9-a6ec-4cd06af1778f"",
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
@@ -289,7 +289,7 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
+                    ""name"": ""Right"",
                     ""id"": ""976105f7-25c3-436b-bbfe-efa5f9272ef2"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
@@ -300,90 +300,24 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
+                    ""name"": ""forward"",
                     ""id"": ""1e3cdff3-acfd-47db-ac5f-675185725946"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Yaw"",
+                    ""action"": ""PitchAndRoll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
+                    ""name"": ""backward"",
                     ""id"": ""7b425e5f-6440-422d-9648-93514f02099d"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Yaw"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""640f66a1-d5c9-462a-b02e-c2c4a0a1f544"",
-                    ""path"": ""<XInputController>/rightStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xbox"",
                     ""action"": ""PitchAndRoll"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""438cfee1-f7f1-4069-89cb-f33715528b47"",
-                    ""path"": ""<XInputController>/rightStick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xbox"",
-                    ""action"": ""PitchAndRoll"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""e15074f9-e141-4c54-b427-1abeeea59662"",
-                    ""path"": ""<XInputController>/rightStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xbox"",
-                    ""action"": ""PitchAndRoll"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""3ca89674-42ed-4702-a59a-a62b2b1ee2d6"",
-                    ""path"": ""<XInputController>/rightStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xbox"",
-                    ""action"": ""PitchAndRoll"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""6e63a0cd-5621-41b5-81b3-a98f7635b983"",
-                    ""path"": ""<XInputController>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xbox"",
-                    ""action"": ""Yaw"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""8f6c6d70-3902-4992-b33c-7ebb95981be4"",
-                    ""path"": ""<XInputController>/leftShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xbox"",
-                    ""action"": ""Yaw"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },

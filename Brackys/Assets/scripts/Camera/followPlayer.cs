@@ -1,12 +1,16 @@
 
 
 
+
+
+
 using System.Runtime;
 using UnityEngine;
 
 public class followPlayer : MonoBehaviour
 {
   public Transform player;
+  
   public Vector3 offset;
   public Vector3 offsetUPsideown;
   public float smoothSpeed;
@@ -22,8 +26,9 @@ public class followPlayer : MonoBehaviour
       //{
         Vector3 desiredPosition = player.position + offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        
         transform.position = smoothedPosition;
-      //transform.position = player.position + offset;
+       
     }
 
     
