@@ -48,6 +48,7 @@ public class PLayerMovement : MonoBehaviour
     public float ExtraGravityAmount = 1800f;
     public float forwardForce = 2000f; // force to set forward
     public float sidewaysForce = 10000f;  // force added when clicking a or d
+    public float yawAmount = 50f;
     public float TorqueAmount = 6000f;
 
     ///INPUTS
@@ -289,7 +290,7 @@ public class PLayerMovement : MonoBehaviour
         YawAm = yaw.ReadValue<Vector3>();
         Debug.Log(TorqueAm);
         Debug.Log(YawAm);
-        rb.AddTorque(TorqueAm.y * TorqueAmount * Time.deltaTime,        50 * -TorqueAm.z * Time.deltaTime,          TorqueAm.x * -TorqueAmount * Time.deltaTime);
+        rb.AddTorque(TorqueAm.y * TorqueAmount * Time.deltaTime,        yawAmount * -TorqueAm.z * Time.deltaTime,          TorqueAm.x * -TorqueAmount * Time.deltaTime);
         
 
         
