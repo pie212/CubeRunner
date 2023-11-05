@@ -15,10 +15,10 @@ public class ShopManager : MonoBehaviour
     public Animator _anim;
     EventSystem m_EventSystem;
     
-    // Start is called before the first frame update
+    // Start is called before the first frame update 
     void OnEnable()
     {
-        m_EventSystem = EventSystem.current;
+        m_EventSystem = EventSystem.current;           // this script is to go from main shop --> to abilites or skins
     }
 
     // Update is called once per frame

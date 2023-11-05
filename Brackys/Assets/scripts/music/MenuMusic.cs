@@ -12,7 +12,8 @@ public class MenuMusic : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 
-        if (sceneName == "Shop" || sceneName == "Menu" || sceneName == "LevelSelect" || sceneName == "Stats"  || sceneName == "Settings" )
+        //if (sceneName == "Shop" || sceneName == "Menu" || sceneName == "LevelSelect" || sceneName == "Stats"  || sceneName == "Settings" )
+        if (sceneName == "Shop" || sceneName == "Menu" || sceneName == "LevelSelect")
         {
             DontDestroyOnLoad(gameObject);
         }

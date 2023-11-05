@@ -3,7 +3,14 @@ guid: fb3682c99014dbb4eb9c6a5f898627f7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player: {instanceID: 0}
+  - gameManager: {instanceID: 0}
+  - Skin1: {fileID: 2100000, guid: 59a0876c56d816d439d19995d7a9accf, type: 2}
+  - Skin2: {fileID: 2100000, guid: 7120490f4185e324cb1106cf3e3bb384, type: 2}
+  - Skin3: {fileID: 2100000, guid: d64be69456163ee49a93f2113c8ab6b1, type: 2}
+  - Skin4: {instanceID: 0}
+  - Skin5: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

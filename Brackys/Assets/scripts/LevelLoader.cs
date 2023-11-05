@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     public Animator Transition;
+    public Animator TransitionShop;
     public float transitionTime = 1F;
     private string levelload = "";
     // Start is called before the first frame update
@@ -21,7 +22,7 @@ public class LevelLoader : MonoBehaviour
     }
     public void Shop(){
         //SceneManager.LoadScene("Shop"); 
-        levelload = "Shop";
+        levelload = "Shop2";
         StartAn();
 
     }
@@ -29,6 +30,12 @@ public class LevelLoader : MonoBehaviour
         //SceneManager.LoadScene("Shop"); 
         levelload = "Menu";
         StartAn();
+
+    }
+    public void LoadMenuFromShop(){
+        //SceneManager.LoadScene("Shop"); 
+        levelload = "Menu";
+        StartAn2();
 
     }
     public void LoadStats(){
@@ -48,10 +55,22 @@ public class LevelLoader : MonoBehaviour
     public void StartAn(){
         StartCoroutine(LoadLevel());
     }
+    public void StartAn2(){
+        StartCoroutine(LoadLevel2());
+    }
 
 
     IEnumerator LoadLevel(){
         Transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(levelload); 
+
+        
+    }
+    IEnumerator LoadLevel2(){
+        TransitionShop.SetTrigger("Start");
 
         yield return new WaitForSeconds(transitionTime);
 

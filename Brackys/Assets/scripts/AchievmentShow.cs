@@ -1,12 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class AchievmentShow : MonoBehaviour
 {
-    public Text Achievementtext;
-    public GameObject ob;
+    //public Text Achievementtext;
+    public TextMeshPro Achievementtext;
+
+    public GameObject ob;         
+    //public TextMeshProUGUI ob;          // for new version which uses 3d text mesh pro text
 
     public void Awake(){
+        
         if (ob.name == "Deaths"){
             Achievementtext.text = "Deaths: " + Achievementmanager.Deaths.ToString("0");
         }

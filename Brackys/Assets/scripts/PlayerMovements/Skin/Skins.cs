@@ -74,8 +74,9 @@ public class Skins : MonoBehaviour
             costtext.text = "bought";
             EventManager.OnUpdateMoneyUI();
             //EventManager.OnUpdateShopUI();
-            FindObjectOfType<SkinList>().TypeAdd = SKIN;
-            FindObjectOfType<SkinList>().AddToSkin();
+            // FindObjectOfType<SkinList>().TypeAdd = SKIN;
+            // FindObjectOfType<SkinList>().AddToSkin();
+            ImportantVariables.SkinsList.Add(SKIN);
             }
         }
         
