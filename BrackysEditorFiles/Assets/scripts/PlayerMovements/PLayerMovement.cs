@@ -85,10 +85,8 @@ public class PLayerMovement : MonoBehaviour
     public int SlowMoTime;
     public Material litmat;
     public int force = 1000;
-    public Vector2 mousePosition;
     //float PauseCalled = 0;
     
-    public GameObject cursor;
     // Start is called before the first frame update
 
     void Awake()
@@ -168,19 +166,7 @@ public class PLayerMovement : MonoBehaviour
         
         if (context.performed)
         {
-           
-            if (ImportantVariables.MouseVisible == true){
-             mousePosition = Mouse.current.position.ReadValue();
-            }
-            if (ImportantVariables.MouseVisible == false){
-                if (cursor != null){
-                 mousePosition = new Vector2(cursor.transform.position.x, cursor.transform.position.y);
-                }
-            }
-            //Vector2 mousePosition = Mouse.current.position.ReadValue();
-            //Vector2 mousePosition = new Vector2(cursor.transform.position.x, cursor.transform.position.y);
-            Debug.Log(mousePosition);
-            
+            Vector2 mousePosition = Mouse.current.position.ReadValue();
             Ray ray = Camera.main.ScreenPointToRay(mousePosition);
             RaycastHit hit;
             
@@ -213,45 +199,23 @@ public class PLayerMovement : MonoBehaviour
     
                     
     }
-    void Ability(InputAction.CallbackContext context)
-    {
+    void Ability(InputAction.CallbackContext context){
     
-        if (context.performed)
-        {
+        if (context.performed){
             
-            
-            if (ImportantVariables.AbilityNumb == 1)
-            {
+        
+            if (ImportantVariables.AbilityNumb == 1){
             TimeSlowMo = true;
             Time.timeScale = 0.2F;  
             EventManager.OnEagleEye();  
             }     
 
-            else if (ImportantVariables.AbilityNumb == 2)
-            {
-            Time.timeScale = 0.02F;
+            if (ImportantVariables.AbilityNumb == 2){
             mouseclick.Enable();
-            if(ImportantVariables.MouseVisible == false)
-            {
-                if (cursor != null)
-                {
-                cursor.SetActive(true);
-                }
+            Time.timeScale = 0.02f;
+            
+            
             }
-            }
-
-            else if (ImportantVariables.AbilityNumb == 3){
-            TimeSlowMo = true;
-            Time.timeScale = 0.2F;
-            }  
-            
-            
-            
-        }
-            
-            
-            
-            
             //rb.constraints = RigidbodyConstraints.FreezeAll;
 
             // Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
@@ -260,7 +224,7 @@ public class PLayerMovement : MonoBehaviour
             //     Debug.Log ("hit");
             // }
             
-    
+        }
         if (context.canceled){
             
             AbilityEnded();
@@ -286,11 +250,6 @@ public class PLayerMovement : MonoBehaviour
                         }
                     }
                     ABLtarglist.Clear();
-                    if(ImportantVariables.MouseVisible == false){
-                if (cursor != null){
-                cursor.SetActive(false);
-                }
-            }
                     // rb.velocity = retainedSpeed;     // can't use rb for some fucking reason
     }
     

@@ -29,8 +29,7 @@ public class SettingsManager : MonoBehaviour
             FindObjectOfType<AudioSource>().volume = ImportantVariables.MenuMusicVol;
            SliderMenuMusicText.text = ImportantVariables.MenuMusicVol.ToString("0.0");
         });
-        
-        
+
 
 
 

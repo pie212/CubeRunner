@@ -448,7 +448,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.353
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 489779437}
+  m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &418632399
@@ -542,11 +542,6 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
---- !u!1 &489779437 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7281465414110800636, guid: 5aaf639cbd2b2254c9575ec2f7457d4e, type: 3}
-  m_PrefabInstance: {fileID: 1853336916}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &505419104
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,14 +1274,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7588136888461632460, guid: 7a0ae6d7bee596c48a872509b5161170, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 889.073
-      objectReference: {fileID: 0}
-    - target: {fileID: 7588136888461632460, guid: 7a0ae6d7bee596c48a872509b5161170, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 1182.292
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a0ae6d7bee596c48a872509b5161170, type: 3}
 --- !u!1 &1621193709
@@ -1661,7 +1648,7 @@ PrefabInstance:
     - target: {fileID: 7281465414110800639, guid: 5aaf639cbd2b2254c9575ec2f7457d4e, type: 3}
       propertyPath: m_Navigation.m_SelectOnUp
       value: 
-      objectReference: {fileID: 1775903130}
+      objectReference: {fileID: 0}
     - target: {fileID: 7281465414110800639, guid: 5aaf639cbd2b2254c9575ec2f7457d4e, type: 3}
       propertyPath: m_Colors.m_SelectedColor.b
       value: 0.28235295

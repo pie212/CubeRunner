@@ -98,15 +98,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""CursorController"",
-                    ""type"": ""Value"",
-                    ""id"": ""afa42916-f231-4e82-ba7a-0c9834593eb5"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -343,17 +334,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2ed11558-f458-418b-823e-3567d86d7eb6"",
-                    ""path"": ""<XInputController>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Ability"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""c34f79f0-b012-4c8f-aa5b-956f13cc5319"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
@@ -362,72 +342,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
                     ""action"": ""MouseClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8b0e499b-52a4-477d-a02a-91e569fa7575"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseClick"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""e9ac3535-fb0c-4343-ad10-e2826adecf23"",
-                    ""path"": ""2DVector(mode=2)"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CursorController"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""1733853a-f106-45eb-ac10-2090017a2b33"",
-                    ""path"": ""<XInputController>/rightStick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CursorController"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""c3caa5d9-9772-4ff1-99f0-639b8525eb87"",
-                    ""path"": ""<XInputController>/rightStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CursorController"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""3aa03a9a-6826-405c-bcc7-03c600c72b42"",
-                    ""path"": ""<XInputController>/rightStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CursorController"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""bdaa77b1-d62e-4612-b819-446612a11bfd"",
-                    ""path"": ""<XInputController>/rightStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CursorController"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -1032,7 +946,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         m_Player_Yaw = m_Player.FindAction("Yaw", throwIfNotFound: true);
         m_Player_Ability = m_Player.FindAction("Ability", throwIfNotFound: true);
         m_Player_MouseClick = m_Player.FindAction("MouseClick", throwIfNotFound: true);
-        m_Player_CursorController = m_Player.FindAction("CursorController", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1114,7 +1027,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Yaw;
     private readonly InputAction m_Player_Ability;
     private readonly InputAction m_Player_MouseClick;
-    private readonly InputAction m_Player_CursorController;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -1127,7 +1039,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         public InputAction @Yaw => m_Wrapper.m_Player_Yaw;
         public InputAction @Ability => m_Wrapper.m_Player_Ability;
         public InputAction @MouseClick => m_Wrapper.m_Player_MouseClick;
-        public InputAction @CursorController => m_Wrapper.m_Player_CursorController;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1161,9 +1072,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @MouseClick.started += instance.OnMouseClick;
             @MouseClick.performed += instance.OnMouseClick;
             @MouseClick.canceled += instance.OnMouseClick;
-            @CursorController.started += instance.OnCursorController;
-            @CursorController.performed += instance.OnCursorController;
-            @CursorController.canceled += instance.OnCursorController;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1192,9 +1100,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
             @MouseClick.started -= instance.OnMouseClick;
             @MouseClick.performed -= instance.OnMouseClick;
             @MouseClick.canceled -= instance.OnMouseClick;
-            @CursorController.started -= instance.OnCursorController;
-            @CursorController.performed -= instance.OnCursorController;
-            @CursorController.canceled -= instance.OnCursorController;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1394,7 +1299,6 @@ public partial class @InputMaster: IInputActionCollection2, IDisposable
         void OnYaw(InputAction.CallbackContext context);
         void OnAbility(InputAction.CallbackContext context);
         void OnMouseClick(InputAction.CallbackContext context);
-        void OnCursorController(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
