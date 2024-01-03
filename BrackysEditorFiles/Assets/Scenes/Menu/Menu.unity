@@ -1754,7 +1754,10 @@ Transform:
   - {fileID: 877028349}
   - {fileID: 1326605233}
   - {fileID: 110244487}
+<<<<<<< HEAD
   - {fileID: 1582196624}
+=======
+>>>>>>> parent of 63692bd (Added my name to credits)
   m_Father: {fileID: 1537853574}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
