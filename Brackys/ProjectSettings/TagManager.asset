@@ -3,7 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Obstacle
+  - Reverse
+  - Jumper
+  - Ground
+  - PowerUp
+  - SCRIPTINCLUDED
+  - OBEnableGrav
+  - Coin
+  - MenuMusic
+  - gameMusic
+  - Spike
+  - CubeOBS
   layers:
   - Default
   - TransparentFX
@@ -11,10 +23,10 @@ TagManager:
   - 
   - Water
   - UI
+  - player
   - 
-  - 
-  - 
-  - 
+  - Ground
+  - post processing
   - 
   - 
   - 
