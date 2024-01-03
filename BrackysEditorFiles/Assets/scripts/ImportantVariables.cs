@@ -4,14 +4,10 @@ using UnityEngine;
 
 public static class ImportantVariables 
 {
-   public static int Money = 40;
+   public static int Money = 45;
    public static int skin = -1;                 // plskin
    public static List<int> SkinsList = new List<int>();
    public static List<int> LevelAllowed = new List<int>();
-
-
-
-
 
    // settings
    public static float MobileSensitivity = 1.0F;
