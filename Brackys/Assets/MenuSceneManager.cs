@@ -28,7 +28,7 @@ public class MenuSceneManager : MonoBehaviour
         Invoke("ToShop2", 2f);
     }
     public void ToShop2(){
-        SceneManager.LoadScene("Shop");
+        SceneManager.LoadSceneAsync("Shop");
     }
     public void ToLevels(){
         SceneManager.LoadScene("LevelSelect");

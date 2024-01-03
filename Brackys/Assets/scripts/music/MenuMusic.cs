@@ -9,6 +9,7 @@ public class MenuMusic : MonoBehaviour
     }
     private void Update()
     {
+        GetComponent<AudioSource>().volume = ImportantVariables.MenuMusicVol;
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
 

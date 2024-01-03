@@ -470,7 +470,6 @@ GameObject:
   - component: {fileID: 118926967}
   - component: {fileID: 118926966}
   - component: {fileID: 118926965}
-  - component: {fileID: 118926964}
   m_Layer: 0
   m_Name: Cube.773 (1)
   m_TagString: Spike
@@ -493,22 +492,6 @@ Transform:
   m_Father: {fileID: 1013476642}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -156.604, z: 0}
---- !u!54 &118926964
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 118926962}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &118926965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,7 +540,7 @@ MeshCollider:
   m_GameObject: {fileID: 118926962}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -1220,7 +1203,6 @@ GameObject:
   - component: {fileID: 285035597}
   - component: {fileID: 285035596}
   - component: {fileID: 285035595}
-  - component: {fileID: 285035594}
   m_Layer: 0
   m_Name: Cube.773
   m_TagString: Spike
@@ -1243,22 +1225,6 @@ Transform:
   m_Father: {fileID: 1013476642}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -156.604, z: 0}
---- !u!54 &285035594
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 285035592}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &285035595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1307,7 +1273,7 @@ MeshCollider:
   m_GameObject: {fileID: 285035592}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -2145,6 +2111,7 @@ GameObject:
   - component: {fileID: 449273488}
   - component: {fileID: 449273489}
   - component: {fileID: 449273490}
+  - component: {fileID: 449273491}
   m_Layer: 9
   m_Name: Camera
   m_TagString: Untagged
@@ -2385,6 +2352,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96d65c547bb079e4fbf13653dfe1e77d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &449273491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449273480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95ad0cafd4eec7e4ea38e50a9fb27435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &469256651
@@ -3727,7 +3706,6 @@ GameObject:
   - component: {fileID: 848489723}
   - component: {fileID: 848489722}
   - component: {fileID: 848489721}
-  - component: {fileID: 848489720}
   m_Layer: 0
   m_Name: Cube.773 (2)
   m_TagString: Spike
@@ -3750,22 +3728,6 @@ Transform:
   m_Father: {fileID: 1013476642}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -156.604, z: 0}
---- !u!54 &848489720
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848489718}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &848489721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3814,7 +3776,7 @@ MeshCollider:
   m_GameObject: {fileID: 848489718}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -6878,7 +6840,6 @@ GameObject:
   - component: {fileID: 1645129291}
   - component: {fileID: 1645129290}
   - component: {fileID: 1645129289}
-  - component: {fileID: 1645129288}
   m_Layer: 0
   m_Name: Cube.773 (3)
   m_TagString: Spike
@@ -6901,22 +6862,6 @@ Transform:
   m_Father: {fileID: 2070604413}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -156.604, z: 0}
---- !u!54 &1645129288
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1645129286}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &1645129289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6965,7 +6910,7 @@ MeshCollider:
   m_GameObject: {fileID: 1645129286}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -8246,7 +8191,6 @@ GameObject:
   - component: {fileID: 1926819112}
   - component: {fileID: 1926819111}
   - component: {fileID: 1926819110}
-  - component: {fileID: 1926819109}
   m_Layer: 0
   m_Name: Cube.773 (4)
   m_TagString: Spike
@@ -8269,22 +8213,6 @@ Transform:
   m_Father: {fileID: 2070604413}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -156.604, z: 0}
---- !u!54 &1926819109
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1926819107}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &1926819110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8333,7 +8261,7 @@ MeshCollider:
   m_GameObject: {fileID: 1926819107}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -8404,7 +8332,6 @@ GameObject:
   - component: {fileID: 1941393620}
   - component: {fileID: 1941393619}
   - component: {fileID: 1941393618}
-  - component: {fileID: 1941393617}
   m_Layer: 0
   m_Name: Cube.773 (5)
   m_TagString: Spike
@@ -8427,22 +8354,6 @@ Transform:
   m_Father: {fileID: 2070604413}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -156.604, z: 0}
---- !u!54 &1941393617
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941393615}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &1941393618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8491,7 +8402,7 @@ MeshCollider:
   m_GameObject: {fileID: 1941393615}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
