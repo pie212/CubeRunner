@@ -95,7 +95,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.nuget.newtonsoft-json": {
-      "version": "3.1.0",
+      "version": "3.0.2",
       "depth": 2,
       "source": "registry",
       "dependencies": {},
@@ -177,7 +177,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.services.core": {
-      "version": "1.8.1",
+      "version": "1.7.1",
       "depth": 1,
       "source": "registry",
       "dependencies": {
