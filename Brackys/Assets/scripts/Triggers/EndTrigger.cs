@@ -6,7 +6,7 @@ public class EndTrigger : MonoBehaviour
 {
     private PLayerMovement movement;
     private GameManager GameManager;
-    public LevelAllowed levele;
+    private LevelAllowed levele;
     public int NextLevel;
     
     

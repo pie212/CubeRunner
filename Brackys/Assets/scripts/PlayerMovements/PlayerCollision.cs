@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
+    private PowerupTypeUI powerUpTypeUI;       // to update the powerupui instead of using update
     private PLayerMovement movement;
     public bool has_collided = false;
 
@@ -27,6 +28,8 @@ public class PlayerCollision : MonoBehaviour
             {
                 FindObjectOfType<GameManager>().PowerUpType = 0;
             }
+            powerUpTypeUI = FindObjectOfType<PowerupTypeUI>();
+        powerUpTypeUI.UpdateUI();
         }
         if (collisionInfo.collider.tag == "Spike" && has_collided == false)
         {
@@ -42,6 +45,8 @@ public class PlayerCollision : MonoBehaviour
             {
                 FindObjectOfType<GameManager>().PowerUpType = 0;
             }
+            powerUpTypeUI = FindObjectOfType<PowerupTypeUI>();
+            powerUpTypeUI.UpdateUI();
         }
         if (collisionInfo.collider.tag == "CubeOBS" && has_collided == false)
         {
@@ -56,8 +61,11 @@ public class PlayerCollision : MonoBehaviour
             {
                 FindObjectOfType<GameManager>().PowerUpType = 0;
             }
+            powerUpTypeUI = FindObjectOfType<PowerupTypeUI>();
+            powerUpTypeUI.UpdateUI();
 
-        }
+        }   
+
         //if (collisionInfo.collider.tag == "Jumper"){
           //  Debug.Log("EEEEHT");
             //movement.rb.AddForce(0,20 * Time.deltaTime,0,ForceMode.VelocityChange);

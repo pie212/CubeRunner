@@ -17,7 +17,7 @@ public class PowerupTypeUI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void UpdateUI()
     {
         if (FindObjectOfType<GameManager>().PowerUpType == 0){
 

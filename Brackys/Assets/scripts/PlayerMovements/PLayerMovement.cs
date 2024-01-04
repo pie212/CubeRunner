@@ -17,6 +17,7 @@ using System.Collections.Generic;
 public class PLayerMovement : MonoBehaviour
 {
     [Header("Vars")]
+    private PowerupTypeUI powerUpTypeUI;       // to update the powerupui instead of using update
     public bool UseRelativeForwardforce = false;
     public ParticleSystem kaboomeffect;
     [HideInInspector]
@@ -146,7 +147,23 @@ public class PLayerMovement : MonoBehaviour
     }
     private void PowerUp(InputAction.CallbackContext context)
     {
-        JPOWER = true;         //power up
+        // JPOWER = true;         //power up
+        if (Gamemanager.PowerUpType == 1)
+            {
+            kaboomeffect.Play();
+            KaboomRadius.enabled = true;
+            Gamemanager.PowerUpType = 0;
+            // 2 is not included since it is a health one and does not need to be pressed
+            }
+        if (Gamemanager.PowerUpType == 3)
+            {
+                
+            ImportantVariables.Money += 1;                // chooses how much money u get when using money pwoer up 
+            Gamemanager.PowerUpType = 0;
+            }
+        powerUpTypeUI = FindObjectOfType<PowerupTypeUI>();
+        powerUpTypeUI.UpdateUI();
+        
     }
     void Start()
     {
@@ -459,32 +476,32 @@ public class PLayerMovement : MonoBehaviour
         }
         }
          
-        if (JPOWER == true)
-        {
+        // if (JPOWER == true)    moved this into the actual click funtion
+        // {
             
-            JPOWER = false;
-            //if ((Gamemanager.PowerUpType == 1 ||Gamemanager.PowerUpType == 3 ) && slowmo == true){Time.timeScale = 1; slowmo = false;}
-            if (Gamemanager.PowerUpType == 1)
-            {
-            kaboomeffect.Play();
-            KaboomRadius.enabled = true;
-            Gamemanager.PowerUpType = 0;
-            // 2 is not included since it is a health one and does not need to be pressed
-            }
-            if (Gamemanager.PowerUpType == 3)
-            {
+        //     JPOWER = false;
+        //     //if ((Gamemanager.PowerUpType == 1 ||Gamemanager.PowerUpType == 3 ) && slowmo == true){Time.timeScale = 1; slowmo = false;}
+        //     if (Gamemanager.PowerUpType == 1)
+        //     {
+        //     kaboomeffect.Play();
+        //     KaboomRadius.enabled = true;
+        //     Gamemanager.PowerUpType = 0;
+        //     // 2 is not included since it is a health one and does not need to be pressed
+        //     }
+        //     if (Gamemanager.PowerUpType == 3)
+        //     {
                 
-            ImportantVariables.Money += 1;                // chooses how much money u get when using money pwoer up 
-            Gamemanager.PowerUpType = 0;
-            }
+        //     ImportantVariables.Money += 1;                // chooses how much money u get when using money pwoer up 
+        //     Gamemanager.PowerUpType = 0;
+        //     }
            
-            // Time.fixedDeltaTime = 0.01F * Time.timeScale;
+        //     // Time.fixedDeltaTime = 0.01F * Time.timeScale;
                 
                 
             
-        //Time.fixedDeltaTime = 0.01F;
+        // //Time.fixedDeltaTime = 0.01F;
             
-        }
+        // }
         
             
         

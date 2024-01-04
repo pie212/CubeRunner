@@ -7,7 +7,7 @@ public class SkinsPlayer : MonoBehaviour
     //public GameObject yourGameObject;
     //MeshFilter yourMesh;
     public MeshRenderer player;
-    public GameManager gameManager;
+    private GameManager gameManager;
     public Material Skin1;
     public Material Skin2;
     public Material Skin3;
