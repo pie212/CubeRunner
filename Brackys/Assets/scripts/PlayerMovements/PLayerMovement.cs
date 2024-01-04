@@ -13,9 +13,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
 using System.Collections.Generic;
+using System.Collections;
 
 public class PLayerMovement : MonoBehaviour
 {
+    private bool Cooldown = false;
+
+
     [Header("Vars")]
     private PowerupTypeUI powerUpTypeUI;       // to update the powerupui instead of using update
     public bool UseRelativeForwardforce = false;
@@ -92,6 +96,14 @@ public class PLayerMovement : MonoBehaviour
     public GameObject cursor;
     // Start is called before the first frame update
 
+    [Header("Powerup Length")]
+    public float KaboomLength = 10;
+    public float KaboomCooldown = 5;
+    public float SlowLength = 10;
+    public float SlowCooldown = 5;
+    public float Slow2Length = 10;
+    public float Slow2Cooldown = 5;
+
     void Awake()
     {
         PlayerControls = new InputMaster();
@@ -154,7 +166,7 @@ public class PLayerMovement : MonoBehaviour
             KaboomRadius.enabled = true;
             Gamemanager.PowerUpType = 0;
             // 2 is not included since it is a health one and does not need to be pressed
-            }
+        }
         if (Gamemanager.PowerUpType == 3)
             {
                 
@@ -232,19 +244,23 @@ public class PLayerMovement : MonoBehaviour
     }
     void Ability(InputAction.CallbackContext context)
     {
-    
+        
         if (context.performed)
         {
-            
-            
-            if (ImportantVariables.AbilityNumb == 1)
+            if (ImportantVariables.AbilityNumb != 0 && this != null)
+            {
+                Debug.Log("start cooldown code");
+                StartCoroutine(AbilityCounter());
+            }
+
+            if (ImportantVariables.AbilityNumb == 1 && Cooldown == false && this != null)
             {
             TimeSlowMo = true;
             Time.timeScale = 0.2F;  
             EventManager.OnEagleEye();  
             }     
 
-            else if (ImportantVariables.AbilityNumb == 2)
+            else if (ImportantVariables.AbilityNumb == 2 && Cooldown == false && this != null)
             {
             Time.timeScale = 0.02F;
             mouseclick.Enable();
@@ -257,7 +273,8 @@ public class PLayerMovement : MonoBehaviour
             }
             }
 
-            else if (ImportantVariables.AbilityNumb == 3){
+            else if (ImportantVariables.AbilityNumb == 3 && Cooldown == false && this != null)
+            {
             TimeSlowMo = true;
             Time.timeScale = 0.2F;
             }  
@@ -310,10 +327,42 @@ public class PLayerMovement : MonoBehaviour
             }
                     // rb.velocity = retainedSpeed;     // can't use rb for some fucking reason
     }
-    
+
+    IEnumerator AbilityCounter()
+    {
+        if (ImportantVariables.AbilityNumb == 1)
+        {
+            yield return new WaitForSeconds(KaboomLength);
+            AbilityEnded();
+            Cooldown = false;
+            yield return new WaitForSeconds(KaboomCooldown);
+            Cooldown = true;
+        }
+        if (ImportantVariables.AbilityNumb == 2)
+        {
+            yield return new WaitForSeconds(SlowLength);
+            AbilityEnded();
+            Cooldown = false;
+            yield return new WaitForSeconds(SlowCooldown);
+            Cooldown = true;
+        }
+        if (ImportantVariables.AbilityNumb == 3)
+        {
+            yield return new WaitForSeconds(Slow2Length);
+            AbilityEnded();
+            Cooldown = false;
+            yield return new WaitForSeconds(Slow2Cooldown);
+            Cooldown = true;
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
+        
+
+
+
         Debug.Log(forwardForce * Time.deltaTime *rb.mass);
         if (ExtraGravity == true ){
         rb.AddForce(0,ExtraGravityAmount * Time.deltaTime,0 );       // adds downward force to keep the block near the ground
