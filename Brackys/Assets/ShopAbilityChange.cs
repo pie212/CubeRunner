@@ -21,6 +21,7 @@ public class ShopAbilityChange : MonoBehaviour
     public Text costtext;
 
     public Image TooltipBoom;
+    public ParticleSystem MoneyPile;
 
     // Start is called before the first frame update
     void Start()
@@ -108,8 +109,15 @@ public class ShopAbilityChange : MonoBehaviour
                 ImportantVariables.Money += 100;
                 moneyAbility.text = ImportantVariables.Money.ToString("0");
                 moneyShop.text = ImportantVariables.Money.ToString("0");
+                MoneyPile.Play();
             }
         }
+        if (MoneyPile.isPlaying)
+        {
+            MoneyPile.Stop();
+        }
+
+
     }
 
     IEnumerator BoomTip()
