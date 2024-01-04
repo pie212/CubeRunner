@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 public class ShopSceneManager : MonoBehaviour
 {
     public Animator _anim;
@@ -16,6 +18,9 @@ public class ShopSceneManager : MonoBehaviour
     public GameObject SkinTextSelect;
     public GameObject AbilityTextSelect;
     public GameObject MenuTextSelect;
+
+    public Image TooltipBoom;
+
     // Start is called before the first frame update
     public void Start(){
         m_EventSystem = EventSystem.current;
@@ -32,7 +37,8 @@ public class ShopSceneManager : MonoBehaviour
         Menu.SetActive(false);
         Abilitys.SetActive(true);
         m_EventSystem.SetSelectedGameObject(AbilityTextSelect);
-        
+        //tool tip doesn't need to be active on transition
+        TooltipBoom.gameObject.SetActive(false);
         
 
     }
