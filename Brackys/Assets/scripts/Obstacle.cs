@@ -56,7 +56,7 @@ public class Obstacle : MonoBehaviour
                 {
                     
                     Rigidbody rb = hit.GetComponent<Rigidbody>();
-                    rb.isKinematic = false
+                    rb.isKinematic = false;
                     rb.AddExplosionForce(force, explosionPos, 5.0F, 3.0F);
                 
                     }
