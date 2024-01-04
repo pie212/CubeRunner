@@ -5,11 +5,12 @@ using System.Collections;
     using UnityEngine;
     using UnityEngine.UI;
     using UnityEngine.Video;
-
+using TMPro;
 public class ShopAbilityChange : MonoBehaviour
 {
     
-    
+    public TextMeshPro moneyAbility;
+    public TextMeshPro moneyShop;
     public VideoPlayer vid;
 
     public List<VideoClip> clips = new List<VideoClip>();
@@ -24,7 +25,8 @@ public class ShopAbilityChange : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        moneyAbility.text = ImportantVariables.Money.ToString("0");
+        moneyShop.text = ImportantVariables.Money.ToString("0");
         if (Ability == ImportantVariables.AbilityNumb){
             costtext.text = "Equipped";
         }
@@ -55,10 +57,12 @@ public class ShopAbilityChange : MonoBehaviour
             costtext.text = "Cost: " + costs[Ability - 1].ToString();
         }
 
-        if (Ability == 1)
+        if (Ability == 2)
         {
             StartCoroutine(BoomTip());
         }
+        moneyAbility.text = ImportantVariables.Money.ToString("0");
+        moneyShop.text = ImportantVariables.Money.ToString("0");
 
     }
     // Update is called once per frame
@@ -80,6 +84,8 @@ public class ShopAbilityChange : MonoBehaviour
 
     }
     public void UpdateUI(){
+        moneyAbility.text = ImportantVariables.Money.ToString("0");
+        moneyShop.text = ImportantVariables.Money.ToString("0");
         if (Ability == ImportantVariables.AbilityNumb){
             costtext.text = "Equipped";
         }
@@ -100,6 +106,8 @@ public class ShopAbilityChange : MonoBehaviour
             if (Input.GetKey("h"))
             {
                 ImportantVariables.Money += 100;
+                moneyAbility.text = ImportantVariables.Money.ToString("0");
+                moneyShop.text = ImportantVariables.Money.ToString("0");
             }
         }
     }

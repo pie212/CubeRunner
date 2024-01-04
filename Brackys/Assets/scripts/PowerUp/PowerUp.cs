@@ -11,8 +11,10 @@ public class PowerUp : MonoBehaviour
     //public Quaternion offsetRot = Quaternion.Euler(0,0,0);
     public Vector3 rotateAmount = new Vector3(50,0,0);
     private int PowerUpChoose;
-    
-
+    private PowerupTypeUI powerUpTypeUI;
+    [Header("Override")]
+    public bool Override;
+    public int Overridenumber;
     
     // Start is called before the first frame update
     void Start()
@@ -38,7 +40,12 @@ public class PowerUp : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            if (Override){
+                PowerUpChoose = Overridenumber;
+            }
+            else{
             PowerUpChoose = Random.Range(1,4); //Random.Range(1, 2);
+            }
             Debug.Log(PowerUpChoose);
              
             if (PowerUpChoose == 1){           // explosion boom
@@ -56,6 +63,8 @@ public class PowerUp : MonoBehaviour
                 
                 
             }
+            powerUpTypeUI = FindObjectOfType<PowerupTypeUI>();
+            powerUpTypeUI.UpdateUI();
               
             
 

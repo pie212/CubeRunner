@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
-
+using TMPro;
 public class shopskinchange : MonoBehaviour
 {
+    
+    public TextMeshPro moneyAbility;
+    public TextMeshPro moneyShop;
     private MeshRenderer player;
     // public MeshFilter playerm;
-    public GameManager gameManager;
+    
     public List<Material> skins = new List<Material>();
     // public List<Mesh> meshes = new List<Mesh>();
     public int defaultSkin = 0;
@@ -68,6 +71,8 @@ public class shopskinchange : MonoBehaviour
         }
         CanPressed = true;
         Debug.Log(CanPressed);
+        moneyAbility.text = ImportantVariables.Money.ToString("0");
+        moneyShop.text = ImportantVariables.Money.ToString("0");
         
     }
     public void BuySkin(){
@@ -90,5 +95,7 @@ public class shopskinchange : MonoBehaviour
 
 
         }
+        moneyAbility.text = ImportantVariables.Money.ToString("0");
+        moneyShop.text = ImportantVariables.Money.ToString("0");
     }
 }
