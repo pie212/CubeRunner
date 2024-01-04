@@ -1,4 +1,5 @@
 
+
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -6,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class LevelSelect : MonoBehaviour
 {
-    public Text buttonText;
+    private Text buttonText;
     public int levelName;
     public GameObject buy;
     public int BuyCost;
@@ -39,11 +40,14 @@ public class LevelSelect : MonoBehaviour
         Debug.Log("EEE");
         foreach( var x in ImportantVariables.LevelAllowed) {
         Debug.Log( x.ToString());
+        }
         if (ImportantVariables.LevelAllowed.Contains(levelName)){
+            Debug.Log("bongaA?");
         SceneManager.LoadScene("Level "+ levelName.ToString());                
 
         }
         else{
+            Debug.Log("bongaAd?");
             
             buy.SetActive(true);
             m_EventSystem.SetSelectedGameObject(BuyScreen);
@@ -54,15 +58,18 @@ public class LevelSelect : MonoBehaviour
         
         
         
-    }
+    
     
 }
     private void OnEnable(){
         EventManager.UpdateUI += EventManagerOnUpdateUI;
     }
     private void EventManagerOnUpdateUI(){
+      Debug.Log("damnmnn");
       if (ImportantVariables.LevelAllowed.Contains(levelName)){            //lock screen is the lock icon
+      if(lockscreen != null){
       lockscreen.SetActive(false);
+      }
       }
     }
     private void OnDisable(){
