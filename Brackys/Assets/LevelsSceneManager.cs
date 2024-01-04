@@ -13,7 +13,7 @@ public class LevelsSceneManager : MonoBehaviour
     public GameObject BasicSelected;
 
     public GameObject ArchUI;
-    public Gameobject ArchLeftbutton;
+    public GameObject ArchLeftbutton;
     public GameObject ArchRightbutton;
     
     // Start is called before the first frame update
