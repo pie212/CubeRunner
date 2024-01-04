@@ -16,11 +16,11 @@ public class Obstacle : MonoBehaviour
         }
         
     }
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider collision)               // this is for the exploding powerup
     {
         if (IsForEffect == false){
         
-        if (collision.gameObject.tag == "Player" )
+        if (collision.gameObject.tag == "Player" )        // this is the collider that the player has around him, when its active, doesnt interfere with the small collider of the cube since it is with trigger
         {
             
             //rb.AddForce(100,0,0);
@@ -42,7 +42,7 @@ public class Obstacle : MonoBehaviour
 
     }
     
-    public void DestroyABL(int force){
+    public void DestroyABL(int force){           // this is the destroy function for the laser beam.
         if (gameObject != null)
         {
             Vector3 explosionPos = transform.position;
@@ -56,7 +56,7 @@ public class Obstacle : MonoBehaviour
                 {
                     
                     Rigidbody rb = hit.GetComponent<Rigidbody>();
-                    rb.isKinematic = false;
+                    rb.isKinematic = false
                     rb.AddExplosionForce(force, explosionPos, 5.0F, 3.0F);
                 
                     }
