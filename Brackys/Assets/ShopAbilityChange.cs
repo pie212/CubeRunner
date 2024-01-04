@@ -18,6 +18,9 @@ public class ShopAbilityChange : MonoBehaviour
 
     public int Ability = 1;        // 0 = none, 1 = slowmo eagle eye, 2 = explosion, 3 = normal slowmo
     public Text costtext;
+
+    public Image TooltipBoom;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +55,10 @@ public class ShopAbilityChange : MonoBehaviour
             costtext.text = "Cost: " + costs[Ability - 1].ToString();
         }
 
+        if (Ability == 1)
+        {
+            StartCoroutine(BoomTip());
+        }
 
     }
     // Update is called once per frame
@@ -82,5 +89,27 @@ public class ShopAbilityChange : MonoBehaviour
         else{
             costtext.text = "Cost: " + costs[Ability - 1].ToString();
         }
+    }
+
+    private void Update()
+    {
+
+        //cheats ctl H to add 100 money :)
+        if (Input.GetKey("left ctrl"))
+        {
+            if (Input.GetKey("h"))
+            {
+                ImportantVariables.Money += 100;
+            }
+        }
+    }
+
+    IEnumerator BoomTip()
+    {
+        Debug.Log("Tooltip");
+        TooltipBoom.gameObject.SetActive(true);
+        yield return new WaitForSeconds(5);
+        TooltipBoom.gameObject.SetActive(false);
+        Debug.Log("TooltipNo");
     }
 }
