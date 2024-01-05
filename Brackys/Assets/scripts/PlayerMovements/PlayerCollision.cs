@@ -7,6 +7,7 @@ public class PlayerCollision : MonoBehaviour
     private PowerupTypeUI powerUpTypeUI;       // to update the powerupui instead of using update
     private PLayerMovement movement;
     public bool has_collided = false;
+    public static bool hasDied;
 
     void Start(){
             movement = GetComponent<PLayerMovement>();
@@ -21,8 +22,10 @@ public class PlayerCollision : MonoBehaviour
             if (FindObjectOfType<GameManager>().PowerUpType != 2)
             {
                 has_collided = true;
-            movement.enabled = false;
-            FindObjectOfType<GameManager>().EndGame();
+                hasDied = true;
+                movement.enabled = false;
+                ImportantVariables.PlayerDeaths += 1;
+                FindObjectOfType<GameManager>().EndGame();
             }
             if (FindObjectOfType<GameManager>().PowerUpType == 2)
             {
