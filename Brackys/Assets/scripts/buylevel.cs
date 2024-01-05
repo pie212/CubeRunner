@@ -1,14 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
 
+
+using UnityEngine;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using UnityEngine.EventSystems;
 public class buylevel : MonoBehaviour
 {
     public int LevelToBuy;
     public int LevelCost;
     public GameObject buy;
-
+    public TextMeshPro Moneyamount;
+    public GameObject costshowbutton;
 
     // eventmantager bullshit so when returning from buy screen it goes back to sellected level
 
@@ -20,10 +23,27 @@ public class buylevel : MonoBehaviour
     public GameObject Level5;
     public GameObject Level6;
     public GameObject Level7;
+    public GameObject Level8;
+    public GameObject Level9;
+    public GameObject Level10;
 
+    public GameObject Level11;
+    public GameObject Level12;
+    public GameObject Level13;
+    public GameObject Level14;
+    public GameObject Level15;
+    public GameObject Level16;
+    public GameObject Level17;
+    public GameObject Level18;
+    public GameObject Level19;
+    public GameObject Level20;
 
     public void Start(){
         m_EventSystem = EventSystem.current;
+        Moneyamount.text = ImportantVariables.Money.ToString("0");
+    }
+    public void OnEnable(){
+        costshowbutton.GetComponent<BuyLevelCost>().SetText();
     }
     // Start is called before the first frame update
     public void BuyLevel(){
@@ -32,6 +52,7 @@ public class buylevel : MonoBehaviour
 
         FindObjectOfType<LevelAllowed>().AddedLevel = LevelToBuy;
         FindObjectOfType<LevelAllowed>().BuyLevel();
+        Moneyamount.text = ImportantVariables.Money.ToString("0");
         /// Event Manager logic
 
         if (LevelToBuy == 1){
@@ -55,10 +76,53 @@ public class buylevel : MonoBehaviour
         if (LevelToBuy == 7){
             m_EventSystem.SetSelectedGameObject(Level7);
         }
+        if (LevelToBuy == 8){
+            m_EventSystem.SetSelectedGameObject(Level5);
+        }
+        if (LevelToBuy == 9){
+            m_EventSystem.SetSelectedGameObject(Level6);
+        }
+        if (LevelToBuy == 10){
+            m_EventSystem.SetSelectedGameObject(Level7);
+        }
 
 
 
 
+        if (LevelToBuy == 11){                              // 
+            m_EventSystem.SetSelectedGameObject(Level11);
+        }
+        if (LevelToBuy == 12){
+            m_EventSystem.SetSelectedGameObject(Level12);
+        }
+        if (LevelToBuy == 13){
+            m_EventSystem.SetSelectedGameObject(Level13);
+        }
+        if (LevelToBuy == 14){
+            m_EventSystem.SetSelectedGameObject(Level14);
+        }
+        if (LevelToBuy == 15){
+            m_EventSystem.SetSelectedGameObject(Level15);
+        }
+        if (LevelToBuy == 16){
+            m_EventSystem.SetSelectedGameObject(Level16);
+        }
+        if (LevelToBuy == 18){
+            m_EventSystem.SetSelectedGameObject(Level17);
+        }
+        if (LevelToBuy == 18){
+            m_EventSystem.SetSelectedGameObject(Level18);
+        }
+        if (LevelToBuy == 19){
+            m_EventSystem.SetSelectedGameObject(Level19);
+        }
+        if (LevelToBuy == 20){
+            m_EventSystem.SetSelectedGameObject(Level20);
+        }
+
+
+
+        FindObjectOfType<Animator>().SetTrigger("Frombuy");
         buy.SetActive(false);
         EventManager.OnUpdateUI();
 
@@ -92,7 +156,52 @@ public class buylevel : MonoBehaviour
         if (LevelToBuy == 7){
             m_EventSystem.SetSelectedGameObject(Level7);
         }
-        buy.SetActive(false); 
+        if (LevelToBuy == 8){
+            m_EventSystem.SetSelectedGameObject(Level5);
+        }
+        if (LevelToBuy == 9){
+            m_EventSystem.SetSelectedGameObject(Level6);
+        }
+        if (LevelToBuy == 10){
+            m_EventSystem.SetSelectedGameObject(Level7);
+        }
+
+
+
+
+        if (LevelToBuy == 11){                              // 
+            m_EventSystem.SetSelectedGameObject(Level11);
+        }
+        if (LevelToBuy == 12){
+            m_EventSystem.SetSelectedGameObject(Level12);
+        }
+        if (LevelToBuy == 13){
+            m_EventSystem.SetSelectedGameObject(Level13);
+        }
+        if (LevelToBuy == 14){
+            m_EventSystem.SetSelectedGameObject(Level14);
+        }
+        if (LevelToBuy == 15){
+            m_EventSystem.SetSelectedGameObject(Level15);
+        }
+        if (LevelToBuy == 16){
+            m_EventSystem.SetSelectedGameObject(Level16);
+        }
+        if (LevelToBuy == 18){
+            m_EventSystem.SetSelectedGameObject(Level17);
+        }
+        if (LevelToBuy == 18){
+            m_EventSystem.SetSelectedGameObject(Level18);
+        }
+        if (LevelToBuy == 19){
+            m_EventSystem.SetSelectedGameObject(Level19);
+        }
+        if (LevelToBuy == 20){
+            m_EventSystem.SetSelectedGameObject(Level20);
+        }
+        FindObjectOfType<Animator>().SetTrigger("Frombuy");
+        buy.SetActive(false);
+        EventManager.OnUpdateUI();
 
     }
 }

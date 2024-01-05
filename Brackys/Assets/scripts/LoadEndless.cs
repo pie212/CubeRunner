@@ -8,7 +8,7 @@ public class LoadEndless : MonoBehaviour
 {
     // Start is called before the first frame update
     public void OnClick(){
-        SceneManager.LoadScene("Level Endless"); 
+        SceneManager.LoadScene("Level Endless Basic"); 
     }
     public void PressStart(){
         SceneManager.LoadScene("PressStart"); 
