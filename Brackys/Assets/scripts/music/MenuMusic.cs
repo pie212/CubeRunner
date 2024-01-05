@@ -14,7 +14,7 @@ public class MenuMusic : MonoBehaviour
         string sceneName = currentScene.name;
 
         //if (sceneName == "Shop" || sceneName == "Menu" || sceneName == "LevelSelect" || sceneName == "Stats"  || sceneName == "Settings" )
-        if (sceneName == "Shop" || sceneName == "Menu" || sceneName == "LevelSelect")
+        if (sceneName == "Shop" || sceneName == "Menu" || sceneName == "Levels")
         {
             DontDestroyOnLoad(gameObject);
         }

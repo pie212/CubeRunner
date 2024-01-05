@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         m_EventSystem.SetSelectedGameObject(itemsButton);  // sets the new FirstSelected to the menu
     //Debug.Log(SceneManager.GetActiveScene().buildIndex);
     completeLevelUI.SetActive(true);
-    level = SceneManager.GetActiveScene().buildIndex;
+    //level = SceneManager.GetActiveScene().buildIndex;
     //Debug.Log(level);
     
 
