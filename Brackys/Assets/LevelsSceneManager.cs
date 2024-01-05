@@ -20,8 +20,24 @@ public class LevelsSceneManager : MonoBehaviour
     public void Start(){
         m_EventSystem = EventSystem.current;
     }
+    public void ToMenu(){
+        Invoke("ToMenu2", 2.0f);
+        _anim.SetTrigger("back");
+    }
+    public void ToMenu2(){
+        SceneManager.LoadSceneAsync("Menu");
+    }
+    public void ToBasic(){             // from basic to arches
+        _anim.SetTrigger("Move left");
+        BasicUI.SetActive(true);
+        ArchUI.SetActive(false);
+        m_EventSystem.SetSelectedGameObject(BasicSelected);
+
+    }
     public void ToArchRight(){             // from basic to arches
+        _anim.SetTrigger("Move right");
         BasicUI.SetActive(false);
+        ArchUI.SetActive(true);
         m_EventSystem.SetSelectedGameObject(ArchLeftbutton);
 
     }

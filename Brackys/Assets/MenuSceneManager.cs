@@ -30,9 +30,17 @@ public class MenuSceneManager : MonoBehaviour
     public void ToShop2(){
         SceneManager.LoadSceneAsync("Shop");
     }
+
     public void ToLevels(){
-        SceneManager.LoadScene("LevelSelect");
+        _anim.SetTrigger("ToShop");     // we can reuse the animation since it goes down anyway
+        Invoke("ToLevels2", 2f);
     }
+    public void ToLevels2(){
+        SceneManager.LoadSceneAsync("Levels");
+    }
+    // public void ToLevels(){
+    //     SceneManager.LoadScene("LevelSelect");
+    // }
     public void ToSettings(){
         _anim.SetTrigger("ToSettings");
         Settings.SetActive(true);

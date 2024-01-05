@@ -334,25 +334,25 @@ public class PLayerMovement : MonoBehaviour
         {
             yield return new WaitForSeconds(KaboomLength);
             AbilityEnded();
-            Cooldown = false;
-            yield return new WaitForSeconds(KaboomCooldown);
             Cooldown = true;
+            yield return new WaitForSeconds(KaboomCooldown);
+            Cooldown = false;
         }
         if (ImportantVariables.AbilityNumb == 2)
         {
             yield return new WaitForSeconds(SlowLength);
             AbilityEnded();
-            Cooldown = false;
-            yield return new WaitForSeconds(SlowCooldown);
             Cooldown = true;
+            yield return new WaitForSeconds(SlowCooldown);
+            Cooldown = false;
         }
         if (ImportantVariables.AbilityNumb == 3)
         {
             yield return new WaitForSeconds(Slow2Length);
             AbilityEnded();
-            Cooldown = false;
-            yield return new WaitForSeconds(Slow2Cooldown);
             Cooldown = true;
+            yield return new WaitForSeconds(Slow2Cooldown);
+            Cooldown = false;
         }
     }
 

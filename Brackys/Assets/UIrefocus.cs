@@ -12,6 +12,7 @@ public class UIrefocus : MonoBehaviour
 
     void Update()
     {
+        print(EventSystem.current.currentSelectedGameObject);
         GameObject currentSelectedObject = EventSystem.current.currentSelectedGameObject;
         if (currentSelectedObject == null && lastSelectedObject != null)
         {
