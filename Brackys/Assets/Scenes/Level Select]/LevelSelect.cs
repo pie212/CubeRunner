@@ -15,6 +15,7 @@ public class LevelSelect : MonoBehaviour
     public GameObject lockscreen;
     
     public GameObject BuyScreen;
+    private Animator cameraAnimator;
     EventSystem m_EventSystem;
     // UI UPDATE 
     
@@ -48,7 +49,7 @@ public class LevelSelect : MonoBehaviour
         }
         else{
             Debug.Log("bongaAd?");
-            
+            FindObjectOfType<Animator>().SetTrigger("Tobuy");
             buy.SetActive(true);
             m_EventSystem.SetSelectedGameObject(BuyScreen);
             buyscript.LevelToBuy = levelName;

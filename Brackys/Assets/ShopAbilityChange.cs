@@ -18,7 +18,7 @@ public class ShopAbilityChange : MonoBehaviour
     public List<int> costs = new List<int>();                                         //  0 = first cost, 1 = seoncnd cost, 3 = third cost
 
     public int Ability = 1;        // 0 = none, 1 = slowmo eagle eye, 2 = explosion, 3 = normal slowmo
-    public Text costtext;
+    public TextMeshPro costtext;
 
     public Image TooltipBoom;
     public ParticleSystem MoneyPile;
