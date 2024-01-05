@@ -8,13 +8,12 @@ public static class ImportantVariables
    public static int skin = -1;                 // plskin
    public static List<int> SkinsList = new List<int>();
    public static List<int> LevelAllowed = new List<int>();
+   public static int PlayerDeaths;
 
 
 
-
-
-   // settings
-   public static float MobileSensitivity = 1.0F;
+    // settings
+    public static float MobileSensitivity = 1.0F;
    public static float MenuMusicVol = 1.0F;
 
    public static bool MouseVisible = true;

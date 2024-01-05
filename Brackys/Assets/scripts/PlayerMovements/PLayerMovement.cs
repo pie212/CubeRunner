@@ -363,7 +363,7 @@ public class PLayerMovement : MonoBehaviour
 
 
 
-        Debug.Log(forwardForce * Time.deltaTime *rb.mass);
+        //Debug.Log(forwardForce * Time.deltaTime *rb.mass);
         if (ExtraGravity == true ){
         rb.AddForce(0,ExtraGravityAmount * Time.deltaTime,0 );       // adds downward force to keep the block near the ground
         }
@@ -395,8 +395,8 @@ public class PLayerMovement : MonoBehaviour
 
         TorqueAm = pitch.ReadValue<Vector3>();
         YawAm = yaw.ReadValue<Vector3>();
-        Debug.Log(TorqueAm);
-        Debug.Log(YawAm);
+        //Debug.Log(TorqueAm);
+        //Debug.Log(YawAm);
         rb.AddTorque(TorqueAm.y * TorqueAmount * Time.deltaTime,        yawAmount * -TorqueAm.z * Time.deltaTime,          TorqueAm.x * -TorqueAmount * Time.deltaTime);
         
 
