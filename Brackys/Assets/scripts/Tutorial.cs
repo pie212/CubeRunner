@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class Tutorial : MonoBehaviour
 {
     [Header("General")]
+    [Header("4000 speed is normal")]
     public bool SlowPlayer;
-    public float PercentageSlowed;
+    public float SlowSpeed;
     [Header("Desktop")]
     public GameObject[] DesktopControls;
     public Image[] DesktopImageControls;
@@ -39,7 +40,7 @@ public class Tutorial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(FindObjectOfType<PLayerMovement>().forwardForce);
     }
 
     private void OnTriggerEnter(Collider other) //Called when something is colliding with the area
@@ -51,7 +52,7 @@ public class Tutorial : MonoBehaviour
                 //sets the player speed slower if SlowPlayer is true
                 if (SlowPlayer)
                 {
-                    FindObjectOfType<PLayerMovement>().forwardForce = 2000 / (PercentageSlowed / 10);
+                    FindObjectOfType<PLayerMovement>().forwardForce = SlowSpeed;
                 }
 
 
@@ -66,6 +67,11 @@ public class Tutorial : MonoBehaviour
             }
             else
             {
+                if (SlowPlayer)
+                {
+                    FindObjectOfType<PLayerMovement>().forwardForce = SlowSpeed;
+                }
+
                 for (int i = 0; i < ControlerControls.Length; i++)
                 {
                     ControlerControls[i].gameObject.SetActive(true);
@@ -77,30 +83,34 @@ public class Tutorial : MonoBehaviour
             }
         }
     }
-
     private void OnCollisionExit(Collision collision)
     {
-        if (SlowPlayer)
+
+        Debug.Log("left");
+
+        if (collision.gameObject.tag == "Player")
         {
-            FindObjectOfType<PLayerMovement>().forwardForce = 2000f;
-        }
+            FindObjectOfType<PLayerMovement>().forwardForce = 4000f;
+            
 
 
-        for (int i = 0; i < DesktopControls.Length; i++)
-        {
-            DesktopControls[i].gameObject.SetActive(false);
+            for (int i = 0; i < DesktopControls.Length; i++)
+            {
+                DesktopControls[i].gameObject.SetActive(false);
+            }
+            for (int i = 0; i < DesktopImageControls.Length; i++)
+            {
+                DesktopImageControls[i].gameObject.SetActive(false);
+            }
+            for (int i = 0; i < ControlerControls.Length; i++)
+            {
+                ControlerControls[i].gameObject.SetActive(false);
+            }
+            for (int i = 0; i < ControlerImageMap.Length; i++)
+            {
+                ControlerImageMap[i].gameObject.SetActive(false);
+            }
         }
-        for (int i = 0; i < DesktopImageControls.Length; i++)
-        {
-            DesktopImageControls[i].gameObject.SetActive(false);
-        }
-        for (int i = 0; i < ControlerControls.Length; i++)
-        {
-            ControlerControls[i].gameObject.SetActive(false);
-        }
-        for (int i = 0; i < ControlerImageMap.Length; i++)
-        {
-            ControlerImageMap[i].gameObject.SetActive(false);
-        }
+        
     }
 }
