@@ -3526,7 +3526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f44208fbcdf6a745b17fc4be90ad7e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsForEffect: 1
+  IsForEffect: 0
 --- !u!1 &1662424894 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1204419285173267146, guid: 6cef6a9f35dbf244881de5645a7e6604, type: 3}
@@ -3613,6 +3613,8 @@ MonoBehaviour:
   Mesh: {fileID: 2641267720934646737}
   offsetPos: {x: 0, y: 0, z: 0}
   rotateAmount: {x: 0, y: 50, z: 0}
+  Override: 0
+  Overridenumber: 0
 --- !u!54 &1700036159
 Rigidbody:
   m_ObjectHideFlags: 0
