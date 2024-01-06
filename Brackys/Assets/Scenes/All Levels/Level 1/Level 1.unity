@@ -10066,6 +10066,7 @@ MonoBehaviour:
   ControlerControls:
   - {fileID: 1066413774}
   ControlerImageMap: []
+  hasdied: 0
 --- !u!65 &131452620
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25095,7 +25096,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1408965826683389705, guid: 7612bee852503034e8baa547761cb691, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1408965826683389705, guid: 7612bee852503034e8baa547761cb691, type: 3}
       propertyPath: m_LocalScale.y
@@ -25164,7 +25165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4913396387387343400, guid: f202b7c52a2c11144a6e50d1cbb13714, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4913396387387343400, guid: f202b7c52a2c11144a6e50d1cbb13714, type: 3}
       propertyPath: m_LocalScale.x
@@ -25229,7 +25230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4913396387387343400, guid: f202b7c52a2c11144a6e50d1cbb13714, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4913396387387343400, guid: f202b7c52a2c11144a6e50d1cbb13714, type: 3}
       propertyPath: m_LocalScale.x
@@ -25372,7 +25373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4913396387387343400, guid: f202b7c52a2c11144a6e50d1cbb13714, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4913396387387343400, guid: f202b7c52a2c11144a6e50d1cbb13714, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25429,7 +25430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 817114904990925006, guid: d09e7c688688d964fb145ffb2b4020b4, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 817114904990925006, guid: d09e7c688688d964fb145ffb2b4020b4, type: 3}
       propertyPath: m_LocalScale.z
@@ -30701,7 +30702,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1408965826683389705, guid: 7612bee852503034e8baa547761cb691, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1408965826683389705, guid: 7612bee852503034e8baa547761cb691, type: 3}
       propertyPath: m_LocalScale.y
@@ -53187,7 +53188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644210368}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.33177572, y: 55.89568, z: -50.33}
+  m_LocalPosition: {x: 0.33177572, y: 59.71, z: -50.33}
   m_LocalScale: {x: 25, y: 25, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53236,6 +53237,7 @@ MonoBehaviour:
   ControlerControls: []
   ControlerImageMap:
   - {fileID: 840873882}
+  hasdied: 0
 --- !u!1 &1673667469
 GameObject:
   m_ObjectHideFlags: 0
@@ -58905,7 +58907,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 889097078440421408, guid: 76d9bf8d0d25fea468be10d23f305cab, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 889097078440421408, guid: 76d9bf8d0d25fea468be10d23f305cab, type: 3}
       propertyPath: m_LocalScale.y

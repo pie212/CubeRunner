@@ -40,7 +40,7 @@ public class Tutorial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(FindObjectOfType<PLayerMovement>().forwardForce);
+        
     }
 
     private void OnTriggerEnter(Collider other) //Called when something is colliding with the area
@@ -83,12 +83,12 @@ public class Tutorial : MonoBehaviour
             }
         }
     }
-    private void OnCollisionExit(Collision collision)
-    {
 
+    private void OnTriggerExit(Collider other)
+    {
         Debug.Log("left");
 
-        if (collision.gameObject.tag == "Player")
+        if (other.transform.name == "Player")
         {
             FindObjectOfType<PLayerMovement>().forwardForce = 4000f;
             
