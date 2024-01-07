@@ -4,10 +4,11 @@ using UnityEngine;
 
 public static class ImportantVariables 
 {
-   public static int Money = 40;
+   public static bool SaveExist = false;
+   public static int Money = 0;
    public static int skin = -1;                 // plskin
    public static List<int> SkinsList = new List<int>();
-   public static List<int> LevelAllowed = new List<int>();
+   public static List<int> LevelAllowed = new List<int>(){};
    public static int PlayerDeaths;
 
 
@@ -24,7 +25,7 @@ public static class ImportantVariables
    public static bool Bloom = true;
    
    // abilitys
-   public static int AbilityNumb =2;    // 0 = none, 1 = slowmo eagle eye, 2 = explosion, 3 = normal slowmo
+   public static int AbilityNumb =0;    // 0 = none, 1 = slowmo eagle eye, 2 = explosion, 3 = normal slowmo
    public static List<int> AbilityList = new List<int>();
 
    public static bool Explosive = false;           // the version where there are forces interacting with the explosions, the explosion force

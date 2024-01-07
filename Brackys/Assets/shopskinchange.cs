@@ -18,7 +18,7 @@ public class shopskinchange : MonoBehaviour
     public Animator _anim;
     public List<int> costs = new List<int>();
     public int cost;         // cost of first item
-    public Text text;
+    public TextMeshPro text;
 
     public bool CanPressed;         // quick bool to make sure the player cannot press the button while the animation is playing    
     // Start is called before the first frame update
