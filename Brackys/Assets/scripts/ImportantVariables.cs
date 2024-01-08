@@ -25,7 +25,7 @@ public static class ImportantVariables
    public static bool Bloom = true;
    
    // abilitys
-   public static int AbilityNumb =0;    // 0 = none, 1 = slowmo eagle eye, 2 = explosion, 3 = normal slowmo
+   public static int AbilityNumb =2;    // 0 = none, 1 = slowmo eagle eye, 2 = explosion, 3 = normal slowmo
    public static List<int> AbilityList = new List<int>();
 
    public static bool Explosive = false;           // the version where there are forces interacting with the explosions, the explosion force

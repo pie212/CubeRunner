@@ -17470,6 +17470,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6202258104577739006, guid: 963afeac9a8b2cc4193634950c81562c, type: 3}
   m_PrefabInstance: {fileID: 3927683844816218908}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &620474970 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 6202258104577738993, guid: 963afeac9a8b2cc4193634950c81562c, type: 3}
+  m_PrefabInstance: {fileID: 3927683844816218908}
+  m_PrefabAsset: {fileID: 0}
 --- !u!64 &649258401
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30421,6 +30426,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 620474964}
+    - target: {fileID: 2062560295373659963, guid: d5826f7be0b0fe046b14759b2168c7b5, type: 3}
+      propertyPath: offset.z
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2062560295373659963, guid: d5826f7be0b0fe046b14759b2168c7b5, type: 3}
+      propertyPath: playerrb
+      value: 
+      objectReference: {fileID: 620474970}
+    - target: {fileID: 2062560295373659963, guid: d5826f7be0b0fe046b14759b2168c7b5, type: 3}
+      propertyPath: smoothSpeed
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 2062560295373659967, guid: d5826f7be0b0fe046b14759b2168c7b5, type: 3}
       propertyPath: m_Name
       value: Main Camera
