@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
-    [Header("General")]
+    [Header("Slowing system")]
     [Header("4000 speed is normal")]
     public bool SlowPlayer;
     public float SlowSpeed;
@@ -43,9 +43,12 @@ public class Tutorial : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other) //Called when something is colliding with the area
+    private void OnTriggerEnter(Collider other)
     {
-        if (PlayerCollision.hasDied == true && other.tag == "Player") //If the player has died and the player is in the intro area then:
+
+        
+
+        if (PlayerCollision.hasDied == true && other.gameObject.tag == "Player") //If the player has died and the player is in the intro area then:
         {
             if (ImportantVariables.MouseVisible) // MouseVisible =1 means keyboard-mouse mode and =0 means controler mode
             {
@@ -81,6 +84,7 @@ public class Tutorial : MonoBehaviour
                     ControlerImageMap[i].gameObject.SetActive(true);
                 }
             }
+
         }
     }
 
@@ -91,8 +95,6 @@ public class Tutorial : MonoBehaviour
         if (other.transform.name == "Player")
         {
             FindObjectOfType<PLayerMovement>().forwardForce = 4000f;
-            
-
 
             for (int i = 0; i < DesktopControls.Length; i++)
             {
@@ -110,6 +112,7 @@ public class Tutorial : MonoBehaviour
             {
                 ControlerImageMap[i].gameObject.SetActive(false);
             }
+
         }
         
     }
