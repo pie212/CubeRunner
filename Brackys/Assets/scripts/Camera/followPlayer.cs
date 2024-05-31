@@ -37,10 +37,12 @@ public class followPlayer : MonoBehaviour
         
         smoothedPosition.x = Mathf.SmoothDamp(transform.position.x, desiredPosition.x, ref velocity.x, 0.05f* Time.timeScale);
         smoothedPosition.y = Mathf.SmoothDamp(transform.position.y, desiredPosition.y, ref velocity.y, 0.05f* Time.timeScale);
-        smoothedPosition.z = Mathf.SmoothDamp(transform.position.z, desiredPosition.z, ref velocity.z, 0.01f* Time.timeScale);
+        // smoothedPosition.z = Mathf.SmoothDamp(transform.position.z, desiredPosition.z, ref velocity.z, 0.01f* Time.timeScale);
 
-        // Smoothly move the camera to the desired position using SmoothDamp
-        transform.position = Vector3.SmoothDamp(transform.position, smoothedPosition, ref velocity, smoothSpeed);
+        // // Smoothly move the camera to the desired position using SmoothDamp
+        // transform.position = Vector3.SmoothDamp(transform.position, smoothedPosition, ref velocity, smoothSpeed);
+
+        transform.position = new Vector3(smoothedPosition.x, smoothedPosition.y, desiredPosition.z);
     }
 
     
