@@ -656,7 +656,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 77240651}
-  - component: {fileID: 77240650}
   m_Layer: 0
   m_Name: sceneManager
   m_TagString: Untagged
@@ -664,28 +663,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &77240650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77240649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f94f7b02d36d8ea4999bea0fc0829f46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _anim: {fileID: 0}
-  SkinsAnim: {fileID: 0}
-  AbilityAnim: {fileID: 0}
-  Skins: {fileID: 0}
-  Abilitys: {fileID: 0}
-  Menu: {fileID: 0}
-  SkinTextSelect: {fileID: 0}
-  AbilityTextSelect: {fileID: 0}
-  MenuTextSelect: {fileID: 0}
-  TooltipBoom: {fileID: 0}
 --- !u!4 &77240651
 Transform:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class Infinteplacerob : MonoBehaviour
     public GameObject ob;
     public GameObject powerup;
     public GameObject coin;
+    public GameObject tnt;
     public float amount;
     private float minx;
     private float maxx;
@@ -49,6 +50,7 @@ public class Infinteplacerob : MonoBehaviour
             if (FindObjectOfType<GameManager>().Type == 1 || FindObjectOfType<GameManager>().Type == 2 )
             {
                 ob.GetComponent<Rigidbody>().useGravity = true;   
+                tnt.GetComponent<Rigidbody>().useGravity = true;   
             for(int i=0; i<Random.Range(45,60)  ; i++)
                 {
                 aX = Random.Range(minx, maxx);
@@ -67,6 +69,12 @@ public class Infinteplacerob : MonoBehaviour
                 aZ = Random.Range(minz,maxz + 1);
                 Instantiate(coin, new Vector3(aX,1.7F,aZ), Quaternion.Euler(0,-90,90));
             }
+            for(int i=0; i<Random.Range(4,15)  ; i++)
+                {
+                aX = Random.Range(minx, maxx);
+                aZ = Random.Range(minz,maxz + 1);
+                Instantiate(tnt, new Vector3(aX,maxy,aZ), Quaternion.Euler(0,0,0));
+                }
             
             }
 
@@ -76,7 +84,8 @@ public class Infinteplacerob : MonoBehaviour
             if (FindObjectOfType<GameManager>().Type == 3 || FindObjectOfType<GameManager>().Type == 4 )
             {   
             ob.GetComponent<Rigidbody>().useGravity = false;
-            for(int i=0; i<40  ; i++)
+            tnt.GetComponent<Rigidbody>().useGravity = false;  
+            for(int i=0; i<Random.Range(45,60)  ; i++)
             {   
                 aX = Random.Range(minx, maxx);
                 aZ = Random.Range(minz,maxz + 1);
@@ -91,6 +100,12 @@ public class Infinteplacerob : MonoBehaviour
                 aX = Random.Range(-11, 11);
                 aZ = Random.Range(minz,maxz + 1);
                 Instantiate(coin, new Vector3(aX,13,aZ), Quaternion.Euler(0,-90,90));
+            }
+            for(int i=0; i<Random.Range(4,15)  ; i++)
+            {   
+                aX = Random.Range(minx, maxx);
+                aZ = Random.Range(minz,maxz + 1);
+                Instantiate(tnt, new Vector3(aX,14,aZ), Quaternion.Euler(0,0,0));
             }
             }
     }

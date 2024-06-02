@@ -10,7 +10,7 @@ public class Obstacle : MonoBehaviour
         if (IsForEffect == false){
         if (collision.gameObject.tag == "Player" )
         {
-
+            
             GetComponent<Rigidbody>().isKinematic = false;
         }
         }
