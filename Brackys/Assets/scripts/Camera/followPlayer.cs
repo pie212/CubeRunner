@@ -21,7 +21,7 @@ public class followPlayer : MonoBehaviour
     // Update is called once per frame
   void LateUpdate()
     {
-      Debug.Log(Time.timeScale);
+      
     if (FindObjectOfType<PLayerMovement>().gravity == 1) // if we are upside down
      { 
        desiredPosition = player.position + offsetUPsideown;
