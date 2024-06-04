@@ -6,7 +6,7 @@ public class InfinitePlacerMuliplayer : MonoBehaviour
 {
 
     public GameObject[] Tiles;
-    Vector3 NextSpawnPoint;
+    public Vector3 NextSpawnPoint;
     public int AmountOfTiles = 10;
     int i;
 
