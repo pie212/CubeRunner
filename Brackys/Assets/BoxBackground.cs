@@ -7,7 +7,7 @@ public class BoxBackground : MonoBehaviour
     public GameObject cubePrefab; // The prefab of the cube to instantiate
     public int numberOfCubes = 10; // Number of cubes to spawn
     public float rotationSpeed = 20f; // Speed at which the cubes rotate
-
+    public float distance = 1300f;
     void Start()
     {
         // Spawn cubes
@@ -34,7 +34,7 @@ public class BoxBackground : MonoBehaviour
 
     void SpawnCube()
     {
-        Vector3 spawnPosition = new Vector3(Random.Range(-50f, 50f), Random.Range(0f, 35f), Random.Range(5f, 1300f));
+        Vector3 spawnPosition = new Vector3(Random.Range(-50f, 50f), Random.Range(0f, 35f), Random.Range(5f, distance));
         Quaternion spawnRotation = Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
         GameObject newCube = Instantiate(cubePrefab, spawnPosition, spawnRotation, transform);
     }

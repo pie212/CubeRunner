@@ -13,6 +13,7 @@ public class Infinteplacer : MonoBehaviour
     public GameObject Blue;
     public GameObject Red;
     public GameObject Green;
+    public GameObject backround;
     
     //fog
     private float minFOG = 0;
@@ -74,7 +75,6 @@ public class Infinteplacer : MonoBehaviour
             }
             
             Instantiate(fog, new Vector3(x,y,z), Quaternion.Euler(0,0,0));                // this is for the fog, the white fog
-            
             
             // Type 1 = reg ground
             // Type 2 = groundup
@@ -158,7 +158,7 @@ public class Infinteplacer : MonoBehaviour
 
 
 
-
+            Instantiate(backround, new Vector3(x,y,z-110), Quaternion.Euler(0,0,0));
             
         }
 

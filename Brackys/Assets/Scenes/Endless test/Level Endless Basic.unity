@@ -217,7 +217,7 @@ RectTransform:
   m_Children:
   - {fileID: 1496400925}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -659,6 +659,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cef6a9f35dbf244881de5645a7e6604, type: 3}
+--- !u!1 &429164935 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4869507827516218647, guid: a2f6d8df54f86684dbccc5657e4132cd, type: 3}
+  m_PrefabInstance: {fileID: 1949959464}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &437051697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4127,6 +4132,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8329d42521b1e6544bde0910f7aec0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1949959464
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4869507827516218641, guid: a2f6d8df54f86684dbccc5657e4132cd, type: 3}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869507827516218641, guid: a2f6d8df54f86684dbccc5657e4132cd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869507827516218641, guid: a2f6d8df54f86684dbccc5657e4132cd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869507827516218641, guid: a2f6d8df54f86684dbccc5657e4132cd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869507827516218641, guid: a2f6d8df54f86684dbccc5657e4132cd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869507827516218641, guid: a2f6d8df54f86684dbccc5657e4132cd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869507827516218641, guid: a2f6d8df54f86684dbccc5657e4132cd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869507827516218641, guid: a2f6d8df54f86684dbccc5657e4132cd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869507827516218641, guid: a2f6d8df54f86684dbccc5657e4132cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869507827516218641, guid: a2f6d8df54f86684dbccc5657e4132cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869507827516218641, guid: a2f6d8df54f86684dbccc5657e4132cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869507827516218646, guid: a2f6d8df54f86684dbccc5657e4132cd, type: 3}
+      propertyPath: distance
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869507827516218646, guid: a2f6d8df54f86684dbccc5657e4132cd, type: 3}
+      propertyPath: numberOfCubes
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4869507827516218647, guid: a2f6d8df54f86684dbccc5657e4132cd, type: 3}
+      propertyPath: m_Name
+      value: Background
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a2f6d8df54f86684dbccc5657e4132cd, type: 3}
 --- !u!1 &1952734898 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1204419285173267146, guid: 6cef6a9f35dbf244881de5645a7e6604, type: 3}
@@ -4257,6 +4327,7 @@ MonoBehaviour:
   Blue: {fileID: 531817224}
   Red: {fileID: 1180186482}
   Green: {fileID: 1518181269}
+  backround: {fileID: 429164935}
   colorChooser: 0
   chooser: 0
   time: 1

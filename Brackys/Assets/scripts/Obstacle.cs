@@ -4,7 +4,8 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     public bool IsForEffect = false;
-    // Start is called before the first frame update
+    
+    
     private void OnCollision(Collider collision)
     {
         if (IsForEffect == false){
