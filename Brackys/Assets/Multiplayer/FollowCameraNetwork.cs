@@ -24,19 +24,7 @@ public class FollowCameraNetwork : NetworkBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-
-        if (FindObjectOfType<PlayerNetworkedMovement>().gravity == 1) // if we are upside down
-        {
-            desiredPosition = player.position + offsetUPsideown;
-        }
-        if (FindObjectOfType<PlayerNetworkedMovement>().gravity == 0)
-        {
-            // Vector3 desiredPosition = player.position + offset;                                         //old system
-            // Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);  // old system
-
-            // transform.position = smoothedPosition;
-            desiredPosition = player.position + offset;
-        }
+        desiredPosition = player.position + offset;
 
         smoothedPosition.x = Mathf.SmoothDamp(transform.position.x, desiredPosition.x, ref velocity.x, 0.05f * Time.timeScale);
         smoothedPosition.y = Mathf.SmoothDamp(transform.position.y, desiredPosition.y, ref velocity.y, 0.05f * Time.timeScale);

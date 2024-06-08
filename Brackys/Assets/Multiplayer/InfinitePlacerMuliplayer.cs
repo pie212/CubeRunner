@@ -12,7 +12,7 @@ public class InfinitePlacerMuliplayer : MonoBehaviour
 
     void PlaceTile()
     {
-        GameObject temp = Instantiate(Tiles[Random.Range(0, Tiles.Length)], NextSpawnPoint, Quaternion.identity);
+        GameObject temp = Instantiate(Tiles[Random.Range(0, Tiles.Length)], NextSpawnPoint - new Vector3(0f,0f,1f), Quaternion.identity);
         NextSpawnPoint = temp.transform.GetChild(0).transform.position;
     }
 
