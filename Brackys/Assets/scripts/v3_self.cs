@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class v3 : MonoBehaviour
+public class v3_self : MonoBehaviour
 {
-    public AudioSource audioSource;
-    public Renderer targetRenderer;
-    public float intensityMultiplier = 10f;
-    public float lerpSpeed = 10f;
-    public float defaultEmissionLevel = 0.5f;
+    private AudioSource audioSource;
+    private Renderer targetRenderer;
+    public float intensityMultiplier = 10000f;
+    public float lerpSpeed = 100f;
+    public float defaultEmissionLevel = 10f;
 
     private Material targetMaterial;
     private float originalEmissionLevel;
@@ -14,7 +14,9 @@ public class v3 : MonoBehaviour
     private void Start()
     {
         // Get the material from the renderer
-        targetMaterial = targetRenderer.material;
+        audioSource = FindObjectOfType<AudioSource>();
+        Debug.Log(audioSource);
+        targetMaterial = GetComponent<Renderer>().material;
 
         // Store the original emission level
         originalEmissionLevel = targetMaterial.GetFloat("_EmissionIntensity");
@@ -40,6 +42,7 @@ public class v3 : MonoBehaviour
 
         // Calculate the target emission level based on the average amplitude
         float targetEmissionLevel = averageAmplitude * intensityMultiplier;
+        
 
         // Lerp the current emission level towards the target emission level
         float currentEmissionLevel = targetMaterial.GetFloat("_EmissionIntensity");
