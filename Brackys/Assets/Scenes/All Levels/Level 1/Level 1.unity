@@ -23947,9 +23947,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40641475a9b8a2645b9489fb7b8e713a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensityMultiplier: 10000
+  intensityMultiplier: 50000
   lerpSpeed: 100
-  defaultEmissionLevel: 10
+  defaultEmissionLevel: 15
   cubes: []
 --- !u!4 &289324915 stripped
 Transform:
