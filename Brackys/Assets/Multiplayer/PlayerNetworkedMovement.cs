@@ -161,6 +161,33 @@ public class PlayerNetworkedMovement : NetworkBehaviour
     private void Jump(InputAction.CallbackContext context)
     {
         JCON = true;           // jumps
+        if (JMENU == false)          // if pause is not on
+            {
+
+                if (Jumping == true && isjumping == false)
+                {
+                    isjumping = true;
+                    Jumping = false;
+                    //JumpyYesOrNo = true;
+                    jumpStartPos = transform.position;
+                    Achievementmanager.Jumps += 1;                                               // adds 1 for the achievement manager in jump
+                                                                                                 //jump = false;         IF IT DOESNT WORK ITS VIKTOR'S FAULT!!!!
+
+                    if (gravity == 0 && ExtraGravity == false)
+                    {
+                        rb.velocity = new Vector3(rb.velocity.x, JumpAmount * Time.deltaTime * rb.mass, rb.velocity.z);
+
+                    }
+                    else if (gravity == 0)
+                    {
+                        rb.velocity = new Vector3(rb.velocity.x, JumpAmount * Time.deltaTime * rb.mass * 8, rb.velocity.z);
+                    }
+                    else if (gravity == 1)
+                    {
+                        rb.velocity = new Vector3(rb.velocity.x, -JumpAmount * Time.deltaTime * rb.mass, rb.velocity.z);
+                    }
+                }
+            }
     }
     private void PowerUp(InputAction.CallbackContext context)
     {
@@ -373,10 +400,10 @@ public class PlayerNetworkedMovement : NetworkBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (rb.position.y > 5)
-        {
-            rb.velocity = new Vector3(rb.velocity.x, -ExtraGravityAmount, rb.velocity.z);
-        }
+        // if (rb.position.y > 5)
+        // {
+        //     rb.velocity = new Vector3(rb.velocity.x, -ExtraGravityAmount, rb.velocity.z);
+        // }
 
         //Debug.Log(forwardForce * Time.deltaTime *rb.mass);
         if (ExtraGravity == true)
@@ -460,33 +487,7 @@ public class PlayerNetworkedMovement : NetworkBehaviour
 
 
         }
-        if (jump == true)
-        {
-            if (JMENU == false)          // if pause is not on
-            {
-
-                if (Jumping == true && isjumping == false)
-                {
-                    isjumping = true;
-                    Jumping = false;
-                    //JumpyYesOrNo = true;
-                    jumpStartPos = transform.position;
-                    Achievementmanager.Jumps += 1;                                               // adds 1 for the achievement manager in jump
-                                                                                                 //jump = false;         IF IT DOESNT WORK ITS VIKTOR'S FAULT!!!!
-
-                    if (gravity == 0 && ExtraGravity == false)
-                    {
-                        rb.velocity = new Vector3(rb.velocity.x, JumpAmount * Time.deltaTime * rb.mass, rb.velocity.z);
-
-                    }
-                    else if (gravity == 0)
-                    {
-                        rb.velocity = new Vector3(rb.velocity.x, JumpAmount * Time.deltaTime * rb.mass * 8, rb.velocity.z);
-                    }
-                    else if (gravity == 1)
-                    {
-                        rb.velocity = new Vector3(rb.velocity.x, -JumpAmount * Time.deltaTime * rb.mass, rb.velocity.z);
-                    }
+        
 
 
                     //Invoke("jumpReturn", 0.2f);
@@ -507,14 +508,14 @@ public class PlayerNetworkedMovement : NetworkBehaviour
                     //if (transform.position.y > jumpStartPos.y + 2){
                     //Debug.Log("IT WORKS!!");
                     //}
-                }
-            }
+                
+            
 
 
         }
 
 
-    }
+    
 
     //void jumpReturn(){
     //Debug.Log("Booga?");
