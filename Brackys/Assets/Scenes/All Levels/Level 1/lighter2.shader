@@ -3,7 +3,7 @@ Shader "Custom/EmissionIntensityShader"
     Properties
     {
         _EmissionColor ("Emission Color", Color) = (1, 1, 1, 1)
-        _EmissionIntensity ("Emission Intensity", Range(10, 20)) = 1
+        _EmissionIntensity ("Emission Intensity", Range(10, 50)) = 1
     }
  
     SubShader
