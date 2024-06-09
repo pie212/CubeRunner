@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RedMaterial
+  m_Name: green
   m_Shader: {fileID: 4800000, guid: 669a3f3b749fd014897870cebe8efab6, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -77,5 +77,5 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 0, b: 0, a: 1}
-    - _EmissionColor: {r: 1, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0.06717555, g: 0.7169812, b: 0.02367392, a: 1}
   m_BuildTextureStacks: []

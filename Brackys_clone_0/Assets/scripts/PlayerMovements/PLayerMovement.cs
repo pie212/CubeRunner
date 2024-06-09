@@ -21,6 +21,7 @@ public class PLayerMovement : MonoBehaviour
 
 
     [Header("Vars")]
+    
     private PowerupTypeUI powerUpTypeUI;       // to update the powerupui instead of using update
     public bool UseRelativeForwardforce = false;
     public ParticleSystem kaboomeffect;
@@ -81,6 +82,7 @@ public class PLayerMovement : MonoBehaviour
 
     // ability
     [Header("Ability")]
+    public bool AbilityNotAllowed = false;
     public int abilityType = 0;
     public float AbilityTimer = 0.0f;
     public bool TimeSlowMo = false;
@@ -245,12 +247,13 @@ public class PLayerMovement : MonoBehaviour
     void Ability(InputAction.CallbackContext context)
     {
         
-        if (context.performed)
+        if (context.performed && !AbilityNotAllowed)
         {
             if (ImportantVariables.AbilityNumb != 0 && this != null)
             {
                 Debug.Log("start cooldown code");
-                StartCoroutine(AbilityCounter());
+                // StartCoroutine(AbilityCounter());
+                
             }
 
             if (ImportantVariables.AbilityNumb == 1 && Cooldown == false && this != null)
@@ -258,10 +261,12 @@ public class PLayerMovement : MonoBehaviour
             TimeSlowMo = true;
             Time.timeScale = 0.2F;  
             EventManager.OnEagleEye();  
+            FindObjectOfType<AudioSource>().pitch = Mathf.Lerp(FindObjectOfType<AudioSource>().pitch,0.8f, 5f);
             }     
 
             else if (ImportantVariables.AbilityNumb == 2 && Cooldown == false && this != null)
             {
+            FindObjectOfType<AudioSource>().pitch = Mathf.Lerp(FindObjectOfType<AudioSource>().pitch,0.8f, 5f);
             Time.timeScale = 0.02F;
             mouseclick.Enable();
             if(ImportantVariables.MouseVisible == false)
@@ -298,7 +303,7 @@ public class PLayerMovement : MonoBehaviour
         if (context.canceled){
             
             AbilityEnded();
-
+            FindObjectOfType<AudioSource>().pitch = Mathf.Lerp(FindObjectOfType<AudioSource>().pitch, 1f, 5f);
 
 
             
@@ -328,33 +333,33 @@ public class PLayerMovement : MonoBehaviour
                     // rb.velocity = retainedSpeed;     // can't use rb for some fucking reason
     }
 
-    IEnumerator AbilityCounter()
-    {
-        if (ImportantVariables.AbilityNumb == 1)
-        {
-            yield return new WaitForSeconds(KaboomLength);
-            AbilityEnded();
-            Cooldown = true;
-            yield return new WaitForSeconds(KaboomCooldown);
-            Cooldown = false;
-        }
-        if (ImportantVariables.AbilityNumb == 2)
-        {
-            yield return new WaitForSeconds(SlowLength);
-            AbilityEnded();
-            Cooldown = true;
-            yield return new WaitForSeconds(SlowCooldown);
-            Cooldown = false;
-        }
-        if (ImportantVariables.AbilityNumb == 3)
-        {
-            yield return new WaitForSeconds(Slow2Length);
-            AbilityEnded();
-            Cooldown = true;
-            yield return new WaitForSeconds(Slow2Cooldown);
-            Cooldown = false;
-        }
-    }
+    // IEnumerator AbilityCounter()
+    // {
+    //     if (ImportantVariables.AbilityNumb == 1)
+    //     {
+    //         yield return new WaitForSeconds(KaboomLength);
+    //         AbilityEnded();
+    //         Cooldown = true;
+    //         yield return new WaitForSeconds(KaboomCooldown);
+    //         Cooldown = false;
+    //     }
+    //     if (ImportantVariables.AbilityNumb == 2)
+    //     {
+    //         yield return new WaitForSeconds(SlowLength);
+    //         AbilityEnded();
+    //         Cooldown = true;
+    //         yield return new WaitForSeconds(SlowCooldown);
+    //         Cooldown = false;
+    //     }
+    //     if (ImportantVariables.AbilityNumb == 3)
+    //     {
+    //         yield return new WaitForSeconds(Slow2Length);
+    //         AbilityEnded();
+    //         Cooldown = true;
+    //         yield return new WaitForSeconds(Slow2Cooldown);
+    //         Cooldown = false;
+    //     }
+    // }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -374,13 +379,15 @@ public class PLayerMovement : MonoBehaviour
         //rb.AddForce(-2*Physics.gravity, ForceMode.Acceleration);  Reverses grabity by adding upward force
         if (UseRelativeForwardforce == false){
         //rb.AddForce(0,0,forwardForce * Time.deltaTime *rb.mass);
-        rb.AddForce(FindObjectOfType<Camera>().transform.forward * forwardForce * Time.deltaTime *rb.mass);
+        rb.AddForce(new Vector3(0,0,forwardForce * Time.deltaTime *rb.mass));     // beccause camera is always forward   used to be rb.AddForce(FindObjectOfType<Camera>().transform.forward * forwardForce * Time.deltaTime *rb.mass);
         }
         else{
         rb.AddRelativeForce(0,0,forwardForce * Time.deltaTime * rb.mass);
         }
 
         //Debug.Log(move.ReadValue<Vector2>());   
+
+        // SIDEWAYS MOVEMENT
         sideways = move.ReadValue<Vector2>();
         if (Application.isMobilePlatform == true){
             rb.AddForce (sideways.x * (sidewaysForce * ImportantVariables.MobileSensitivity * rb.mass) * Time.deltaTime, 0,0);
@@ -391,7 +398,7 @@ public class PLayerMovement : MonoBehaviour
          
 
 
-
+        // ROLL MOVEMENT
 
         TorqueAm = pitch.ReadValue<Vector3>();
         YawAm = yaw.ReadValue<Vector3>();
@@ -509,7 +516,7 @@ public class PLayerMovement : MonoBehaviour
             AbilityTimer += Time.deltaTime;
             float seconds = Convert.ToInt32((AbilityTimer % 60) * 5);
             Debug.Log("seconds" + seconds.ToString());
-            if (seconds >= 10)
+            if (seconds >= 2)
             {
                 mouseclick.Disable();
                 TimeSlowMo = false;
