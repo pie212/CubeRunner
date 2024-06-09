@@ -415,104 +415,107 @@ public class PlayerNetworkedMovement : NetworkBehaviour
         //Debug.Log(rb.velocity);
 
         //rb.AddForce(-2*Physics.gravity, ForceMode.Acceleration);  Reverses grabity by adding upward force
-        if (UseRelativeForwardforce == false)
+        if (Network.connections.Length > 0)
         {
-            //rb.AddForce(0,0,forwardForce * Time.deltaTime *rb.mass);
-            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, forwardForce * Time.deltaTime * rb.mass);
-        }
-        else
-        {
-            rb.AddRelativeForce(0, 0, forwardForce * Time.deltaTime * rb.mass);
-        }
-
-        //Debug.Log(move.ReadValue<Vector2>());   
-        sideways = move.ReadValue<Vector2>();
-        if (Application.isMobilePlatform == true)
-        {
-            rb.AddForce(sideways.x * (sidewaysForce * ImportantVariables.MobileSensitivity * rb.mass) * Time.deltaTime, 0, 0);
-        }
-        else
-        {
-            rb.AddForce(sideways.x * (sidewaysForce * ImportantVariables.MobileSensitivity * rb.mass) * Time.deltaTime, 0, 0);
-        }
-
-
-
-
-
-        TorqueAm = pitch.ReadValue<Vector3>();
-        YawAm = yaw.ReadValue<Vector3>();
-        //Debug.Log(TorqueAm);
-        //Debug.Log(YawAm);
-        rb.AddTorque(TorqueAm.y * TorqueAmount * Time.deltaTime, yawAmount * -TorqueAm.z * Time.deltaTime, TorqueAm.x * -TorqueAmount * Time.deltaTime);
-
-
-
-
-        if (JMENU == true)
-        {
-
-            JMENU = false;
-            move.Disable();
-            jumpCON.Disable();
-            powerup.Disable();
-            menu.Disable();
-            pitch.Disable();
-            yaw.Disable();
-            jumpCON.Disable(); //menu is open
-            Jumping = false;
-            retainedSpeed = rb.velocity;
-            Pause = !Pause;
-            rb.constraints = RigidbodyConstraints.FreezeAll;
-            Gamemanager.PauseGame();
-
-
-        }
-
-        if (gravity == 1)
-        {
-            Debug.Log("DA HELL");
-            rb.AddForce(-2 * Physics.gravity);               // upside down
-        }
-        if (rb.position.y < VoidHeight)
-        {
-            if (DeathVoid == false)
+            if (UseRelativeForwardforce == false)
             {
-                Achievementmanager.DeathByVoid += 1;         // adds 1 for the achievement manager in deaths by void
-                Gamemanager.EndGame();
+                //rb.AddForce(0,0,forwardForce * Time.deltaTime *rb.mass);
+                rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, forwardForce * Time.deltaTime * rb.mass);
             }
-            DeathVoid = true;
-            //FindObjectOfType<GameManager>().EndGame();
+            else
+            {
+                rb.AddRelativeForce(0, 0, forwardForce * Time.deltaTime * rb.mass);
+            }
+        
+
+            //Debug.Log(move.ReadValue<Vector2>()); 
+            sideways = move.ReadValue<Vector2>();
+            if (Application.isMobilePlatform == true)
+            {
+                rb.AddForce(sideways.x * (sidewaysForce * ImportantVariables.MobileSensitivity * rb.mass) * Time.deltaTime, 0, 0);
+            }
+            else
+            {
+                rb.AddForce(sideways.x * (sidewaysForce * ImportantVariables.MobileSensitivity * rb.mass) * Time.deltaTime, 0, 0);
+            }
 
 
 
-        }
+
+
+            TorqueAm = pitch.ReadValue<Vector3>();
+            YawAm = yaw.ReadValue<Vector3>();
+            //Debug.Log(TorqueAm);
+            //Debug.Log(YawAm);
+            rb.AddTorque(TorqueAm.y * TorqueAmount * Time.deltaTime, yawAmount * -TorqueAm.z * Time.deltaTime, TorqueAm.x * -TorqueAmount * Time.deltaTime);
+
+
+
+
+            if (JMENU == true)
+            {
+
+                JMENU = false;
+                move.Disable();
+                jumpCON.Disable();
+                powerup.Disable();
+                menu.Disable();
+                pitch.Disable();
+                yaw.Disable();
+                jumpCON.Disable(); //menu is open
+                Jumping = false;
+                retainedSpeed = rb.velocity;
+                Pause = !Pause;
+                rb.constraints = RigidbodyConstraints.FreezeAll;
+                Gamemanager.PauseGame();
+
+
+            }
+
+            if (gravity == 1)
+            {
+                Debug.Log("DA HELL");
+                rb.AddForce(-2 * Physics.gravity);               // upside down
+            }
+            if (rb.position.y < VoidHeight)
+            {
+                if (DeathVoid == false)
+                {
+                    Achievementmanager.DeathByVoid += 1;         // adds 1 for the achievement manager in deaths by void
+                    Gamemanager.EndGame();
+                }
+                DeathVoid = true;
+                //FindObjectOfType<GameManager>().EndGame();
+
+
+
+            }
         
 
 
-                    //Invoke("jumpReturn", 0.2f);
+                        //Invoke("jumpReturn", 0.2f);
 
-                    //if (rb.velocity.y < 0 && gravity == 0) // need to fix all of this please kill me
-                    //{
-                    //    rb.AddForce(0,-300*Time.deltaTime,-15, ForceMode.VelocityChange);
-                    //    Debug.Log("jumpedDown");
+                        //if (rb.velocity.y < 0 && gravity == 0) // need to fix all of this please kill me
+                        //{
+                        //    rb.AddForce(0,-300*Time.deltaTime,-15, ForceMode.VelocityChange);
+                        //    Debug.Log("jumpedDown");
 
-                    //}
-                    //if (rb.velocity.y < 0 && gravity == 1)
-                    //{
-                    //    rb.AddForce(0,300*Time.deltaTime,0, ForceMode.VelocityChange);
-                    //    Debug.Log("UhOh");
+                        //}
+                        //if (rb.velocity.y < 0 && gravity == 1)
+                        //{
+                        //    rb.AddForce(0,300*Time.deltaTime,0, ForceMode.VelocityChange);
+                        //    Debug.Log("UhOh");
 
-                    //}
+                        //}
 
-                    //if (transform.position.y > jumpStartPos.y + 2){
-                    //Debug.Log("IT WORKS!!");
-                    //}
+                        //if (transform.position.y > jumpStartPos.y + 2){
+                        //Debug.Log("IT WORKS!!");
+                        //}
                 
             
 
-
         }
+    }
 
 
     

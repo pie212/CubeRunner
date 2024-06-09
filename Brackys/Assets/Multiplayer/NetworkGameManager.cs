@@ -5,9 +5,9 @@ using Unity.Netcode;
 using Unity.Networking;
 using UnityEngine.SceneManagement;
 
-public class NetworkGameManager : NetworkBehaviour
+public class NetworkGameManager : NetworkManager
 {
-    public override void OnNetworkSpawn()
+    public void OnNetworkSpawn()
     {
         if (!IsHost) { Destroy(this); }
     }
@@ -31,6 +31,6 @@ public class NetworkGameManager : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        var numOfConnectedPlayers = Network.connections.Length;
     }
 }
