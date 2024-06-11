@@ -17,11 +17,14 @@ public class NetworkGameManager : NetworkManager
     public GameObject pauseLevelUI;
     [SerializeField] public static int playerCount;
 
-
-    // Start is called before the first frame update
-    void Start()
+    public void Host()
     {
-        
+        StartHost();
+    }
+
+    public void Client()
+    {
+        StartClient();
     }
 
     public void PauseGame()

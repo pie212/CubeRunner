@@ -15,7 +15,7 @@ public class PlayerNetworkedMovement : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         if (!IsOwner) { Destroy(this); }
-        if (IsClient) { rb.transform.position = Player2Pos; }
+        if (IsClient && IsServer && IsHost) { rb.transform.position = Player2Pos; }
     }
 
     private bool Cooldown = false;
@@ -27,7 +27,6 @@ public class PlayerNetworkedMovement : NetworkBehaviour
     public ParticleSystem kaboomeffect;
     [HideInInspector]
     public bool isjumping = false;
-    [HideInInspector]
     public Rigidbody rb;
     bool Pause = false;         // pause menu
     [HideInInspector]
@@ -48,8 +47,6 @@ public class PlayerNetworkedMovement : NetworkBehaviour
     public float VoidHeight = -3F;
     public bool DeathVoid = false;             //so the death function only runs once
     public GameObject effect;
-    public GameObject PlayerWaitUI;
-
 
     [Header("Physics")]
     public bool ExtraGravity;
@@ -417,10 +414,6 @@ public class PlayerNetworkedMovement : NetworkBehaviour
         //Debug.Log(rb.velocity);
 
         //rb.AddForce(-2*Physics.gravity, ForceMode.Acceleration);  Reverses grabity by adding upward force
-        if (NetworkGameManager.playerCount > 0)
-        {
-
-            PlayerWaitUI.gameObject.SetActive(false);
 
             if (UseRelativeForwardforce == false)
             {
@@ -519,11 +512,7 @@ public class PlayerNetworkedMovement : NetworkBehaviour
 
 
 
-        }
-        else
-        {
-            PlayerWaitUI.gameObject.SetActive(true);
-        }
+        
     }
 
 
