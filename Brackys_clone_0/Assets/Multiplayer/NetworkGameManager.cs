@@ -12,8 +12,10 @@ public class NetworkGameManager : NetworkManager
         if (!IsHost) { Destroy(this); }
     }
 
+
     public bool gameIsPaused = false;
     public GameObject pauseLevelUI;
+    [SerializeField] public static int playerCount;
 
 
     // Start is called before the first frame update
@@ -28,9 +30,9 @@ public class NetworkGameManager : NetworkManager
         gameIsPaused = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnPlayerConnected()
     {
-        var numOfConnectedPlayers = Network.connections.Length;
+        playerCount++;
+        Debug.Log("Player connected. Total players: " + playerCount);
     }
 }

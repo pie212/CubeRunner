@@ -48,6 +48,8 @@ public class PlayerNetworkedMovement : NetworkBehaviour
     public float VoidHeight = -3F;
     public bool DeathVoid = false;             //so the death function only runs once
     public GameObject effect;
+    public GameObject PlayerWaitUI;
+
 
     [Header("Physics")]
     public bool ExtraGravity;
@@ -415,8 +417,11 @@ public class PlayerNetworkedMovement : NetworkBehaviour
         //Debug.Log(rb.velocity);
 
         //rb.AddForce(-2*Physics.gravity, ForceMode.Acceleration);  Reverses grabity by adding upward force
-        if (Network.connections.Length > 0)
+        if (NetworkGameManager.playerCount > 0)
         {
+
+            PlayerWaitUI.gameObject.SetActive(false);
+
             if (UseRelativeForwardforce == false)
             {
                 //rb.AddForce(0,0,forwardForce * Time.deltaTime *rb.mass);
@@ -490,30 +495,34 @@ public class PlayerNetworkedMovement : NetworkBehaviour
 
 
             }
-        
 
 
-                        //Invoke("jumpReturn", 0.2f);
 
-                        //if (rb.velocity.y < 0 && gravity == 0) // need to fix all of this please kill me
-                        //{
-                        //    rb.AddForce(0,-300*Time.deltaTime,-15, ForceMode.VelocityChange);
-                        //    Debug.Log("jumpedDown");
+            //Invoke("jumpReturn", 0.2f);
 
-                        //}
-                        //if (rb.velocity.y < 0 && gravity == 1)
-                        //{
-                        //    rb.AddForce(0,300*Time.deltaTime,0, ForceMode.VelocityChange);
-                        //    Debug.Log("UhOh");
+            //if (rb.velocity.y < 0 && gravity == 0) // need to fix all of this please kill me
+            //{
+            //    rb.AddForce(0,-300*Time.deltaTime,-15, ForceMode.VelocityChange);
+            //    Debug.Log("jumpedDown");
 
-                        //}
+            //}
+            //if (rb.velocity.y < 0 && gravity == 1)
+            //{
+            //    rb.AddForce(0,300*Time.deltaTime,0, ForceMode.VelocityChange);
+            //    Debug.Log("UhOh");
 
-                        //if (transform.position.y > jumpStartPos.y + 2){
-                        //Debug.Log("IT WORKS!!");
-                        //}
-                
-            
+            //}
 
+            //if (transform.position.y > jumpStartPos.y + 2){
+            //Debug.Log("IT WORKS!!");
+            //}
+
+
+
+        }
+        else
+        {
+            PlayerWaitUI.gameObject.SetActive(true);
         }
     }
 
