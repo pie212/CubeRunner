@@ -15,7 +15,10 @@ public class PlayerNetworkedMovement : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         if (!IsOwner) { Destroy(this); }
-        if (IsClient && IsServer && IsHost) { rb.transform.position = Player2Pos; }
+        if (IsClient && IsServer && IsHost && IsOwner) { 
+            rb.transform.position = Player2Pos;
+            print("Teleported");
+        }
     }
 
     private bool Cooldown = false;

@@ -9,7 +9,7 @@ public class FollowCameraNetwork : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        if (!IsOwner) { Destroy(this); }
+        if (!IsOwner) { Destroy(gameObject); }
     }
 
     public Transform player;

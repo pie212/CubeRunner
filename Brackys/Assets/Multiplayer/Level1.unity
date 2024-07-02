@@ -481,6 +481,11 @@ MonoBehaviour:
   LogLevel: 0
   gameIsPaused: 0
   pauseLevelUI: {fileID: 0}
+--- !u!1 &783237021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1147008593024918861, guid: 49e07b7732d1fdb4d9311b68f60d0e76, type: 3}
+  m_PrefabInstance: {fileID: 522856361776676809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &915524806
 GameObject:
   m_ObjectHideFlags: 0
@@ -1493,5 +1498,9 @@ PrefabInstance:
       propertyPath: WaitUI
       value: 
       objectReference: {fileID: 1751988488}
+    - target: {fileID: 8598348592246843924, guid: 49e07b7732d1fdb4d9311b68f60d0e76, type: 3}
+      propertyPath: TempPLR
+      value: 
+      objectReference: {fileID: 783237021}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49e07b7732d1fdb4d9311b68f60d0e76, type: 3}
